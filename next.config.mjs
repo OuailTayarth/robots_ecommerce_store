@@ -18,6 +18,6 @@ const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ["@aws-sdk/client-s3", "sharp"],
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;

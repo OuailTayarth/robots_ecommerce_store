@@ -23,7 +23,6 @@ const seeddata = async () => {
   await seed.products();
   // await seed.shopOrders()
   // await seed.address()
-
   exit();
 };
 

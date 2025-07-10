@@ -3,24 +3,16 @@ import * as schema from "../schema";
 
 const medias = [
   {
-    id: "1",
-    key: "public/bathroom-planning.jpg",
-    alt: "bathroom-planning-category",
+    key: "public/RobotDance.jpg",
+    alt: "robot-dance",
   },
   {
-    id: "2",
-    key: "public/kitchen-planning.jpg",
-    alt: "kitchen-planning-category",
+    key: "public/RobotJump.jpg",
+    alt: "robot-jump",
   },
   {
-    id: "3",
-    key: "public/living-room-planning.jpg",
-    alt: "living-room-planning-category",
-  },
-  {
-    id: "4",
-    key: "public/bedroom-planning.jpg",
-    alt: "bedroom-planning-category",
+    key: "public/RobotStand.jpg",
+    alt: "robotStand",
   },
 ];
 

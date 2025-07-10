@@ -63,7 +63,7 @@ export const carts = pgTable(
         .onDelete("cascade")
         .onUpdate("cascade"),
     };
-  },
+  }
 );
 
 export const cartsRelations = relations(carts, ({ one }) => ({
@@ -101,7 +101,7 @@ export const wishlist = pgTable(
         .onDelete("cascade")
         .onUpdate("cascade"),
     };
-  },
+  }
 );
 
 export type SelectWishlist = InferSelectModel<typeof wishlist>;
@@ -146,7 +146,7 @@ export const comments = pgTable(
         .onDelete("cascade")
         .onUpdate("cascade"),
     };
-  },
+  }
 );
 
 export const products = pgTable(
@@ -197,7 +197,7 @@ export const products = pgTable(
         name: "collection",
       }),
     };
-  },
+  }
 );
 
 export const productsRelations = relations(products, ({ one }) => ({
@@ -244,7 +244,7 @@ export const orders = pgTable(
         name: "orders_profiles_fk",
       }),
     };
-  },
+  }
 );
 
 export type SelectOrders = InferSelectModel<typeof orders>;
@@ -294,7 +294,7 @@ export const orderLines = pgTable(
         .onDelete("restrict")
         .onUpdate("cascade"),
     };
-  },
+  }
 );
 
 export type SelectOrderLines = InferSelectModel<typeof orderLines>;
@@ -367,7 +367,7 @@ export const productMedias = pgTable(
         .onDelete("cascade")
         .onUpdate("cascade"),
     };
-  },
+  }
 );
 
 export type BadgeType = "best_sale" | "featured" | "new_product";
@@ -399,7 +399,7 @@ export const collections = pgTable(
         name: "featured_image",
       }),
     };
-  },
+  }
 );
 
 export type SelectCollection = InferSelectModel<typeof collections>;
