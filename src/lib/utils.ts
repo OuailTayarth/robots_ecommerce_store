@@ -20,11 +20,11 @@ export const getURL = () => {
   return url;
 };
 
-export const keytoUrl = (key?: string) => {
-  return key
-    ? `https://${env.NEXT_PUBLIC_S3_BUCKET}.s3.${env.NEXT_PUBLIC_S3_REGION}.amazonaws.com/${key}`
-    : "https://hiyori-backpack.s3.us-west-2.amazonaws.com/public/bathroom-planning.jpg";
+export const keytoUrl = (key?: string | null | undefined) => {
+  if(!key) return "https://robots-store.s3.eu-north-1.amazonaws.com/RobotStand.jpg"
+  return `https://${env.NEXT_PUBLIC_S3_BUCKET}.s3.${env.NEXT_PUBLIC_S3_REGION}.amazonaws.com/${key}`;
 };
+
 
 export function formatPrice(price: number | string) {
   return new Intl.NumberFormat("en-US", {

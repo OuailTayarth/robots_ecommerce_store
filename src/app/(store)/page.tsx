@@ -106,7 +106,7 @@ function HeroSection() {
       <div className="relative w-full h-full md:h-[800px]">
         <Image
           alt="Furniture"
-          src="https://hiyori-backpack.s3.us-west-2.amazonaws.com/public/hero-image.jpg"
+          src="https://robots-store.s3.eu-north-1.amazonaws.com/RobotStand.jpg"
           width={1920}
           height={1200}
           priority={true}
@@ -181,8 +181,8 @@ function ProductSubCollectionsCircles({ collections }: CollectionsCardsProps) {
             )}
           >
             <Image
-              src={keytoUrl(node.featuredImage.key)}
-              alt={node.featuredImage.alt}
+              src={node.featuredImage ? keytoUrl(node.featuredImage.key)}
+              alt={node.featuredImage?.alt  || "Product Image"}
               width={320}
               height={320}
               className={cn(

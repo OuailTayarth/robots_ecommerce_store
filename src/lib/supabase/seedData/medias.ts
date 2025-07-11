@@ -2,17 +2,24 @@ import db from "../db";
 import * as schema from "../schema";
 
 const medias = [
-  {
-    key: "public/RobotDance.jpg",
+  { id:"1",
+    key: "RobotDance.jpg",
     alt: "robot-dance",
   },
   {
-    key: "public/RobotJump.jpg",
+    id:"2",
+    key: "RobotJump.jpg",
     alt: "robot-jump",
   },
   {
-    key: "public/RobotStand.jpg",
+    id:"3",
+    key: "RobotStand.jpg",
     alt: "robotStand",
+  },
+  {
+    id:"4",
+    key: "RobotSit.jpg",
+    alt: "RobotSit",
   },
 ];
 
