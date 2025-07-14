@@ -8,9 +8,8 @@ function Branding({ className }: Props) {
   return (
     <Link
       href="/"
-      className={cn("text-2xl font-medium align-middle", className)}
-    >
-      HIYORI
+      className={cn("text-2xl font-medium align-middle", className)}>
+      RoboForge
     </Link>
   );
 }

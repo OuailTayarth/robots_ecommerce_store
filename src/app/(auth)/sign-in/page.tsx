@@ -15,8 +15,8 @@ import { SigninForm } from "@/features/auth";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "HIYORI | Sign In",
-  description: "Sign in to HIYORI",
+  title: "RoboForge | Sign In",
+  description: "Sign in to RoboForge",
 };
 
 export default function SignInPage() {
@@ -31,8 +31,7 @@ export default function SignInPage() {
           <Suspense
             fallback={
               <div className="bg-zinc-400 animate-pulse max-w-xl w-full h-[360px]" />
-            }
-          >
+            }>
             <SigninForm />
           </Suspense>
 
@@ -58,16 +57,14 @@ export default function SignInPage() {
             <Link
               aria-label="Sign up"
               href="/sign-up"
-              className="text-primary underline-offset-4 transition-colors hover:underline"
-            >
+              className="text-primary underline-offset-4 transition-colors hover:underline">
               Sign up
             </Link>
           </div>
           <Link
             aria-label="Reset password"
             href="/sign-in/reset-password"
-            className="text-sm text-primary underline-offset-4 transition-colors hover:underline"
-          >
+            className="text-sm text-primary underline-offset-4 transition-colors hover:underline">
             Reset password
           </Link>
         </CardFooter>

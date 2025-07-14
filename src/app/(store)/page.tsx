@@ -106,20 +106,20 @@ function HeroSection() {
       <div className="relative w-full h-full md:h-[800px]">
         <Image
           alt="Furniture"
-          src="https://robots-store.s3.eu-north-1.amazonaws.com/RobotStand.jpg"
+          src="https://robots-store.s3.eu-north-1.amazonaws.com/collections/Neo_Bot/standing_neo.avif"
           width={1920}
           height={1200}
           priority={true}
-          className="h-full w-full object-fill "
+          className="h-full w-full object-cover "
         />
       </div>
 
       <div className="container absolute py-8 h-screen md:h-[800px] w-full">
         <div className="flex flex-col justify-center z-30 h-full">
-          <p className="text-sm md:text-md uppercase tracking-widest text-white ">
+          <p className="text-sm md:text-md uppercase tracking-widest text-black ">
             RoboForge
           </p>
-          <h1 className="text-5xl md:text-7xl md:leading-[1.2] font-bold text-white my-4">
+          <h1 className="text-5xl md:text-7xl md:leading-[1.2] font-bold text-black my-4">
             The Future,
             <br />
             Delivered Today
@@ -162,34 +162,61 @@ interface CollectionsCardsProps {
   collections: { node: DocumentType<typeof CollectionCardFragment> }[];
 }
 
+// function ProductSubCollectionsCircles({ collections }: CollectionsCardsProps) {
+//   return (
+//     <section className="flex justify-center items-center gap-x-10 overflow-auto py-12">
+//       {collections.map(({ node }) => (
+//         <Link
+//           href={`/collections/${node.slug}`}
+//           key={`collection_circle_${node.id}`}>
+//           <div
+//             className={cn(
+//               "relative bg-secondary rounded-full flex justify-center items-center",
+//               "w-[280px] h-[280px]"
+//               // "md:w-[320px] md:h-[320px]"
+//               // "lg:w-[360px] lg:h-[360px]"
+//             )}>
+//             <Image
+//               src={keytoUrl(node.featuredImage?.key)}
+//               alt={node.featuredImage?.alt || "Product Image"}
+//               width={300}
+//               height={300}
+//               className={cn(
+//                 "object-center object-cover hover:scale-105 transition-all duration-500",
+//                 "w-[240px] h-[240px]"
+//                 // "md:w-[280px] md:h-[280px]",
+//                 // "lg:w-[320px] lg:h-[320px]"
+//               )}
+//             />
+//           </div>
+//           <p className="text-black text-center mt-3 font-semibold">
+//             {node.label}
+//           </p>
+//         </Link>
+//       ))}
+//     </section>
+//   );
+// }
+
 function ProductSubCollectionsCircles({ collections }: CollectionsCardsProps) {
   return (
-    <section className="flex justify-center items-center gap-x-10 overflow-auto py-12">
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-6 py-4">
       {collections.map(({ node }) => (
         <Link
           href={`/collections/${node.slug}`}
-          key={`collection_circle_${node.id}`}>
-          <div
-            className={cn(
-              "relative bg-secondary rounded-full flex justify-center items-center",
-              "w-[280px] h-[280px]"
-              // "md:w-[320px] md:h-[320px]"
-              // "lg:w-[360px] lg:h-[360px]"
-            )}>
-            <Image
-              src={keytoUrl(node.featuredImage?.key)}
-              alt={node.featuredImage?.alt || "Product Image"}
-              width={300}
-              height={300}
-              className={cn(
-                "object-center object-cover hover:scale-105 transition-all duration-500",
-                "w-[240px] h-[240px]"
-                // "md:w-[280px] md:h-[280px]",
-                // "lg:w-[320px] lg:h-[320px]"
-              )}
-            />
-          </div>
-          <p className="text-black text-center mt-3 font-semibold">
+          key={`collection_card_${node.id}`}
+          className="group relative block w-full h-[420px] md:h-[480px] overflow-hidden rounded-lg">
+          <Image
+            src={keytoUrl(node.featuredImage?.key)}
+            alt={node.featuredImage?.alt ?? "Collection Image"}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-contain object-center transition-transform duration-500 group-hover:scale-105"
+          />
+
+          <div className="absolute inset-0 bg-black/15 group-hover:bg-black/10 transition-colors" />
+
+          <p className="absolute bottom-5 left-5 text-xl md:text-2xl font-semibold text-white drop-shadow">
             {node.label}
           </p>
         </Link>

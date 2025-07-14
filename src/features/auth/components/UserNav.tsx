@@ -36,19 +36,17 @@ function UserNav() {
           <DropdownMenuTrigger asChild>
             <Button
               variant="ghost"
-              className="relative h-8 w-8 rounded-full focus:ring-0 border-0"
-            >
+              className="relative h-8 w-8 rounded-full focus:ring-0 border-0">
               <Avatar className="h-8 w-8 focus:ring-0 border-0">
-                {/* TODO: UPDATE AVATOR IMAGE & NAME */}
                 <AvatarImage
                   src="/avatars/01.png"
                   alt={getNameInitials(
-                    (user.user_metadata.name as string) ?? "Name",
+                    (user.user_metadata.name as string) ?? "Name"
                   )}
                 />
                 <AvatarFallback>
                   {getNameInitials(
-                    (user.user_metadata.name as string) ?? "Name",
+                    (user.user_metadata.name as string) ?? "Name"
                   )}
                 </AvatarFallback>
               </Avatar>
