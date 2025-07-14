@@ -110,19 +110,19 @@ function HeroSection() {
           width={1920}
           height={1200}
           priority={true}
-          className="h-full w-full object-cover "
+          className="h-full w-full object-fill "
         />
       </div>
 
       <div className="container absolute py-8 h-screen md:h-[800px] w-full">
         <div className="flex flex-col justify-center z-30 h-full">
           <p className="text-sm md:text-md uppercase tracking-widest text-white ">
-            hugolam
+            RoboForge
           </p>
-          <h1 className="text-5xl md:text-9xl font-bold text-white my-4 shadow-md">
-            Utilized with
+          <h1 className="text-5xl md:text-7xl md:leading-[1.2] font-bold text-white my-4">
+            The Future,
             <br />
-            GraphQL:
+            Delivered Today
           </h1>
 
           <div className="flex space-x-4 mt-5 max-w-screen">
@@ -133,21 +133,19 @@ function HeroSection() {
                 "border-2 border-white text-white rounded px-8 py-3 ",
                 "md:px-16 md:py-6",
                 "hover:text-zinc-600 hover:bg-white"
-              )}
-            >
-              New in
+              )}>
+              Shop Now!
             </Link>
 
             <Link
-              href="https://github.com/clonglam/HIYORI-master"
+              href=""
               target="_blank"
               className={cn(
                 buttonVariants({ variant: "default", size: "lg" }),
                 "border-2 border-primary text-white rounded px-8 py-3 ",
                 "md:px-16 md:py-6"
-              )}
-            >
-              View the Code
+              )}>
+              Learn More
             </Link>
           </div>
         </div>
@@ -166,25 +164,23 @@ interface CollectionsCardsProps {
 
 function ProductSubCollectionsCircles({ collections }: CollectionsCardsProps) {
   return (
-    <section className="flex justify-start items-center gap-x-10 overflow-auto py-12">
+    <section className="flex justify-center items-center gap-x-10 overflow-auto py-12">
       {collections.map(({ node }) => (
         <Link
           href={`/collections/${node.slug}`}
-          key={`collection_circle_${node.id}`}
-        >
+          key={`collection_circle_${node.id}`}>
           <div
             className={cn(
               "relative bg-secondary rounded-full flex justify-center items-center",
               "w-[280px] h-[280px]"
               // "md:w-[320px] md:h-[320px]"
               // "lg:w-[360px] lg:h-[360px]"
-            )}
-          >
+            )}>
             <Image
-              src={node.featuredImage ? keytoUrl(node.featuredImage.key)}
-              alt={node.featuredImage?.alt  || "Product Image"}
-              width={320}
-              height={320}
+              src={keytoUrl(node.featuredImage?.key)}
+              alt={node.featuredImage?.alt || "Product Image"}
+              width={300}
+              height={300}
               className={cn(
                 "object-center object-cover hover:scale-105 transition-all duration-500",
                 "w-[240px] h-[240px]"
@@ -223,8 +219,7 @@ function FeaturedProductsCards({ products }: FeaturedProductsCardsProps) {
         <Suspense
           fallback={[...Array(4)].map((_, index) => (
             <ProductCardSkeleton key={`Product-Skeleton-${index}`} />
-          ))}
-        >
+          ))}>
           {products.map(({ node }) => (
             <ProductCard key={`product-card-${node.id}`} product={node} />
           ))}
@@ -250,8 +245,7 @@ function CollectionGrid() {
           <p className=" font-light mb-8">Designed for enhanchment</p>
           <Link
             className={cn(buttonVariants({ size: "lg" }), "text-xl py-8 px-10")}
-            href={"/collections/bathroom"}
-          >
+            href={"/collections/bathroom"}>
             DiscoverNow
           </Link>
         </div>
@@ -289,8 +283,7 @@ function CollectionRectCard({ collections }: CollectionsCardsProps) {
         <Suspense
           fallback={[...Array(6)].map((_, index) => (
             <CollectionsCardSkeleton key={`Collections-sekelton-${index}`} />
-          ))}
-        >
+          ))}>
           {collections.map(({ node }) => (
             <CollectionsCard collection={node} key={node.id} />
           ))}
@@ -333,8 +326,7 @@ function DifferentFeatureCards() {
       {features.map(({ Icon, title, description }, index) => (
         <div
           className="text-center  max-w-[18rem]"
-          key={`FeatureCards_${index}`}
-        >
+          key={`FeatureCards_${index}`}>
           <div className="flex justify-center items-center p-5">
             <Icon
               width={45}
@@ -376,8 +368,7 @@ function LessIsMoreCard() {
         </p>
         <Link
           href="/shop"
-          className={cn(buttonVariants(), "rounded-full text-xs md:text-md")}
-        >
+          className={cn(buttonVariants(), "rounded-full text-xs md:text-md")}>
           Shop now
         </Link>
       </div>

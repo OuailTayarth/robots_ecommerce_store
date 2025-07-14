@@ -73,9 +73,9 @@ function ProductImageShowcase({ data }: ProductImageShowcaseProps) {
         <div className="flex overflow-x-auto gap-x-5 gapy-y-5 order-2 justify-center flex-row md:flex-col">
           {allImages.map((image, index) => (
             <Image
-              key={image.id}
-              src={keytoUrl(image.key)}
-              alt={image.alt || "Product image thumbnail"}
+              key={image?.id}
+              src={keytoUrl(image?.key)}
+              alt={image?.alt || "Product image thumbnail"}
               width={100}
               height={100}
               className={` aspect-[1/1] object-cover cursor-pointer p-1 ${activeImageIndex === index ? "border-2 border-blue-500" : ""}`}

@@ -57,8 +57,8 @@ function CartItemCard({
     <Card className="flex items-center justify-between gap-x-6 gap-y-8 px-5 py-3 shadow-none border-0 border-b">
       <CardContent className="relative p-0 mb-5 overflow-hidden ">
         <Image
-          src={keytoUrl(product.featuredImage.key)}
-          alt={product.featuredImage.alt}
+          src={keytoUrl(product.featuredImage?.key)}
+          alt={product.featuredImage?.alt}
           width={150}
           height={150}
           className="aspect-square object-cover"
