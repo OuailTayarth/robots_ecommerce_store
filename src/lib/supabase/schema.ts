@@ -201,18 +201,16 @@ export const products = pgTable(
 );
 
 // export const productsRelations = relations(products, ({ one }) => ({
-//   featuredImage: one(medias, {
+//   featuredImage: one(productMedias, {
 //     fields: [products.featuredImageId],
-//     references: [medias.id],
-//   }),
-// }));
+//     references: [productMedias.id],
+//   });
 
 export const productsRelations = relations(products, ({ one, many }) => ({
-  featuredImage: one(medias, {
+  featuredImage: one(productMedias, {
     fields: [products.featuredImageId],
-    references: [medias.id],
+    references: [productMedias.id],
   }),
-  productMedias: many(productMedias),
 }));
 
 export type PaymentStatus = "paid" | "unpaid" | "no_payment_required";

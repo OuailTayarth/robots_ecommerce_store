@@ -74,6 +74,17 @@ async function ProductDetailPage({ params }: Props) {
     productSlug: params.slug as string,
   });
 
+  if (error) {
+    console.error("GraphQL Error:", error);
+    return notFound();
+  }
+
+  const productNode = data.productsCollection?.edges[0]?.node;
+  if (!productNode || !productNode.featuredImage) {
+    console.error("Missing featured image for product:", params.slug);
+    return notFound();
+  }
+
   if (!data || !data.productsCollection || !data.productsCollection.edges)
     return notFound();
 

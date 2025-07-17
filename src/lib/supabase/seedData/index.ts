@@ -4,13 +4,13 @@ import products from "./products";
 import shopOrders from "./shopOrders";
 import orderLines from "./orderLines";
 import address from "./address";
-import productMedias from "./productMedias";
+// import productMedias from "./productMedias";
 
 export {
   collections,
   medias,
   products,
-  productMedias,
+  // productMedias,
   shopOrders,
   orderLines,
   address,

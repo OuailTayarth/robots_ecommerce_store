@@ -25,9 +25,10 @@ const products: InsertProducts[] = [
     badge: "featured",
     rating: "4.7",
     tags: ["humanoid", "home-assistant"],
-    featuredImageId: "9",
+    featuredImageId: "10",
     collectionId: "1",
     stock: 6,
+    price: "19.999",
   },
   {
     id: "302",
@@ -39,13 +40,14 @@ const products: InsertProducts[] = [
     badge: "featured",
     rating: "4.4",
     tags: ["robot-arm", "research"],
-    featuredImageId: "1",
+    featuredImageId: "13",
     collectionId: "1",
     stock: 10,
+    price: "16.000",
   },
   {
     id: "303",
-    name: "Unitree G1‑Comp RoboCup Edition",
+    name: "Unitree G1‑Comp",
     slug: "unitree-g1-comp",
     description:
       "Competition‑tuned G1 arm bundle with quick‑swap gripper, high‑torque servos, and calibration kit — certified for RoboCup@Home and similar manipulation contests.",
@@ -53,9 +55,10 @@ const products: InsertProducts[] = [
     badge: "best_sale",
     rating: "4.2",
     tags: ["robot-arm", "competition"],
-    featuredImageId: "8",
+    featuredImageId: "14",
     collectionId: "1",
     stock: 4,
+    price: "10.250",
   },
 
   // ─────── DOG ROBOTS  (collectionId: "2") ───────
@@ -69,9 +72,10 @@ const products: InsertProducts[] = [
     badge: "featured",
     rating: "4.8",
     tags: ["quadruped", "lidar"],
-    featuredImageId: "3",
+    featuredImageId: "5",
     collectionId: "2",
     stock: 18,
+    price: "5.250",
   },
   {
     id: "402",
@@ -83,9 +87,10 @@ const products: InsertProducts[] = [
     badge: "best_sale",
     rating: "4.5",
     tags: ["quadruped", "education"],
-    featuredImageId: "4",
+    featuredImageId: "16",
     collectionId: "2",
     stock: 25,
+    price: "9.650",
   },
   {
     id: "403",
@@ -97,9 +102,10 @@ const products: InsertProducts[] = [
     badge: "new_product",
     rating: "4.3",
     tags: ["quadruped", "research"],
-    featuredImageId: "1",
+    featuredImageId: "21",
     collectionId: "2",
     stock: 12,
+    price: "11.650",
   },
 ];
 const seedProducts = async () => {

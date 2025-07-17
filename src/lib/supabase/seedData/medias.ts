@@ -25,6 +25,60 @@ const medias = [
     key: "collections/Neo_Bot/library_bot.png",
     alt: "NEO in library",
   },
+
+  {
+    id: "12",
+    key: "products/g1_2.png",
+    alt: "Unitree G1 Dexterous Arm",
+  },
+
+  {
+    id: "13",
+    key: "products/g1_1.png",
+    alt: "Unitree G1 Dexterous Arm",
+  },
+
+  {
+    id: "14",
+    key: "products/G1-Comp_2.png",
+    alt: "Unitree G1‑Comp",
+  },
+
+  {
+    id: "15",
+    key: "products/G1-Comp_1.png",
+    alt: "Unitree G1‑Comp",
+  },
+  {
+    id: "16",
+    key: "products/GO1_1.jpg",
+    alt: "Unitree Go1",
+  },
+  {
+    id: "17",
+    key: "products/Unitree_A1.png",
+    alt: "Unitree_A1",
+  },
+  {
+    id: "18",
+    key: "products/Unitree_A1_2.png",
+    alt: "Unitree_A1",
+  },
+  {
+    id: "19",
+    key: "products/Unitree_A1_3.png",
+    alt: "Unitree_A1",
+  },
+  {
+    id: "20",
+    key: "products/GO1_33.jpg",
+    alt: "Unitree_A1",
+  },
+  {
+    id: "21",
+    key: "products/GO1_44.jpg",
+    alt: "Unitree_A1",
+  },
 ];
 
 const seedMedias = async () => {

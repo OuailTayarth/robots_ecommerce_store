@@ -87,15 +87,13 @@ function ProductImageShowcase({ data }: ProductImageShowcaseProps) {
         <div className="md:hidden block">
           <button
             onClick={prevImage}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2"
-          >
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2">
             <Icons.chevronLeft />
           </button>
 
           <button
             onClick={nextImage}
-            className="absolute right-0 top-1/2  md:top-unset transform -translate-y-1/2 bg-gray-800 text-white p-2"
-          >
+            className="absolute right-0 top-1/2  md:top-unset transform -translate-y-1/2 bg-gray-800 text-white p-2">
             <Icons.chevronRight />
           </button>
         </div>

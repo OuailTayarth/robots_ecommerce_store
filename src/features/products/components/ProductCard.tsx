@@ -58,13 +58,12 @@ export function ProductCard({
   return (
     <Card
       className={cn("w-full border-0 rounded-lg py-3 ", className)}
-      {...props}
-    >
+      {...props}>
       <CardContent className="relative p-0 mb-5 overflow-hidden">
         <Link href={`/shop/${slug}`}>
-          <Image 
+          <Image
             src={featuredImage?.key ? keytoUrl(featuredImage.key) : ""}
-            alt={featuredImage?.alt || "Prduct Image" }
+            alt={featuredImage?.alt || "Prduct Image"}
             width={400}
             height={400}
             className="aspect-[1/1] object-cover object-center hover:scale-[1.02] hover:opacity-70 transition-all duration-500"
@@ -103,8 +102,7 @@ export function ProductCard({
             <Button className="rounded-full p-0 h-8 w-8" disabled>
               <Icons.basket className="h-5 w-5 md:h-4 md:w-4" />
             </Button>
-          }
-        >
+          }>
           <AddToCartButton productId={id} />
         </Suspense>
 
@@ -113,8 +111,7 @@ export function ProductCard({
             <Button className="rounded-full p-3" variant="ghost" disabled>
               <Icons.heart className={"w-4 h-4 fill-none"} />
             </Button>
-          }
-        >
+          }>
           <AddToWishListButton productId={product.id} />
         </Suspense>
       </CardFooter>
