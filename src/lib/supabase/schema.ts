@@ -200,11 +200,19 @@ export const products = pgTable(
   }
 );
 
-export const productsRelations = relations(products, ({ one }) => ({
-  featuredImage: one(productMedias, {
+// export const productsRelations = relations(products, ({ one }) => ({
+//   featuredImage: one(medias, {
+//     fields: [products.featuredImageId],
+//     references: [medias.id],
+//   }),
+// }));
+
+export const productsRelations = relations(products, ({ one, many }) => ({
+  featuredImage: one(medias, {
     fields: [products.featuredImageId],
-    references: [productMedias.id],
+    references: [medias.id],
   }),
+  productMedias: many(productMedias),
 }));
 
 export type PaymentStatus = "paid" | "unpaid" | "no_payment_required";
@@ -342,10 +350,10 @@ export const productMedias = pgTable(
       .notNull()
       .primaryKey()
       .$defaultFn(() => createId()),
-    productId: text("productId")
+    productId: text("product_id")
       .notNull()
       .references(() => products.id, { onDelete: "cascade" }),
-    mediaId: text("mediaId")
+    mediaId: text("media_id")
       .notNull()
       .references(() => medias.id, { onDelete: "cascade" }),
     priority: integer("priority"),
