@@ -164,32 +164,23 @@ interface CollectionsCardsProps {
 
 // function ProductSubCollectionsCircles({ collections }: CollectionsCardsProps) {
 //   return (
-//     <section className="flex justify-center items-center gap-x-10 overflow-auto py-12">
+//     <section className="grid grid-cols-1 md:grid-cols-2 gap-6 py-4">
 //       {collections.map(({ node }) => (
 //         <Link
 //           href={`/collections/${node.slug}`}
-//           key={`collection_circle_${node.id}`}>
-//           <div
-//             className={cn(
-//               "relative bg-secondary rounded-full flex justify-center items-center",
-//               "w-[280px] h-[280px]"
-//               // "md:w-[320px] md:h-[320px]"
-//               // "lg:w-[360px] lg:h-[360px]"
-//             )}>
-//             <Image
-//               src={keytoUrl(node.featuredImage?.key)}
-//               alt={node.featuredImage?.alt || "Product Image"}
-//               width={300}
-//               height={300}
-//               className={cn(
-//                 "object-center object-cover hover:scale-105 transition-all duration-500",
-//                 "w-[240px] h-[240px]"
-//                 // "md:w-[280px] md:h-[280px]",
-//                 // "lg:w-[320px] lg:h-[320px]"
-//               )}
-//             />
-//           </div>
-//           <p className="text-black text-center mt-3 font-semibold">
+//           key={`collection_card_${node.id}`}
+//           className="group relative block w-full h-[420px] md:h-[480px] overflow-hidden rounded-lg">
+//           <Image
+//             src={keytoUrl(node.featuredImage?.key)}
+//             alt={node.featuredImage?.alt ?? "Collection Image"}
+//             fill
+//             sizes="(max-width: 768px) 100vw, 50vw"
+//             className="object-contain object-center transition-transform duration-500 group-hover:scale-105"
+//           />
+
+//           <div className="absolute inset-0 bg-black/15 group-hover:bg-black/10 transition-colors" />
+
+//           <p className="absolute bottom-5 left-5 text-xl md:text-2xl font-semibold text-white drop-shadow">
 //             {node.label}
 //           </p>
 //         </Link>
@@ -200,27 +191,33 @@ interface CollectionsCardsProps {
 
 function ProductSubCollectionsCircles({ collections }: CollectionsCardsProps) {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 gap-6 py-4">
-      {collections.map(({ node }) => (
-        <Link
-          href={`/collections/${node.slug}`}
-          key={`collection_card_${node.id}`}
-          className="group relative block w-full h-[420px] md:h-[480px] overflow-hidden rounded-lg">
-          <Image
-            src={keytoUrl(node.featuredImage?.key)}
-            alt={node.featuredImage?.alt ?? "Collection Image"}
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-contain object-center transition-transform duration-500 group-hover:scale-105"
-          />
+    <section className="py-12">
+      {/* title */}
+      <h2 className="text-xl md:text-2xl font-semibold mb-6">
+        Choose Your Future Companion:
+      </h2>
 
-          <div className="absolute inset-0 bg-black/15 group-hover:bg-black/10 transition-colors" />
-
-          <p className="absolute bottom-5 left-5 text-xl md:text-2xl font-semibold text-white drop-shadow">
-            {node.label}
-          </p>
-        </Link>
-      ))}
+      {/* cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {collections.map(({ node }) => (
+          <Link
+            href={`/collections/${node.slug}`}
+            key={`collection_card_${node.id}`}
+            className="group relative block w-full h-[420px] md:h-[480px] overflow-hidden rounded-lg">
+            <Image
+              src={keytoUrl(node.featuredImage?.key)}
+              alt={node.featuredImage?.alt ?? "Collection Image"}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-contain object-center transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-black/15 group-hover:bg-black/10 transition-colors" />
+            <p className="absolute bottom-5 left-5 text-xl md:text-2xl font-semibold text-white drop-shadow">
+              {node.label}
+            </p>
+          </Link>
+        ))}
+      </div>
     </section>
   );
 }
