@@ -79,6 +79,16 @@ const medias = [
     key: "products/GO1_44.jpg",
     alt: "Unitree_A1",
   },
+  {
+    id: "22",
+    key: "collections/Neo_Bot/cleaning_bot.png",
+    alt: "Cleaning bot neo",
+  },
+  {
+    id: "23",
+    key: "collections/Neo_Bot/robot_face_In.png",
+    alt: "Neo's face",
+  },
 ];
 
 const seedMedias = async () => {

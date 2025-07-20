@@ -92,8 +92,6 @@ export default async function Home() {
 
         <CollectionGrid />
 
-        <DifferentFeatureCards />
-
         <LessIsMoreCard />
       </Shell>
     </main>
@@ -130,9 +128,9 @@ function HeroSection() {
               href="/shop"
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
-                "border-2 border-white text-white rounded px-8 py-3 ",
+                "border-2 border-white text-zinc-600 bg-white rounded px-8 py-3", // default state
                 "md:px-16 md:py-6",
-                "hover:text-zinc-600 hover:bg-white"
+                "hover:bg-transparent hover:text-black" // hover state
               )}>
               Shop Now!
             </Link>
@@ -191,34 +189,38 @@ interface CollectionsCardsProps {
 
 function ProductSubCollectionsCircles({ collections }: CollectionsCardsProps) {
   return (
-    <section className="py-12">
-      {/* title */}
-      <h2 className="text-xl md:text-2xl font-semibold mb-6">
-        Choose Your Future Companion:
-      </h2>
-
-      {/* cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {collections.map(({ node }) => (
-          <Link
-            href={`/collections/${node.slug}`}
-            key={`collection_card_${node.id}`}
-            className="group relative block w-full h-[420px] md:h-[480px] overflow-hidden rounded-lg">
-            <Image
-              src={keytoUrl(node.featuredImage?.key)}
-              alt={node.featuredImage?.alt ?? "Collection Image"}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-contain object-center transition-transform duration-500 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-black/15 group-hover:bg-black/10 transition-colors" />
-            <p className="absolute bottom-5 left-5 text-xl md:text-2xl font-semibold text-white drop-shadow">
-              {node.label}
-            </p>
-          </Link>
-        ))}
-      </div>
-    </section>
+    <>
+      <section className="text-center mt-9 mb-3">
+        <h1 className="text-5xl font-semibold text-zinc-800 pb-1">
+          Designed for Work, Play, and Beyond
+        </h1>
+        <p className="text-lg font-light text-zinc-600 mt-2">
+          Meet robots that walk, think, and assist—at home or in the field.
+        </p>
+      </section>
+      <section>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {collections.map(({ node }) => (
+            <Link
+              href={`/collections/${node.slug}`}
+              key={`collection_card_${node.id}`}
+              className="group relative block w-full h-[420px] md:h-[480px] overflow-hidden rounded-lg">
+              <Image
+                src={keytoUrl(node.featuredImage?.key)}
+                alt={node.featuredImage?.alt ?? "Collection Image"}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-contain object-center transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/15 group-hover:bg-black/10 transition-colors" />
+              <p className="absolute bottom-5 left-5 text-xl md:text-2xl font-semibold text-white drop-shadow">
+                {node.label}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -228,75 +230,76 @@ interface FeaturedProductsCardsProps {
 
 function FeaturedProductsCards({ products }: FeaturedProductsCardsProps) {
   return (
-    <section className="container mt-12">
-      <div className="">
-        <h2 className="font-semibold text-2xl md:text-3xl mb-1 md:mb-3">
+    <>
+      <section className="text-center mt-9">
+        <h1 className="text-5xl font-semibold text-zinc-800 pb-1">
           Featured Products
-        </h2>
-        <p className="max-w-4xl text-sm md:text-md leading-[1.5] tracking-[-2%] mb-2">
-          Ideas to help Bring Home to Life based on your recently viewed
-          products. Share your space on Instagram and tag @Penpengrian
+        </h1>
+        <p className="text-lg font-light text-zinc-600 mt-1">
+          Explore humanoid, AI, and dog robots designed to elevate daily living.
         </p>
-      </div>
-
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12 py-5 overflow-auto">
-        <Suspense
-          fallback={[...Array(4)].map((_, index) => (
-            <ProductCardSkeleton key={`Product-Skeleton-${index}`} />
-          ))}>
-          {products.map(({ node }) => (
-            <ProductCard key={`product-card-${node.id}`} product={node} />
-          ))}
-        </Suspense>
-      </div>
-    </section>
+      </section>
+      <section className="container ">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12 py-5 overflow-auto">
+          <Suspense
+            fallback={[...Array(4)].map((_, index) => (
+              <ProductCardSkeleton key={`Product-Skeleton-${index}`} />
+            ))}>
+            {products.map(({ node }) => (
+              <ProductCard key={`product-card-${node.id}`} product={node} />
+            ))}
+          </Suspense>
+        </div>
+      </section>
+    </>
   );
 }
 
 function CollectionGrid() {
   return (
-    <section className="relative lg:space-x-5 space-y-5 lg:space-y-0 grid grid-cols-1 lg:grid-cols-3 max-h-[840px]">
-      <div className="relative col-span-2 w-full h-[840px]">
-        <Image
-          src={keytoUrl("public/zPiCx79oGe5X4rVBLg0Ss.jpeg")}
-          width={1080}
-          height={1080}
-          className="object-cover w-full h-full"
-          alt="1"
-        />
-        <div className="bg-zinc-800/20 flex justify-center items-center flex-col absolute w-full h-full top-0 left-0 text-white">
-          <p className="text-5xl mb-3">Bath Room</p>
-          <p className=" font-light mb-8">Designed for enhanchment</p>
-          <Link
-            className={cn(buttonVariants({ size: "lg" }), "text-xl py-8 px-10")}
-            href={"/collections/bathroom"}>
-            DiscoverNow
-          </Link>
-        </div>
-      </div>
-
-      <div className="flex flex-col w-full space-y-5 h-[840px]">
-        <div className="relative w-full h-[340px]">
+    <>
+      <section className="text-center mt-9 mb-3">
+        <h1 className="text-5xl font-semibold text-zinc-800 pb-1">
+          Smart Living Starts Here
+        </h1>
+        <p className="text-lg font-light text-zinc-600 mt-2">
+          Discover AI-powered robotics that fit your lifestyle.
+        </p>
+      </section>
+      <section className="relative lg:space-x-5 space-y-5 lg:space-y-0 grid grid-cols-1 lg:grid-cols-3 max-h-[840px] hover:cursor-pointer">
+        <div className="relative col-span-2 w-full h-[840px] ">
           <Image
-            src={keytoUrl("public/E2MWE99uGyOZLd76UEixy.jpeg")}
-            width={800}
-            height={900}
+            src={keytoUrl("collections/Neo_Bot/library_bot.png")}
+            width={1080}
+            height={1080}
             className="object-cover w-full h-full"
             alt="1"
           />
         </div>
 
-        <div className="relative overflow-hidden">
-          <Image
-            src={keytoUrl("public/YPO3VwJvjvlkWzNtIv9FS.jpeg")}
-            width={800}
-            height={900}
-            className="object-cover w-full h-full"
-            alt="1"
-          />
+        <div className="flex flex-col w-full space-y-5 h-[840px]">
+          <div className="relative w-full h-[340px]">
+            <Image
+              src={keytoUrl("collections/Neo_Bot/_neo_bots.png")}
+              width={800}
+              height={900}
+              className="object-cover w-full h-full"
+              alt="1"
+            />
+          </div>
+
+          <div className="relative overflow-hidden">
+            <Image
+              src={keytoUrl("collections/Neo_Bot/bot_women.avif")}
+              width={800}
+              height={900}
+              className="object-cover w-full h-full"
+              alt="1"
+            />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
