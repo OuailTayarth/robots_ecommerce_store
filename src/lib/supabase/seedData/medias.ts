@@ -89,6 +89,11 @@ const medias = [
     key: "collections/Neo_Bot/robot_face_In.png",
     alt: "Neo's face",
   },
+  {
+    id: "303",
+    key: "collections/Neo_Bot/forest_bots.avif",
+    alt: "Neo bots in the forest",
+  },
 ];
 
 const seedMedias = async () => {

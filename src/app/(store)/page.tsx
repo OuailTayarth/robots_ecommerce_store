@@ -81,18 +81,18 @@ export default async function Home() {
       <HeroSection />
       <Shell>
         {data.products && data.products.edges ? (
+          <FeaturedProductsCards products={data.products.edges} />
+        ) : null}
+
+        {data.products && data.products.edges ? (
           <ProductSubCollectionsCircles
             collections={data.collectionScrollCards.edges}
           />
         ) : null}
 
-        {data.products && data.products.edges ? (
-          <FeaturedProductsCards products={data.products.edges} />
-        ) : null}
-
         <CollectionGrid />
 
-        <LessIsMoreCard />
+        <OurMission />
       </Shell>
     </main>
   );
@@ -210,7 +210,7 @@ function ProductSubCollectionsCircles({ collections }: CollectionsCardsProps) {
                 alt={node.featuredImage?.alt ?? "Collection Image"}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-contain object-center transition-transform duration-500 group-hover:scale-105"
+                className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/15 group-hover:bg-black/10 transition-colors" />
               <p className="absolute bottom-5 left-5 text-xl md:text-2xl font-semibold text-white drop-shadow">
@@ -321,84 +321,47 @@ function CollectionRectCard({ collections }: CollectionsCardsProps) {
   );
 }
 
-function DifferentFeatureCards() {
-  const features = [
-    {
-      Icon: Icons.cart,
-      title: "Responsible Design",
-      description:
-        "Designed with integrity and durably crafted for everyday use.",
-    },
-    {
-      Icon: Icons.tag,
-      title: "Transparent Pricing",
-      description:
-        "We believe in accessible pricing and full transparency. Our pricing model is an open book.",
-    },
-    {
-      Icon: Icons.package,
-      title: "Sustainable Sourcing",
-      description:
-        "We only partner with people who put the earth, and its people, first.",
-    },
-    {
-      Icon: Icons.award,
-      title: "Giving Back",
-      description:
-        "Thanks to Mealshare, every purchase directly donates a meal to a youth in need.",
-    },
-  ];
+function OurMission() {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-5 gap-y-8 gap-x-5 md:gap-x-12 mx-auto">
-      {features.map(({ Icon, title, description }, index) => (
-        <div
-          className="text-center  max-w-[18rem]"
-          key={`FeatureCards_${index}`}>
-          <div className="flex justify-center items-center p-5">
-            <Icon
-              width={45}
-              height={45}
-              className="mb-5 text-zinc-400 font-light"
-            />
-          </div>
-
-          <h4 className="text-xl font-serif font-extralight mb-3">{title}</h4>
-          <p className="text-lg text-muted-foreground">{description}</p>
-        </div>
-      ))}
-    </section>
-  );
-}
-
-function LessIsMoreCard() {
-  return (
-    <section className="max-w-[1920px] mx-auto h-[620px] md:h-[580px] bg-[#FFF8EE] grid grid-cols-12 my-16">
-      <div className="relative w-full h-[340px] md:h-[580px] col-span-12 md:col-span-8 overflow-hidden">
-        <Image
-          src={"/assets/cutingcardImage.jpg"}
-          alt=""
-          fill
-          className="object-cover object-center"
-        />
-      </div>
-
-      <div className="col-span-12 md:col-span-4 pb-6 md:py-20 px-6 md:px-16">
-        <h2 className="text-xl md:text-3xl font-semibold mb-3">
-          Less is More. Minimal.
-        </h2>
-        <p className="text-xs leading-[1.5] md:text-lg tracking-tight mb-5 md:mb-12 text-left max-w-md">
-          We believe no one should have to choose between the quality they want,
-          and the price they can afford. That’s why we make sure our products
-          stand up to only the highest quality and sustainability standards -
-          and produce them in a way that keeps great design affordable for
-          everyone.
+    <>
+      <section className="text-center mt-9 mb-3">
+        <h1 className="text-5xl font-semibold text-zinc-800 pb-1">
+          Our Mission
+        </h1>
+        <p className="text-lg font-light text-zinc-600 mt-2">
+          Meet robots that walk, think, and assist—at home or in the field.
         </p>
-        <Link
-          href="/shop"
-          className={cn(buttonVariants(), "rounded-full text-xs md:text-md")}>
-          Shop now
-        </Link>
-      </div>
-    </section>
+      </section>
+      <section className="max-w-[1920px] mx-auto h-[620px] md:h-[580px] bg-[#FFF8EE] grid grid-cols-12 ">
+        <div className="relative w-full h-[340px] md:h-[580px] col-span-12 md:col-span-8 overflow-hidden">
+          <Image
+            src={
+              "https://robots-store.s3.eu-north-1.amazonaws.com/collections/Neo_Bot/forest_bots.avif"
+            }
+            alt=""
+            fill
+            className="object-cover object-center"
+          />
+        </div>
+
+        <div className="col-span-12 md:col-span-4 pb-6 md:py-20 px-6 md:px-16">
+          <h2 className="text-xl md:text-3xl font-semibold mb-3">
+            Less is More. Minimal.
+          </h2>
+          <p className="text-xs leading-[1.5] md:text-lg tracking-tight mb-5 md:mb-12 text-left max-w-md">
+            We believe no one should have to choose between the quality they
+            want, and the price they can afford. That’s why we make sure our
+            products stand up to only the highest quality and sustainability
+            standards - and produce them in a way that keeps great design
+            affordable for everyone.
+          </p>
+          <Link
+            href="/shop"
+            className={cn(buttonVariants(), "rounded-full text-xs md:text-md")}>
+            Shop now
+          </Link>
+        </div>
+      </section>
+    </>
   );
 }
