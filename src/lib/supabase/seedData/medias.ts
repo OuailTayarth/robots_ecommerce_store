@@ -92,7 +92,17 @@ const medias = [
   {
     id: "303",
     key: "collections/Neo_Bot/forest_bots.avif",
-    alt: "Neo bots in the forest",
+    alt: "Neo bot in the forest",
+  },
+  {
+    id: "304",
+    key: "collections/Neo_Bot/girlfaceneo.avif",
+    alt: "Neo bot facing a girl",
+  },
+  {
+    id: "305",
+    key: "collections/Neo_Bot/neo_library.jpg",
+    alt: "Neo bot walking in the library",
   },
 ];
 
