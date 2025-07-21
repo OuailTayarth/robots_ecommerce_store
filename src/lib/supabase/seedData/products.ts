@@ -25,10 +25,10 @@ const products: InsertProducts[] = [
     badge: "featured",
     rating: "4.7",
     tags: ["humanoid", "home-assistant"],
-    featuredImageId: "10",
+    featuredImageId: "9",
     collectionId: "1",
     stock: 6,
-    price: "19.999",
+    price: "19999",
   },
   {
     id: "302",
@@ -43,7 +43,7 @@ const products: InsertProducts[] = [
     featuredImageId: "13",
     collectionId: "1",
     stock: 10,
-    price: "16.000",
+    price: "16000",
   },
   {
     id: "303",
@@ -58,7 +58,7 @@ const products: InsertProducts[] = [
     featuredImageId: "14",
     collectionId: "1",
     stock: 4,
-    price: "10.250",
+    price: "10250",
   },
 
   // ─────── DOG ROBOTS  (collectionId: "2") ───────
@@ -75,7 +75,7 @@ const products: InsertProducts[] = [
     featuredImageId: "5",
     collectionId: "2",
     stock: 18,
-    price: "5.250",
+    price: "5250",
   },
   {
     id: "402",
@@ -90,7 +90,7 @@ const products: InsertProducts[] = [
     featuredImageId: "16",
     collectionId: "2",
     stock: 25,
-    price: "9.650",
+    price: "9650",
   },
   {
     id: "403",
@@ -98,14 +98,14 @@ const products: InsertProducts[] = [
     slug: "unitree-a1",
     description:
       "Research‑grade agile quadruped with 33 N·m joint torque, 3.3 m/s dash speed, and open SDK support; widely used in universities for locomotion and RL experiments.",
-    featured: false,
+    featured: true,
     badge: "new_product",
     rating: "4.3",
     tags: ["quadruped", "research"],
     featuredImageId: "21",
     collectionId: "2",
     stock: 12,
-    price: "11.650",
+    price: "11650",
   },
 ];
 const seedProducts = async () => {

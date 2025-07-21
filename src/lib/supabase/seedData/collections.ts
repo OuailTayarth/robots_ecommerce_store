@@ -10,7 +10,7 @@ const collections = [
     slug: "humanoid-robots",
     description:
       "Explore cutting-edge humanoid companions designed for assistance, learning, and interactive fun. Perfect for research labs or futuristic households.",
-    featuredImageId: "6",
+    featuredImageId: "23",
     order: "1",
   },
 
@@ -22,7 +22,7 @@ const collections = [
     slug: "dog-robots",
     description:
       "Discover our range of four-legged robots—ideal for search-and-rescue, inspection, or just an advanced robotic pet that never needs a walk.",
-    featuredImageId: "7",
+    featuredImageId: "16",
     order: "10",
   },
 ];
