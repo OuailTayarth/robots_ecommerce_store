@@ -80,19 +80,16 @@ export default async function Home() {
     <main>
       <HeroSection />
       <Shell>
-        {data.products && data.products.edges ? (
-          <FeaturedProductsCards products={data.products.edges} />
-        ) : null}
-
+        <OurMission />
         {data.products && data.products.edges ? (
           <ProductSubCollectionsCircles
             collections={data.collectionScrollCards.edges}
           />
         ) : null}
-
+        {data.products && data.products.edges ? (
+          <FeaturedProductsCards products={data.products.edges} />
+        ) : null}
         <CollectionGrid />
-
-        <OurMission />
       </Shell>
     </main>
   );
@@ -269,7 +266,7 @@ function CollectionGrid() {
       <section className="relative lg:space-x-5 space-y-5 lg:space-y-0 grid grid-cols-1 lg:grid-cols-3 max-h-[840px] hover:cursor-pointer">
         <div className="relative col-span-2 w-full h-[840px] ">
           <Image
-            src={keytoUrl("collections/Neo_Bot/library_bot.png")}
+            src={keytoUrl("collections/Neo_Bot/neo_library.jpg")}
             width={1080}
             height={1080}
             className="object-cover w-full h-full"
@@ -329,36 +326,38 @@ function OurMission() {
           Our Mission
         </h1>
         <p className="text-lg font-light text-zinc-600 mt-2">
-          Meet robots that walk, think, and assist—at home or in the field.
+          Building intelligent machines that empower people—at home, in work,
+          and beyond.
         </p>
       </section>
-      <section className="max-w-[1920px] mx-auto h-[620px] md:h-[580px] bg-[#FFF8EE] grid grid-cols-12 ">
-        <div className="relative w-full h-[340px] md:h-[580px] col-span-12 md:col-span-8 overflow-hidden">
+      <section className="max-w-[1920px] mx-auto h-auto md:h-[580px] bg-[#F2ECEC] grid grid-cols-1 md:grid-cols-12">
+        {/* Image first on mobile, second on desktop */}
+        <div className="relative w-full h-[340px] md:h-[580px] order-2 md:order-1 col-span-12 md:col-span-8 overflow-hidden">
           <Image
-            src={
-              "https://robots-store.s3.eu-north-1.amazonaws.com/collections/Neo_Bot/forest_bots.avif"
-            }
+            src="https://robots-store.s3.eu-north-1.amazonaws.com/collections/Neo_Bot/forest_bots.avif"
             alt=""
             fill
             className="object-cover object-center"
           />
         </div>
 
-        <div className="col-span-12 md:col-span-4 pb-6 md:py-20 px-6 md:px-16">
-          <h2 className="text-xl md:text-3xl font-semibold mb-3">
-            Less is More. Minimal.
-          </h2>
-          <p className="text-xs leading-[1.5] md:text-lg tracking-tight mb-5 md:mb-12 text-left max-w-md">
-            We believe no one should have to choose between the quality they
-            want, and the price they can afford. That’s why we make sure our
-            products stand up to only the highest quality and sustainability
-            standards - and produce them in a way that keeps great design
-            affordable for everyone.
+        {/* Text first on mobile, second on desktop */}
+        <div className="col-span-12 md:col-span-4 order-1 md:order-2 flex flex-col justify-center items-start px-6 py-10 md:px-16 md:py-0">
+          <p className="text-[15px] md:text-[19px] leading-relaxed mb-6 text-zinc-700">
+            At RoboForge, we believe robotics should be accessible, ethical, and
+            inspiring. From humanoid helpers to agile quadrupeds, our mission is
+            to bring cutting-edge AI into everyday life—designed for learning,
+            exploration, and real-world impact.
           </p>
+
           <Link
-            href="/shop"
-            className={cn(buttonVariants(), "rounded-full text-xs md:text-md")}>
-            Shop now
+            href=""
+            target="_blank"
+            className={cn(
+              buttonVariants({ variant: "default", size: "default" }),
+              "border-2 border-primary text-white rounded px-3 py-3 md:px-9 md:py-6"
+            )}>
+            Learn More
           </Link>
         </div>
       </section>
