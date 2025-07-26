@@ -2,7 +2,7 @@ import { NavItemWithOptionalChildren } from "@/types";
 import Link from "next/link";
 import NewsletterForm from "./NewsletterForm";
 import Branding from "./Branding";
-import { siteConfig } from "@/config/site";
+
 import SocialMedias from "./SocialMedias";
 
 type Props = {};
@@ -13,28 +13,28 @@ function MainFooter({}: Props) {
       title: "Shop",
       items: [
         {
-          title: "Furniture",
-          href: "/collections/furniture",
+          title: "Humanoid Robots",
+          href: "/collections/humanoids",
           items: [],
         },
         {
-          title: "Lighting",
-          disabled: true,
+          title: "Quadruped Robots",
+          href: "#",
           items: [],
         },
         {
-          title: "Rugs",
-          disabled: true,
+          title: "Robotic Arms",
+          href: "#",
           items: [],
         },
         {
-          title: "New",
-          disabled: true,
+          title: "New Arrivals",
+          href: "#",
           items: [],
         },
         {
-          title: "Sale",
-          disabled: true,
+          title: "Deals & Offers",
+          href: "#",
           items: [],
         },
       ],
@@ -65,11 +65,11 @@ function MainFooter({}: Props) {
       ],
     },
     {
-      title: "About HIYORI",
+      title: "About RoboForge",
       items: [
         {
           title: "Our Story",
-          href: "https://github.com/clonglam/HIYORI-master",
+          href: "https://github.com",
           items: [],
         },
         {
@@ -92,7 +92,7 @@ function MainFooter({}: Props) {
   ];
 
   return (
-    <footer className="bg-muted-background mt-[80px] md:mt-[180px] border-t border-zinc-600">
+    <footer className="bg-muted-background mt-[80px] md:mt-[0px] border-t border-zinc-600">
       <div className="container pb-10 pt-4 md:pt-8">
         <div className="hidden md:grid grid-cols-5 mb-[80px] gap-x-[100px] place-content-between space-y-9">
           <div className="max-w-md col-span-5 lg:col-span-2">
@@ -119,20 +119,7 @@ function MainFooter({}: Props) {
           {/* <div className="grid gap-x-5 justify-between items-center"> */}
           <div className="flex flex-col md:flex-row gap-x-5 md:items-center items-start mb-4 md:mb-0">
             <Branding className="text-3xl" />
-            <div className="text-[10px] font-light">
-              <p>{siteConfig.address}</p>
-              <p>
-                {siteConfig.phone} /{" "}
-                <Link
-                  className="hover:underline hover:text-primary"
-                  href={`mailto:${siteConfig.email}`}
-                >
-                  {siteConfig.email}
-                </Link>
-              </p>
-            </div>
           </div>
-
           <SocialMedias containerClassName="mr-12" />
         </div>
       </div>

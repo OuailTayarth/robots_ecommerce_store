@@ -5,12 +5,12 @@ import { slugify } from "@/lib/utils";
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "HIYORI",
+  name: "RobotForge",
   description: "Ecommerce Application built with NextJS 14",
   url: "https://hiyori.hugo-coding.com",
-  address: "1600 Amphitheatre Parkway in Mountain View, California",
-  phone: "+1(234)-567-8901",
-  email: "hello@hugo-coding.com",
+  address: "Kungsgatan 12 111 35, Stockholm, Sweden",
+  phone: "+46 8 123 456 78",
+  email: "hello@roboForge.com",
   mainNav: [
     {
       title: "Shop",
@@ -19,14 +19,20 @@ export const siteConfig = {
       items: [],
     },
     {
-      title: "Our Story",
-      href: "https://github.com/clonglam/HIYORI-master",
+      title: "Our Mission",
+      href: "#",
       description: "Our Story.",
       items: [],
     },
     {
-      title: "Brands & Designers",
-      href: "https://github.com/clonglam/HIYORI-master",
+      title: "Humanoid",
+      href: "#",
+      description: "Read our latest blog posts.",
+      items: [],
+    },
+    {
+      title: "Dogs ",
+      href: "#",
       description: "Read our latest blog posts.",
       items: [],
     },

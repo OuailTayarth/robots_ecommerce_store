@@ -1,17 +1,17 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
   SheetFooter,
   SheetTrigger,
-} from "@/components/ui/sheet"
-import { siteConfig } from "@/config/site"
-import Link from "next/link"
-import { Icons } from "./icons"
-import Branding from "./Branding"
-import SocialMedias from "./SocialMedias"
+} from "@/components/ui/sheet";
+import { siteConfig } from "@/config/site";
+import Link from "next/link";
+import { Icons } from "./icons";
+import Branding from "./Branding";
+import SocialMedias from "./SocialMedias";
 
 export function SideMenu() {
   return (
@@ -24,9 +24,8 @@ export function SideMenu() {
 
       <SheetContent
         side="left"
-        className="w-full md:max-w-xl pr-[4rem]"
-        closeButtonClassName="w-6 h-6 md:w-10 md:h-10"
-      >
+        className="w-full md:max-w-xl pr-[4rem]  "
+        closeButtonClassName="w-6 h-6 md:w-10 md:h-10">
         <div className="grid py-8 gap-y-3 ml-12 md:ml-[96px] mt-[120px]">
           {siteConfig.mainNav.map(({ title, href }, index) => (
             <Link key={index} href={href} className="text-xl md:text-3xl">
@@ -44,8 +43,7 @@ export function SideMenu() {
               <span>{siteConfig.phone}</span> {` / `}
               <Link
                 className="hover:underline hover:text-primary"
-                href={`mailto:${siteConfig.email}`}
-              >
+                href={`mailto:${siteConfig.email}`}>
                 {siteConfig.email}
               </Link>
             </p>
@@ -55,5 +53,5 @@ export function SideMenu() {
         </SheetFooter>
       </SheetContent>
     </Sheet>
-  )
+  );
 }
