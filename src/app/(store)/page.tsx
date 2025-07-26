@@ -263,7 +263,7 @@ function CollectionGrid() {
           Discover AI-powered robotics that fit your lifestyle.
         </p>
       </section>
-      <section className="relative lg:space-x-5 space-y-5 lg:space-y-0 grid grid-cols-1 lg:grid-cols-3 max-h-[840px] hover:cursor-pointer">
+      <section className="relative lg:space-x-5 space-y-5 lg:space-y-0 grid grid-cols-1 lg:grid-cols-3 max-h-[840px] hover:cursor-pointer ">
         <div className="relative col-span-2 w-full h-[840px] ">
           <Image
             src={keytoUrl("collections/Neo_Bot/neo_library.jpg")}
@@ -331,7 +331,6 @@ function OurMission() {
         </p>
       </section>
       <section className="max-w-[1920px] mx-auto h-auto md:h-[580px] bg-[#F2ECEC] grid grid-cols-1 md:grid-cols-12">
-        {/* Image first on mobile, second on desktop */}
         <div className="relative w-full h-[340px] md:h-[580px] order-2 md:order-1 col-span-12 md:col-span-8 overflow-hidden">
           <Image
             src="https://robots-store.s3.eu-north-1.amazonaws.com/collections/Neo_Bot/forest_bots.avif"
@@ -341,7 +340,6 @@ function OurMission() {
           />
         </div>
 
-        {/* Text first on mobile, second on desktop */}
         <div className="col-span-12 md:col-span-4 order-1 md:order-2 flex flex-col justify-center items-start px-6 py-10 md:px-16 md:py-0">
           <p className="text-[15px] md:text-[19px] leading-relaxed mb-6 text-zinc-700">
             At RoboForge, we believe robotics should be accessible, ethical, and
