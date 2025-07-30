@@ -66,6 +66,7 @@ function MainFooter({}: Props) {
     },
     {
       title: "About RoboForge",
+      title: "About RoboForge",
       items: [
         {
           title: "Our Story",
