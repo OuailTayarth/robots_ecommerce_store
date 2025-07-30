@@ -14,7 +14,7 @@ function Spinner({ className, ...props }: SpinnerProps) {
         aria-hidden="true"
         className={cn(
           "w-5 h-5 text-gray-200 animate-spin fill-primary",
-          className,
+          className
         )}
         viewBox="0 0 100 101"
         fill="none"

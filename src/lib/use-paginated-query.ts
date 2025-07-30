@@ -14,7 +14,7 @@ export function usePaginatedQuery<Data = any, Variables = object>(
      * Merge the old result with the new result.
      */
     mergeResult: (oldData: Data, newData: Data) => Data;
-  },
+  }
 ): UseQueryResponse<Data, Variables> {
   // @ts-ignore
   const [query, queryFn] = useQuery(args);

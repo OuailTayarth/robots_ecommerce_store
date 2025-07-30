@@ -31,5 +31,5 @@ export const mediaSchema = z.record(
     })
     .refine((file) => !file || (!!file && file.type?.startsWith("image")), {
       message: "Only images are allowed to be sent.",
-    }),
+    })
 );

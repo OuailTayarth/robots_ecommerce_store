@@ -41,8 +41,8 @@ const useWishlistStore = create<WishlistStore>(
         }),
       setWishlist: (wishlist) => set(() => ({ wishlist })),
     }),
-    { name: "wishlist" },
-  ),
+    { name: "wishlist" }
+  )
 );
 
 export default useWishlistStore;

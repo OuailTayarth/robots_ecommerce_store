@@ -14,13 +14,13 @@ export interface QuantitiyInputProps
 const QuantityInput = React.forwardRef<HTMLInputElement, QuantitiyInputProps>(
   (
     { onChange, addOneHandler, minusOneHandler, value, className, ...props },
-    ref,
+    ref
   ) => {
     return (
       <div
         className={cn(
           "max-w-36 h-12 border-2 border-input rounded-full relative flex items-center justify-between py-2 px-4",
-          className,
+          className
         )}
       >
         <input
@@ -48,7 +48,7 @@ const QuantityInput = React.forwardRef<HTMLInputElement, QuantitiyInputProps>(
         </button>
       </div>
     );
-  },
+  }
 );
 
 QuantityInput.displayName = "QuantityInput";

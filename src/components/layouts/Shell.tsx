@@ -24,7 +24,7 @@ export function Shell({
         layout === "default" && "container",
         layout === "narrow" && "container max-w-5xl",
 
-        className,
+        className
       )}
       {...props}
     >

@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { DocumentType, gql } from "@/gql";
 import { expectedErrorsHandler } from "@/lib/urql";
 import { User } from "@supabase/supabase-js";
-import { useMutation, useQuery } from "@urql/next";
+import { useMutation, useQuery } from "urql";
 import { notFound } from "next/navigation";
 import {
   Card,
@@ -137,7 +137,7 @@ function UserCartSection({ user }: UserCartSectionProps) {
   };
 
   const createCartObject = (
-    data: DocumentType<typeof FetchCartQuery>,
+    data: DocumentType<typeof FetchCartQuery>
   ): CartItems => {
     const cart: CartItems = {};
     data.cartsCollection.edges.forEach((item) => {
@@ -238,10 +238,10 @@ export const calcProductCount = (data: { node: { quantity: number } }[]) => {
 };
 
 const calcSubtotal = (
-  data: { node: { quantity: number; product: { price: number } } }[],
+  data: { node: { quantity: number; product: { price: number } } }[]
 ) => {
   return data.reduce(
     (acc, cur) => acc + cur.node.quantity * cur.node.product.price,
-    0,
+    0
   );
 };

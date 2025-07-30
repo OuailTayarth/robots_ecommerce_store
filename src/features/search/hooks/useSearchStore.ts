@@ -43,13 +43,13 @@ const useSearchStore = create<SearchStore>(
         }));
       },
     }),
-    { name: "search" },
-  ),
+    { name: "search" }
+  )
 );
 
 export const createQueryString = (
   query: SearchQuery,
-  params: Record<string, string | number | string[] | null>,
+  params: Record<string, string | number | string[] | null>
 ) => {
   const newSearchParams = new URLSearchParams(params?.toString());
 
@@ -59,7 +59,7 @@ export const createQueryString = (
   if (query.priceRange) {
     newSearchParams.set(
       "price_range",
-      `${query.priceRange[0]}-${query.priceRange[1]}`,
+      `${query.priceRange[0]}-${query.priceRange[1]}`
     );
   }
 

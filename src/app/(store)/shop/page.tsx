@@ -5,7 +5,7 @@ import { listCollectionsAction } from "@/features/collections";
 import { SearchProductsGridSkeleton } from "@/features/products";
 import {
   FilterSelections,
-  SearchProductsInifiteScroll,
+  SearchProductsInfiniteScroll,
 } from "@/features/search";
 import { Suspense } from "react";
 
@@ -23,20 +23,8 @@ async function ProductsPage({}: ProductsPageProps) {
     <Shell>
       <Header heading="Shop Now" />
 
-      {/* <Suspense
-        fallback={
-          <div>
-            <Skeleton className="max-w-xl h-8 mb-3" />
-            <Skeleton className="max-w-2xl h-8" />
-          </div>
-        }
-      >
-        <FilterSelections collectionsSection={collectionsData} />
-      </Suspense>
-       */}
-
       <Suspense fallback={<SearchProductsGridSkeleton />}>
-        <SearchProductsInifiteScroll />
+        <SearchProductsInfiniteScroll />
       </Suspense>
     </Shell>
   );

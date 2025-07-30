@@ -21,7 +21,7 @@ function UploadMediaContainer({
   const router = useRouter();
   const [uploadingImages, setUploadingImages] = useState<FileWithPreview[]>([]);
   const [lastCursor, setLastCursor] = React.useState<string | undefined>(
-    undefined,
+    undefined
   );
   const [{ data, fetching, error }, refetch] = useQuery({
     query: MediasPageContentQuery,
@@ -41,7 +41,7 @@ function UploadMediaContainer({
     const uploadFiles = acceptedFiles.map((file) =>
       Object.assign(file, {
         preview: URL.createObjectURL(file),
-      }),
+      })
     );
 
     setUploadingImages([...uploadingImages, ...uploadFiles]);
@@ -63,7 +63,7 @@ function UploadMediaContainer({
         refetch({ requestPolicy: "network-only" });
 
         setUploadingImages(
-          uploadingImages.filter((item) => data.includes(item.path)),
+          uploadingImages.filter((item) => data.includes(item.path))
         );
       }
     } catch (error) {

@@ -36,12 +36,12 @@ function GuestCartSection() {
 
   const subtotal = useMemo(
     () => calcSubtotal({ prdouctsDetails: data, quantity: cartItems }),
-    [data, cartItems],
+    [data, cartItems]
   );
 
   const productCount = useMemo(
     () => calcProductCountStorage(cartItems),
-    [cartItems],
+    [cartItems]
   );
   if (fetching) return LoadingCartSection();
   if (error) return <div>Error</div>;
@@ -161,7 +161,7 @@ const calcSubtotal = ({
 
   return productPrices.reduce(
     (acc, cur) => acc + quantity[cur.node.id].quantity * cur.node.price,
-    0,
+    0
   );
 };
 

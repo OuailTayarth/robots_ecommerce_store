@@ -32,7 +32,7 @@ function RecommendationProducts({}: RecommendationProductsProps) {
 
   if (fetching)
     return (
-      <Header heading={`We Think You'll Love`}>
+      <Header heading={`Popular Picks This Week!`}>
         <div className="container grid grid-cols-2 lg:grid-cols-4 gap-x-8 ">
           {[...Array(6)].map((_, index) => (
             <ProductCardSkeleton key={index} />
@@ -44,7 +44,7 @@ function RecommendationProducts({}: RecommendationProductsProps) {
   if (!data || error) return <></>;
 
   return (
-    <Header heading={`We Think You'll Love`}>
+    <Header heading={`Popular Picks This Week!`}>
       <div className="container grid grid-cols-2 lg:grid-cols-4 gap-x-8 ">
         {data.recommendations &&
           data.recommendations.edges.map(({ node }) => (

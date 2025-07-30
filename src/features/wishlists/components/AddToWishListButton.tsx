@@ -2,7 +2,7 @@
 import { gql } from "@/gql";
 import { useAuth } from "@/providers/AuthProvider";
 import { cn } from "@/lib/utils";
-import { useMutation } from "@urql/next";
+import { useMutation } from "urql";
 import { useRouter } from "next/navigation";
 import { Icons } from "@/components/layouts/icons";
 import { Button } from "@/components/ui/button";
@@ -76,7 +76,7 @@ function AddToWishListButton({ productId }: Props) {
       <Icons.heart
         className={cn(
           "w-4 h-4",
-          wishlist[productId] ? "fill-red-600 " : "fill-none",
+          wishlist[productId] ? "fill-red-600 " : "fill-none"
         )}
       />
     </Button>

@@ -53,6 +53,7 @@ const SearchResultPage = ({
   onLoadMore: (cursor: string) => void;
   isLastPage: boolean;
 }) => {
+  // Fetching products based on the search query variables(search, price range, collections, etc.)
   const [result] = useQuery<SearchQuery, SearchQueryVariables>({
     query: ProductSearch,
     variables,

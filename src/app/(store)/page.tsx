@@ -100,7 +100,7 @@ function HeroSection() {
     <section className="w-full h-screen md:h-[800px] mx-auto flex justify-center">
       <div className="relative w-full h-full md:h-[800px]">
         <Image
-          alt="Furniture"
+          alt="standing neo"
           src="https://robots-store.s3.eu-north-1.amazonaws.com/collections/Neo_Bot/standing_neo.avif"
           width={1920}
           height={1200}
@@ -139,7 +139,8 @@ function HeroSection() {
                 buttonVariants({ variant: "default", size: "lg" }),
                 "border-2 border-primary text-white rounded px-8 py-3 ",
                 "md:px-16 md:py-6"
-              )}>
+              )}
+            >
               Learn More
             </Link>
           </div>
@@ -307,7 +308,8 @@ function CollectionRectCard({ collections }: CollectionsCardsProps) {
         <Suspense
           fallback={[...Array(6)].map((_, index) => (
             <CollectionsCardSkeleton key={`Collections-sekelton-${index}`} />
-          ))}>
+          ))}
+        >
           {collections.map(({ node }) => (
             <CollectionsCard collection={node} key={node.id} />
           ))}
