@@ -90,7 +90,7 @@ export async function POST(request: NextRequest) {
       console.log(error);
       return new NextResponse(
         'Webhook error: "Webhook handler failed. View logs."',
-        { status: 400 },
+        { status: 400 }
       );
     }
   }

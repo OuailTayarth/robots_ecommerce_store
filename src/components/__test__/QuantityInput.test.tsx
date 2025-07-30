@@ -11,7 +11,7 @@ it("should render Component Section Header", () => {
       minusOneHandler={function (): void {
         throw new Error("Function not implemented.");
       }}
-    />,
+    />
   );
 
   expect(screen.getByLabelText("add")).toBeInTheDocument();

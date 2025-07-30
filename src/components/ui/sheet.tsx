@@ -22,7 +22,7 @@ const SheetOverlay = React.forwardRef<
   <SheetPrimitive.Overlay
     className={cn(
       "fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
-      className,
+      className
     )}
     {...props}
     ref={ref}
@@ -46,7 +46,7 @@ const sheetVariants = cva(
     defaultVariants: {
       side: "right",
     },
-  },
+  }
 );
 
 interface SheetContentProps
@@ -61,7 +61,7 @@ const SheetContent = React.forwardRef<
 >(
   (
     { side = "right", className, children, closeButtonClassName, ...props },
-    ref,
+    ref
   ) => (
     <SheetPortal>
       <SheetOverlay />
@@ -74,7 +74,7 @@ const SheetContent = React.forwardRef<
         <SheetPrimitive.Close
           className={cn(
             side === "right" ? "right-6 md:right-12" : "left-6 md:left-12",
-            "absolute top-10 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary",
+            "absolute top-10 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary"
           )}
         >
           <X className={cn("h-4 w-4", closeButtonClassName)} />
@@ -82,7 +82,7 @@ const SheetContent = React.forwardRef<
         </SheetPrimitive.Close>
       </SheetPrimitive.Content>
     </SheetPortal>
-  ),
+  )
 );
 SheetContent.displayName = SheetPrimitive.Content.displayName;
 
@@ -93,7 +93,7 @@ const SheetHeader = ({
   <div
     className={cn(
       "flex flex-col space-y-2 text-center sm:text-left",
-      className,
+      className
     )}
     {...props}
   />
@@ -107,7 +107,7 @@ const SheetFooter = ({
   <div
     className={cn(
       "flex flex-col-reverse sm:flex-row sm:justify-end",
-      className,
+      className
     )}
     {...props}
   />

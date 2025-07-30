@@ -29,7 +29,7 @@ function ImagesGrid({
     <div
       className={cn(
         "grid max-w-[1200px] mx-auto gap-x-3 gap-y-5 grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-8",
-        containerClassName,
+        containerClassName
       )}
     >
       {AddMediaButtonComponent}
@@ -59,7 +59,7 @@ function ImagesGrid({
           type="button"
           className={cn(
             "object-center group relative h-[120px] w-[120px]",
-            defaultImageId === media.id && "ring-offset-2 ring-2",
+            defaultImageId === media.id && "ring-offset-2 ring-2"
           )}
           onClick={() => onClickHandler(media.id)}
         >
@@ -69,7 +69,7 @@ function ImagesGrid({
             width={120}
             height={120}
             className={cn(
-              "group-hover:opacity-30 transition-all duration-300 h-[120px] w-[120px] object-cover",
+              "group-hover:opacity-30 transition-all duration-300 h-[120px] w-[120px] object-cover"
             )}
           />
         </button>

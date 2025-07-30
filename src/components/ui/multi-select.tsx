@@ -37,14 +37,14 @@ export function MultiSelect({
     (option: Option) => {
       setSelected((prev) => [...(prev || []), option]);
     },
-    [setSelected],
+    [setSelected]
   );
 
   const handleRemove = React.useCallback(
     (option: Option) => {
       setSelected((prev) => prev?.filter((item) => item !== option) ?? []);
     },
-    [setSelected],
+    [setSelected]
   );
 
   const handleKeyDown = React.useCallback(
@@ -60,7 +60,7 @@ export function MultiSelect({
         inputRef.current.blur();
       }
     },
-    [setSelected],
+    [setSelected]
   );
 
   // Memoize filtered options to avoid unnecessary re-renders

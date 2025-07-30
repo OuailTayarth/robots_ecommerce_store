@@ -56,7 +56,7 @@ function FilterBadges({
               <button
                 onClick={() => {
                   const deletedcollections = query.collections.filter(
-                    (c) => c !== collection.id,
+                    (c) => c !== collection.id
                   );
                   router.push(
                     pathname +
@@ -66,11 +66,11 @@ function FilterBadges({
                         deletedcollections.length > 0
                           ? JSON.stringify(
                               query.collections.filter(
-                                (c) => c !== collection.id,
-                              ),
+                                (c) => c !== collection.id
+                              )
                             )
-                          : undefined,
-                      ),
+                          : undefined
+                      )
                   );
                 }}
                 className={cn("rounded-full")}
@@ -78,7 +78,7 @@ function FilterBadges({
                 <Icons.close width={15} height={15} />
               </button>
             </Badge>
-          ) : null,
+          ) : null
         )}
     </section>
   );

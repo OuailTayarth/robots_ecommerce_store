@@ -74,7 +74,7 @@ function FilterSelections({ collectionsSection, shopLayout = true }: Props) {
 
       return params.toString();
     },
-    [searchParams],
+    [searchParams]
   );
 
   const removeQueryString = useCallback(
@@ -84,7 +84,7 @@ function FilterSelections({ collectionsSection, shopLayout = true }: Props) {
       value ? params.set(name, value) : params.delete(name);
       return params.toString();
     },
-    [searchParams],
+    [searchParams]
   );
 
   const debouncedPrice = useDebounce(query.priceRange ?? [0, 10000], 500);
@@ -97,7 +97,7 @@ function FilterSelections({ collectionsSection, shopLayout = true }: Props) {
     )
       startTransition(() => {
         router.push(
-          `${pathname}?${createQueryString("price_range", `${min}-${max}`)}`,
+          `${pathname}?${createQueryString("price_range", `${min}-${max}`)}`
         );
       });
   }, [debouncedPrice]);
@@ -111,7 +111,7 @@ function FilterSelections({ collectionsSection, shopLayout = true }: Props) {
       router.push(
         pathname +
           "?" +
-          createQueryString("collections", JSON.stringify(collections)),
+          createQueryString("collections", JSON.stringify(collections))
       );
     } else {
       const collections = [...oldValue, collectionId];
@@ -121,8 +121,8 @@ function FilterSelections({ collectionsSection, shopLayout = true }: Props) {
           "?" +
           removeQueryString(
             "collections",
-            collections.length > 0 ? JSON.stringify(collections) : undefined,
-          ),
+            collections.length > 0 ? JSON.stringify(collections) : undefined
+          )
       );
     }
   };
@@ -243,7 +243,7 @@ function FilterSelections({ collectionsSection, shopLayout = true }: Props) {
                   onReset={() => {
                     setQuery({ ...query, priceRange: undefined });
                     router.push(
-                      pathname + "?" + removeQueryString("price_range"),
+                      pathname + "?" + removeQueryString("price_range")
                     );
                   }}
                 />

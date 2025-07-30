@@ -5,7 +5,7 @@ import { CollectionBanner } from "@/features/collections";
 import { SearchProductsGridSkeleton } from "@/features/products";
 import {
   FilterSelections,
-  SearchProductsInifiteScroll,
+  SearchProductsInfiniteScroll ,
 } from "@/features/search";
 import { gql } from "@/gql";
 import { getClient } from "@/lib/urql";
@@ -96,12 +96,13 @@ async function CategoryPage({ params, searchParams }: CategoryPageProps) {
             <Skeleton className="max-w-xl h-8 mb-3" />
             <Skeleton className="max-w-2xl h-8" />
           </div>
-        }>
+        }
+      >
         <FilterSelections shopLayout={false} />
       </Suspense>
 
       <Suspense fallback={<SearchProductsGridSkeleton />}>
-        <SearchProductsInifiteScroll
+        <SearchProductsInfiniteScroll 
           collectionId={data.collectionsCollection.edges[0].node.id}
         />
       </Suspense>

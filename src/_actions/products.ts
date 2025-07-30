@@ -20,7 +20,7 @@ export const createProductAction = async (product: InsertProducts) => {
 
 export const updateProductAction = async (
   productId: string,
-  product: InsertProducts,
+  product: InsertProducts
 ) => {
   createInsertSchema(products).parse(product);
   const insertedProduct = await db
