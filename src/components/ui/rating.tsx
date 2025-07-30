@@ -29,7 +29,7 @@ const Rating = React.forwardRef<HTMLInputElement, RatingProps>(
         ))}
       </div>
     );
-  },
+  }
 );
 
 Rating.displayName = "Rating";

@@ -2,7 +2,6 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Suspense } from "react";
 import { CartLink, CartNav } from "../../features/carts";
-import { UserNav } from "@/features/auth";
 import { Icons } from "./icons";
 import Branding from "./Branding";
 import MobileNavbar from "./MobileNavbar";
@@ -18,7 +17,7 @@ async function MainNavbar({ adminLayout = false }: MainNavbarProps) {
     <nav className="bg-background/95 fixed z-50 w-full">
       <div
         className={cn(
-          adminLayout ? "mx-auto px-[3rem] max-w-[2500px] py-3" : "container",
+          adminLayout ? "mx-auto px-[3rem] max-w-[2500px] py-3" : "container"
         )}
       >
         <div className="hidden md:flex gap-x-8 justify-between items-center">
@@ -27,20 +26,14 @@ async function MainNavbar({ adminLayout = false }: MainNavbarProps) {
             <SideMenu />
             <Branding />
           </div>
-
-          {adminLayout ? (
-            <></>
-          ) : (
-            <Suspense>
+        
+          <Suspense>
               <SearchInput />
-            </Suspense>
-          )}
-
+          </Suspense>
+          
           {/* Nav Action */}
           <div className="flex gap-x-5 relative items-center">
-            <Suspense>
-              <UserNav />
-            </Suspense>
+            
 
             <Link href={"/wish-list"}>
               <Icons.heart className="w-4 h-4" aria-label="wishlist" />

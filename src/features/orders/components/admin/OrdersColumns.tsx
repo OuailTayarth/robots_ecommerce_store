@@ -82,9 +82,7 @@ const OrdersColumns: ColumnDef<{
         <div
           className={cn(
             "font-medium capitalize px-5 py-1 flex items-center",
-            order.payment_status == "unpaid"
-              ? "text-red-500"
-              : "text-green-500",
+            order.payment_status == "unpaid" ? "text-red-500" : "text-green-500"
           )}
         >
           <Badge
@@ -92,7 +90,7 @@ const OrdersColumns: ColumnDef<{
             className={cn(
               order.payment_status == "unpaid"
                 ? "text-red-500 border-red-500"
-                : "text-green-500 border-green-500",
+                : "text-green-500 border-green-500"
             )}
           >
             {order.payment_status}

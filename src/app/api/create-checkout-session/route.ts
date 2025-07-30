@@ -16,7 +16,7 @@ const orderProductsSchema = z.object({
   orderProducts: z.record(
     z.object({
       quantity: z.number().min(1), // Assuming quantity should be at least 1
-    }),
+    })
   ),
   guest: z.boolean(),
 });
@@ -41,7 +41,7 @@ export async function POST(request: Request) {
 
   try {
     const productsQuantity = await mergeProductDetailsWithQuantities(
-      data.orderProducts,
+      data.orderProducts
     );
 
     const amount = calcSubtotal(productsQuantity);
@@ -66,7 +66,7 @@ export async function POST(request: Request) {
         quantity,
         price: `${price}`,
         orderId: insertedOrder[0].id,
-      })),
+      }))
     );
 
     const session = await stripe.checkout.sessions.create({
@@ -96,14 +96,14 @@ export async function POST(request: Request) {
 }
 
 const calcSubtotal = (
-  productsQuantity: (SelectProducts & { quantity: number })[],
+  productsQuantity: (SelectProducts & { quantity: number })[]
 ) =>
   productsQuantity.reduce((acc, cur) => {
     return acc + cur.quantity * parseFloat(cur.price);
   }, 0);
 
 const mergeProductDetailsWithQuantities = async (
-  orderProducts: OrderProducts,
+  orderProducts: OrderProducts
 ): Promise<(SelectProducts & { quantity: number })[]> => {
   const productIds = Object.keys(orderProducts);
   const products = await getProductsByIds(productIds);

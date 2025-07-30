@@ -105,7 +105,7 @@ function HeroSection() {
     <section className="w-full h-screen md:h-[800px] mx-auto flex justify-center">
       <div className="relative w-full h-full md:h-[800px]">
         <Image
-          alt="Furniture"
+          alt="standing neo"
           src="https://robots-store.s3.eu-north-1.amazonaws.com/collections/Neo_Bot/standing_neo.avif"
           width={1920}
           height={1200}
@@ -133,7 +133,8 @@ function HeroSection() {
                 "border-2 border-white text-white rounded px-8 py-3 ",
                 "md:px-16 md:py-6",
                 "hover:text-zinc-600 hover:bg-white"
-              )}>
+              )}
+            >
               Shop Now!
             </Link>
 
@@ -144,7 +145,8 @@ function HeroSection() {
                 buttonVariants({ variant: "default", size: "lg" }),
                 "border-2 border-primary text-white rounded px-8 py-3 ",
                 "md:px-16 md:py-6"
-              )}>
+              )}
+            >
               Learn More
             </Link>
           </div>
@@ -162,41 +164,7 @@ interface CollectionsCardsProps {
   collections: { node: DocumentType<typeof CollectionCardFragment> }[];
 }
 
-// function ProductSubCollectionsCircles({ collections }: CollectionsCardsProps) {
-//   return (
-//     <section className="flex justify-center items-center gap-x-10 overflow-auto py-12">
-//       {collections.map(({ node }) => (
-//         <Link
-//           href={`/collections/${node.slug}`}
-//           key={`collection_circle_${node.id}`}>
-//           <div
-//             className={cn(
-//               "relative bg-secondary rounded-full flex justify-center items-center",
-//               "w-[280px] h-[280px]"
-//               // "md:w-[320px] md:h-[320px]"
-//               // "lg:w-[360px] lg:h-[360px]"
-//             )}>
-//             <Image
-//               src={keytoUrl(node.featuredImage?.key)}
-//               alt={node.featuredImage?.alt || "Product Image"}
-//               width={300}
-//               height={300}
-//               className={cn(
-//                 "object-center object-cover hover:scale-105 transition-all duration-500",
-//                 "w-[240px] h-[240px]"
-//                 // "md:w-[280px] md:h-[280px]",
-//                 // "lg:w-[320px] lg:h-[320px]"
-//               )}
-//             />
-//           </div>
-//           <p className="text-black text-center mt-3 font-semibold">
-//             {node.label}
-//           </p>
-//         </Link>
-//       ))}
-//     </section>
-//   );
-// }
+
 
 function ProductSubCollectionsCircles({ collections }: CollectionsCardsProps) {
   return (
@@ -205,7 +173,8 @@ function ProductSubCollectionsCircles({ collections }: CollectionsCardsProps) {
         <Link
           href={`/collections/${node.slug}`}
           key={`collection_card_${node.id}`}
-          className="group relative block w-full h-[420px] md:h-[480px] overflow-hidden rounded-lg">
+          className="group relative block w-full h-[420px] md:h-[480px] overflow-hidden rounded-lg"
+        >
           <Image
             src={keytoUrl(node.featuredImage?.key)}
             alt={node.featuredImage?.alt ?? "Collection Image"}
@@ -246,7 +215,8 @@ function FeaturedProductsCards({ products }: FeaturedProductsCardsProps) {
         <Suspense
           fallback={[...Array(4)].map((_, index) => (
             <ProductCardSkeleton key={`Product-Skeleton-${index}`} />
-          ))}>
+          ))}
+        >
           {products.map(({ node }) => (
             <ProductCard key={`product-card-${node.id}`} product={node} />
           ))}
@@ -272,7 +242,8 @@ function CollectionGrid() {
           <p className=" font-light mb-8">Designed for enhanchment</p>
           <Link
             className={cn(buttonVariants({ size: "lg" }), "text-xl py-8 px-10")}
-            href={"/collections/bathroom"}>
+            href={"/collections/bathroom"}
+          >
             DiscoverNow
           </Link>
         </div>
@@ -310,7 +281,8 @@ function CollectionRectCard({ collections }: CollectionsCardsProps) {
         <Suspense
           fallback={[...Array(6)].map((_, index) => (
             <CollectionsCardSkeleton key={`Collections-sekelton-${index}`} />
-          ))}>
+          ))}
+        >
           {collections.map(({ node }) => (
             <CollectionsCard collection={node} key={node.id} />
           ))}
@@ -353,7 +325,8 @@ function DifferentFeatureCards() {
       {features.map(({ Icon, title, description }, index) => (
         <div
           className="text-center  max-w-[18rem]"
-          key={`FeatureCards_${index}`}>
+          key={`FeatureCards_${index}`}
+        >
           <div className="flex justify-center items-center p-5">
             <Icon
               width={45}
@@ -395,7 +368,8 @@ function LessIsMoreCard() {
         </p>
         <Link
           href="/shop"
-          className={cn(buttonVariants(), "rounded-full text-xs md:text-md")}>
+          className={cn(buttonVariants(), "rounded-full text-xs md:text-md")}
+        >
           Shop now
         </Link>
       </div>

@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
         errorMessage = err.message;
         return { message: err.message };
       }
-    }),
+    })
   );
 
   return statusCode >= 300

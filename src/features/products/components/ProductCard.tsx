@@ -62,9 +62,9 @@ export function ProductCard({
     >
       <CardContent className="relative p-0 mb-5 overflow-hidden">
         <Link href={`/shop/${slug}`}>
-          <Image 
+          <Image
             src={featuredImage?.key ? keytoUrl(featuredImage.key) : ""}
-            alt={featuredImage?.alt || "Prduct Image" }
+            alt={featuredImage?.alt || "product Image"}
             width={400}
             height={400}
             className="aspect-[1/1] object-cover object-center hover:scale-[1.02] hover:opacity-70 transition-all duration-500"

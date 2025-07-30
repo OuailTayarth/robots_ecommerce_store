@@ -59,7 +59,7 @@ function ImagePreviewCard({ mediaId }: ImagePreviewCard) {
           />
           <Icons.edit
             className={cn(
-              "absolute w-5 h-5 right-2 top-2 hidden group-hover:block",
+              "absolute w-5 h-5 right-2 top-2 hidden group-hover:block"
             )}
           />
         </div>

@@ -67,7 +67,7 @@ export const SupabaseAuthProvider: React.FC<SupabaseAuthProviderProps> = ({
                 productId,
                 quantity: productValue.quantity,
                 userId: data.user.id,
-              }),
+              })
             );
             // console.log("!!! storageCart", storageCarts)
 

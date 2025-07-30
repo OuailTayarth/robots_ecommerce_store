@@ -4,26 +4,26 @@ import { ReadonlyURLSearchParams, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import SearchResultPage from "./SearchResultPage";
 
-interface SearchProductsInifiteScrollProps {
+interface SearchProductsInfiniteScrollProps {
   collectionId?: string;
 }
 
-function SearchProductsInifiteScroll({
+function SearchProductsInfiniteScroll({
   collectionId,
-}: SearchProductsInifiteScrollProps) {
-  const searchParmas = useSearchParams();
-  const varaibles = searchParamsVariablesFactory(searchParmas, collectionId);
+}: SearchProductsInfiniteScrollProps) {
+  const searchParams = useSearchParams();
+  const variables = searchParamsVariablesFactory(searchParams, collectionId);
 
-  const [pageVariables, setPageVariables] = useState([varaibles]);
+  const [pageVariables, setPageVariables] = useState([variables]);
 
   useEffect(() => {
     setPageVariables([
-      searchParamsVariablesFactory(searchParmas, collectionId),
+      searchParamsVariablesFactory(searchParams, collectionId),
     ]);
-  }, [searchParmas]);
+  }, [searchParams]);
 
   const loadMoreHandler = (after: string) => {
-    setPageVariables([...pageVariables, { ...varaibles, after, first: 8 }]);
+    setPageVariables([...pageVariables, { ...variables, after, first: 8 }]);
   };
 
   return (
@@ -40,11 +40,12 @@ function SearchProductsInifiteScroll({
   );
 }
 
-export default SearchProductsInifiteScroll;
+export default SearchProductsInfiniteScroll ;
 
+// Helper function that converts URL values into GraphQL variables.
 const searchParamsVariablesFactory = (
   searchParams: ReadonlyURLSearchParams,
-  collectionId?: string,
+  collectionId?: string
 ) => {
   const priceRange = searchParams.get("price_range");
   const range = priceRange ? priceRange.split("-") : undefined;
@@ -80,7 +81,7 @@ const searchParamsVariablesFactory = (
   }
 
   console.log("collections", collections);
-  const varaibles: SearchQueryVariables = {
+  const variables: SearchQueryVariables = {
     search: search ? `%${search.trim()}%` : "%%",
     lower: range && range[0] ? `${range[0]}` : undefined,
     upper: range && range[1] ? `${range[1]}` : undefined,
@@ -93,5 +94,5 @@ const searchParamsVariablesFactory = (
     first: 4,
     after: undefined,
   };
-  return varaibles;
+  return variables;
 };

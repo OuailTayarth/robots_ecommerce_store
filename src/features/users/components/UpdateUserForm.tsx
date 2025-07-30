@@ -62,7 +62,7 @@ function UpdateUserForm({ user }: AdminUserFormProps) {
       //       })
       //     }
       //   })
-    },
+    }
   );
 
   return (
