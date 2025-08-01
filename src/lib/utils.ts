@@ -2,10 +2,23 @@ import { env } from "@/env.mjs";
 import { clsx, type ClassValue } from "clsx";
 import dayjs from "dayjs";
 import { twMerge } from "tailwind-merge";
+import { v4 as uuid}  from "uuid";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+export const getAnonId = () => {
+  // get the the id from the object name anonID
+  let id = localStorage.getItem("anonId");
+  if(!id) {
+    // set new id 
+    let id = uuid();
+    localStorage.setItem("anonId", id);
+  }
+  return id;
+
+} 
 
 export const getURL = () => {
   let url =
