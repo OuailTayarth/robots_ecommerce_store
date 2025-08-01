@@ -24,13 +24,11 @@ const RecommendationProductsQuery = gql(/* GraphQL */ `
   }
 `);
 
-
-
 const WishlistEmptyQuery = gql(/* GraphQL */ `
   query WishlistEmptyQuery($userId: UUID!) {
     wishlist: wishlistCollection(
       filter: { user_id: { eq: $userId } } # filter and only query the row where user_id from the table = userID I passed in in UseQuery
-      first: 1  # first: 1 caps that array at length = 1, so you get one edge → one node.
+      first: 1 # first: 1 caps that array at length = 1, so you get one edge → one node.
     ) {
       edges {
         node {
@@ -57,9 +55,8 @@ function RecommendationProducts({}: RecommendationProductsProps) {
     pause: !userId,
   });
 
-
   const isWishListEmpty = !wish || wish?.wishlist?.edges.length === 0;
-  console.log("Is wish empty",isWishListEmpty);
+  console.log("Is wish empty", isWishListEmpty);
 
   if (fetching)
     return (
@@ -78,7 +75,8 @@ function RecommendationProducts({}: RecommendationProductsProps) {
     <>
       {isWishListEmpty && (
         <p className="mb-6 text-center text-muted-foreground">
-          Your wishlist is empty—add favorites by tapping the heart Icon on any product.
+          Your wishlist is empty—add favorites by tapping the heart Icon on any
+          product.
         </p>
       )}
       <Header heading={`Popular Picks This Week!`}>
