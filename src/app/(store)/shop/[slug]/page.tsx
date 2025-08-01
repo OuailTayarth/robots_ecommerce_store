@@ -90,7 +90,6 @@ async function ProductDetailPage({ params }: Props) {
 
   const { id, name, description, price, commentsCollection, totalComments } =
     data.productsCollection.edges[0].node;
-
   return (
     <Shell>
       <div className="grid grid-cols-12 gap-x-8">
@@ -106,7 +105,7 @@ async function ProductDetailPage({ params }: Props) {
               </h1>
               <p className="text-2xl font-semibold mb-3">{`$${price}`}</p>
             </div>
-            <AddToWishListButton productId={id} />
+            <AddToWishListButton productId={id} productName={name} />
           </section>
 
           <section className="flex mb-8 items-end space-x-5">

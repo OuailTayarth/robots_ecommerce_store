@@ -111,8 +111,9 @@ export function ProductCard({
             <Button className="rounded-full p-3" variant="ghost" disabled>
               <Icons.heart className={"w-4 h-4 fill-none"} />
             </Button>
-          }>
-          <AddToWishListButton productId={product.id} />
+          }
+        >
+          <AddToWishListButton productId={product.id} productName={name}/>
         </Suspense>
       </CardFooter>
     </Card>

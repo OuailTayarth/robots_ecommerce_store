@@ -67,7 +67,7 @@ const documents = {
     types.CarouselImagesFragmentFragmentDoc,
   "\n  query RecommendationProductsQuery($first: Int!) {\n    recommendations: productsCollection(first: $first) {\n      edges {\n        node {\n          id\n          ...ProductCardFragment\n        }\n      }\n    }\n  }\n":
     types.RecommendationProductsQueryDocument,
-  "\n  query WishlistEmptyQuery($userId: UUID!) {\n    wishlist: wishlistCollection(\n      filter: { user_id: { eq: $userId } }\n      first: 1\n    ) {                     \n      edges {               \n        node { product_id }\n      }\n    }\n  }\n":
+  "\n  query WishlistEmptyQuery($userId: UUID!) {\n    wishlist: wishlistCollection(\n      filter: { user_id: { eq: $userId } } # filter and only query the row where user_id from the table = userID I passed in in UseQuery\n      first: 1 # first: 1 caps that array at length = 1, so you get one edge → one node.\n    ) {\n      edges {\n        node {\n          product_id\n        }\n      }\n    }\n  }\n":
     types.WishlistEmptyQueryDocument,
   "\n  query Search(\n    $search: String\n    $lower: BigFloat\n    $upper: BigFloat\n    $collections: [String!]\n    $first: Int!\n    $after: Cursor\n    $orderBy: [productsOrderBy!]\n  ) {\n    productsCollection(\n      filter: {\n        and: [\n          { name: { ilike: $search } }\n          { price: { gt: $lower, lt: $upper } }\n          { collection_id: { in: $collections } }\n        ]\n      }\n      first: $first\n      after: $after\n      orderBy: $orderBy\n    ) {\n      edges {\n        node {\n          id\n\n          ...ProductCardFragment\n        }\n      }\n      pageInfo {\n        hasNextPage\n        endCursor\n      }\n    }\n  }\n":
     types.SearchDocument,
@@ -257,8 +257,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: "\n  query WishlistEmptyQuery($userId: UUID!) {\n    wishlist: wishlistCollection(\n      filter: { user_id: { eq: $userId } }\n      first: 1\n    ) {                     \n      edges {               \n        node { product_id }\n      }\n    }\n  }\n"
-): (typeof documents)["\n  query WishlistEmptyQuery($userId: UUID!) {\n    wishlist: wishlistCollection(\n      filter: { user_id: { eq: $userId } }\n      first: 1\n    ) {                     \n      edges {               \n        node { product_id }\n      }\n    }\n  }\n"];
+  source: "\n  query WishlistEmptyQuery($userId: UUID!) {\n    wishlist: wishlistCollection(\n      filter: { user_id: { eq: $userId } } # filter and only query the row where user_id from the table = userID I passed in in UseQuery\n      first: 1 # first: 1 caps that array at length = 1, so you get one edge → one node.\n    ) {\n      edges {\n        node {\n          product_id\n        }\n      }\n    }\n  }\n"
+): (typeof documents)["\n  query WishlistEmptyQuery($userId: UUID!) {\n    wishlist: wishlistCollection(\n      filter: { user_id: { eq: $userId } } # filter and only query the row where user_id from the table = userID I passed in in UseQuery\n      first: 1 # first: 1 caps that array at length = 1, so you get one edge → one node.\n    ) {\n      edges {\n        node {\n          product_id\n        }\n      }\n    }\n  }\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
