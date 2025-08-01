@@ -164,8 +164,6 @@ interface CollectionsCardsProps {
   collections: { node: DocumentType<typeof CollectionCardFragment> }[];
 }
 
-
-
 function ProductSubCollectionsCircles({ collections }: CollectionsCardsProps) {
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-6 py-4">

@@ -26,15 +26,13 @@ async function MainNavbar({ adminLayout = false }: MainNavbarProps) {
             <SideMenu />
             <Branding />
           </div>
-        
+
           <Suspense>
-              <SearchInput />
+            <SearchInput />
           </Suspense>
-          
+
           {/* Nav Action */}
           <div className="flex gap-x-5 relative items-center">
-            
-
             <Link href={"/wish-list"}>
               <Icons.heart className="w-4 h-4" aria-label="wishlist" />
             </Link>

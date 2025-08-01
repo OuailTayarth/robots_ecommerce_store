@@ -40,7 +40,7 @@ function SearchProductsInfiniteScroll({
   );
 }
 
-export default SearchProductsInfiniteScroll ;
+export default SearchProductsInfiniteScroll;
 
 // Helper function that converts URL values into GraphQL variables.
 const searchParamsVariablesFactory = (
