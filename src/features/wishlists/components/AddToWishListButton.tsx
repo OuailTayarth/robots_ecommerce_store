@@ -1,16 +1,16 @@
 "use client";
 import { gql } from "@/gql";
-import { useAuth } from "@/providers/AuthProvider";
 import { cn } from "@/lib/utils";
 import { useMutation } from "urql";
-import { useRouter } from "next/navigation";
 import { Icons } from "@/components/layouts/icons";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import useWishlistStore from "../useWishlistStore";
+import { useAuth } from "@/providers/AuthProvider";
 
 type Props = {
   productId: string;
+  productName: string;
 };
 
 const AddProductToWishList = gql(/* GraphQL */ `
@@ -42,31 +42,26 @@ const RemoveWishlistItemMutation = gql(/* GraphQL */ `
   }
 `);
 
-function AddToWishListButton({ productId }: Props) {
-  const router = useRouter();
-  const { user } = useAuth();
+function AddToWishListButton({ productId, productName }: Props) {
+ const { user } = useAuth();
   const { toast } = useToast();
-  const wishlist = useWishlistStore((s) => s.wishlist);
+  const wishlist  = useWishlistStore((s) => s.wishlist);
   const toggleWishlist = useWishlistStore((s) => s.toggleWishItem);
 
-  const [, addToWishlist] = useMutation(AddProductToWishList);
-  const [, removeWishlistItem] = useMutation(RemoveWishlistItemMutation);
+  const [, addToWishlist]    = useMutation(AddProductToWishList);
+  const [, removeWishlist]   = useMutation(RemoveWishlistItemMutation);
 
   const onClickHandler = async () => {
-    if (!user) {
-      router.push("/sign-in");
+    if (wishlist[productId]) {
+      await removeWishlist({ productId, userId: user?.id }); 
+      toast({ title: `${productName} removed from wishList.`});
     } else {
-      if (wishlist[productId]) {
-        const res = await removeWishlistItem({ productId, userId: user.id });
-        if (res.data) toast({ title: "Removed from wishlist." });
-      } else {
-        const res = await addToWishlist({ productId, userId: user.id });
-        if (res.data) toast({ title: "Products is added to the list" });
-      }
-
-      toggleWishlist(productId);
+      await addToWishlist({ productId, userId: user?.id });  
+      toast({ title: `${productName} added to wishList.`});
     }
+    toggleWishlist(productId);    
   };
+
   return (
     <Button
       className="rounded-full p-3"
@@ -76,7 +71,7 @@ function AddToWishListButton({ productId }: Props) {
       <Icons.heart
         className={cn(
           "w-4 h-4",
-          wishlist[productId] ? "fill-red-600 " : "fill-none"
+          wishlist[productId] ? "fill-red-600" : "fill-none"
         )}
       />
     </Button>
