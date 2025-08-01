@@ -113,7 +113,7 @@ export function ProductCard({
             </Button>
           }
         >
-          <AddToWishListButton productId={product.id} productName={name}/>
+          <AddToWishListButton productId={product.id} productName={name} />
         </Suspense>
       </CardFooter>
     </Card>
