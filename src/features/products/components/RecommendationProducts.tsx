@@ -56,7 +56,6 @@ function RecommendationProducts({}: RecommendationProductsProps) {
   });
 
   const isWishListEmpty = !wish || wish?.wishlist?.edges.length === 0;
-  console.log("Is wish empty", isWishListEmpty);
 
   if (fetching)
     return (
