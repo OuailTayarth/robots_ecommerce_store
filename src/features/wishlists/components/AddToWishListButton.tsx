@@ -11,7 +11,7 @@ import { getAnonUserId } from "@/lib/utils";
 type Props = {
   productId: string;
   productName: string;
-  onWishlistChange?: () => void; 
+  onWishlistChange?: () => void;
 };
 
 const AddProductToWishList = gql(/* GraphQL */ `
