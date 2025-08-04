@@ -6,11 +6,12 @@ import { Icons } from "@/components/layouts/icons";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import useWishlistStore from "../useWishlistStore";
-import { getAnonId } from "@/lib/utils";
+import { getAnonUserId } from "@/lib/utils";
 
 type Props = {
   productId: string;
   productName: string;
+  onWishlistChange?: () => void; 
 };
 
 const AddProductToWishList = gql(/* GraphQL */ `
@@ -43,8 +44,7 @@ const RemoveWishlistItemMutation = gql(/* GraphQL */ `
 `);
 
 function AddToWishListButton({ productId, productName }: Props) {
-  let anonId = getAnonId();
-  console.log("anonId", anonId);
+  const anonUserId = getAnonUserId();
   const { toast } = useToast();
   const wishlist = useWishlistStore((s) => s.wishlist);
   const toggleWishlist = useWishlistStore((s) => s.toggleWishItem);
@@ -54,10 +54,10 @@ function AddToWishListButton({ productId, productName }: Props) {
 
   const onClickHandler = async () => {
     if (wishlist[productId]) {
-      await removeWishlist({ productId, userId: anonId });
+      await removeWishlist({ productId, userId: anonUserId });
       toast({ title: `${productName} removed from wishList.` });
     } else {
-      await addToWishlist({ productId, userId: anonId });
+      await addToWishlist({ productId, userId: anonUserId });
       toast({ title: `${productName} added to wishList.` });
     }
     toggleWishlist(productId);
