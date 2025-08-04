@@ -51,6 +51,7 @@ export const ProductCardFragment = gql(/* GraphQL */ `
 export function ProductCard({
   className,
   product,
+  onWishlistChange,
   ...props
 }: ProductCardProps) {
   const { id, name, slug, featuredImage, badge, price } = product;
