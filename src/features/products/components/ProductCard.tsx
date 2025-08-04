@@ -58,7 +58,7 @@ export function ProductCard({
 
   return (
     <Card
-      className={cn("w-full border-0 rounded-lg py-3 ", className)}
+      className={cn("w-full border-0 rounded-lg py-3 border-none bg-transparent shadow-none", className)}
       {...props}
     >
       <CardContent className="relative p-0 mb-5 overflow-hidden">
