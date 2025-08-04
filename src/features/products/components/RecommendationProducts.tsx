@@ -4,13 +4,28 @@ import { useQuery } from "@urql/next";
 import React from "react";
 import Header from "@/components/layouts/Header";
 import { ProductCard } from "@/features/products";
-import { useAuth } from "@/providers/AuthProvider";
+import { getAnonUserId } from "@/lib/utils";
+import { useEffect } from "react";
+import useWishlistStore from "../../../features/wishlists/useWishlistStore";
 
 import ProductCardSkeleton from "./RecommendationProductsSkeleton";
 
 export type RecommendationProductsProps =
   React.HTMLAttributes<HTMLDivElement> & {};
 
+
+const WishlistProductsQuery = gql(/*GraphQl*/ `
+    query WishlistProductsQuery ($ids:[string!]){
+    products: productsCollection(filter: {id: { in: $ids} }) { # return any product that appear "in" these $ids
+          edges {
+            node {
+              id
+              ...ProductCardFragment
+            }
+          }
+      }
+    }
+`);
 const RecommendationProductsQuery = gql(/* GraphQL */ `
   query RecommendationProductsQuery($first: Int!) {
     recommendations: productsCollection(first: $first) {
@@ -40,23 +55,40 @@ const WishlistEmptyQuery = gql(/* GraphQL */ `
 `);
 
 function RecommendationProducts({}: RecommendationProductsProps) {
-  const { user } = useAuth();
-  const userId = user?.id;
-  const [{ data, fetching, error }, refetch] = useQuery({
+  const wishlist = useWishlistStore((s)=> s.wishlist);
+  const whishListIds = Object.keys(wishlist);
+
+
+  const anonUserId = getAnonUserId();
+
+  // fetch recommendation products
+  const [{ data, fetching, error }] = useQuery({
     query: RecommendationProductsQuery,
     variables: {
       first: 4,
     },
   });
 
-  const [{ data: wish }] = useQuery({
+  // fetch wishlist products
+  const [{data: wishData, fetching: wishLoading}, refetchWish] = useQuery({
     query: WishlistEmptyQuery,
-    variables: { userId },
-    pause: !userId,
+    variables: {ids : whishListIds},
+    pause: whishListIds.length === 0, // skip request if the wishlist array empty
+    requestPolicy: "network-only"
   });
 
-  const isWishListEmpty = !wish || wish?.wishlist?.edges.length === 0;
+  const [{ data: wish }, refetchWish] = useQuery({
+    query: WishlistEmptyQuery,
+    variables: { userId:anonUserId },
+    requestPolicy: "network-only"
+  });
 
+  useEffect(()=> {
+    refetchWish();
+  },[wishlist, refetchWish]);
+
+  const isWishListEmpty = !wish || wish?.wishlist?.edges.length === 0;
+  
   if (fetching)
     return (
       <Header heading={`Popular Picks This Week!`}>
