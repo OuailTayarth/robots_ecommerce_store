@@ -65,7 +65,7 @@ const documents = {
     types.ProductImageShowcaseFragmentFragmentDoc,
   "\n  fragment CarouselImagesFragment on product_mediasEdge {\n    node {\n      id\n      media {\n        key\n        alt\n      }\n    }\n  }\n":
     types.CarouselImagesFragmentFragmentDoc,
-  '\n    query WishlistProductsQuery ($ids:[String!]){\n    products: productsCollection(filter: {id: { in: $ids} }) { # return any product that appear "in" these $ids\n          edges {\n            node {\n              id\n              ...ProductCardFragment\n            }\n          }\n      }\n    }\n':
+  '\n    query WishlistProductsQuery ($ids: [String!]){\n    products: productsCollection(filter: {id: { in: $ids} }) { # return any product that appear "in" these $ids\n          edges {\n            node {\n              id\n              ...ProductCardFragment\n            }\n          }\n      }\n    }\n':
     types.WishlistProductsQueryDocument,
   "\n  query RecommendationProductsQuery($first: Int!) {\n    recommendations: productsCollection(first: $first) {\n      edges {\n        node {\n          id\n          ...ProductCardFragment\n        }\n      }\n    }\n  }\n":
     types.RecommendationProductsQueryDocument,
@@ -253,8 +253,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n    query WishlistProductsQuery ($ids:[String!]){\n    products: productsCollection(filter: {id: { in: $ids} }) { # return any product that appear "in" these $ids\n          edges {\n            node {\n              id\n              ...ProductCardFragment\n            }\n          }\n      }\n    }\n'
-): (typeof documents)['\n    query WishlistProductsQuery ($ids:[String!]){\n    products: productsCollection(filter: {id: { in: $ids} }) { # return any product that appear "in" these $ids\n          edges {\n            node {\n              id\n              ...ProductCardFragment\n            }\n          }\n      }\n    }\n'];
+  source: '\n    query WishlistProductsQuery ($ids: [String!]){\n    products: productsCollection(filter: {id: { in: $ids} }) { # return any product that appear "in" these $ids\n          edges {\n            node {\n              id\n              ...ProductCardFragment\n            }\n          }\n      }\n    }\n'
+): (typeof documents)['\n    query WishlistProductsQuery ($ids: [String!]){\n    products: productsCollection(filter: {id: { in: $ids} }) { # return any product that appear "in" these $ids\n          edges {\n            node {\n              id\n              ...ProductCardFragment\n            }\n          }\n      }\n    }\n'];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
