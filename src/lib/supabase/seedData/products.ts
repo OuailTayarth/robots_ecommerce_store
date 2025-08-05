@@ -28,7 +28,7 @@ const products: InsertProducts[] = [
     featuredImageId: "9",
     collectionId: "1",
     stock: 6,
-    price: "19999",          // ≈ $19.9 k
+    price: "19999", // ≈ $19.9 k
   },
   {
     id: "302",
@@ -43,7 +43,7 @@ const products: InsertProducts[] = [
     featuredImageId: "1",
     collectionId: "1",
     stock: 10,
-    price: "16000",          // ≈ $16 k
+    price: "16000", // ≈ $16 k
   },
   {
     id: "303",
@@ -58,7 +58,7 @@ const products: InsertProducts[] = [
     featuredImageId: "8",
     collectionId: "1",
     stock: 4,
-    price: "18500",          // ≈ $18.5 k
+    price: "18500", // ≈ $18.5 k
   },
 
   // ─────── DOG ROBOTS  (collectionId: "2") ───────
@@ -75,7 +75,7 @@ const products: InsertProducts[] = [
     featuredImageId: "3",
     collectionId: "2",
     stock: 18,
-    price: "5250",           // ≈ $5.25 k
+    price: "5250", // ≈ $5.25 k
   },
   {
     id: "402",
@@ -90,7 +90,7 @@ const products: InsertProducts[] = [
     featuredImageId: "4",
     collectionId: "2",
     stock: 25,
-    price: "4500",           // ≈ $4.5 k
+    price: "4500", // ≈ $4.5 k
   },
   {
     id: "403",
@@ -105,7 +105,7 @@ const products: InsertProducts[] = [
     featuredImageId: "1",
     collectionId: "2",
     stock: 12,
-    price: "11650",          // ≈ $11.65 k
+    price: "11650", // ≈ $11.65 k
   },
 ];
 

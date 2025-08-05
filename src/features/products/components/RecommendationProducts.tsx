@@ -5,7 +5,7 @@ import React from "react";
 import Header from "@/components/layouts/Header";
 import { ProductCard } from "@/features/products";
 import { getAnonUserId } from "@/lib/utils";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useWishlistStore from "../../../features/wishlists/useWishlistStore";
 
 import ProductCardSkeleton from "./RecommendationProductsSkeleton";
@@ -14,7 +14,7 @@ export type RecommendationProductsProps =
   React.HTMLAttributes<HTMLDivElement> & {};
 
 const WishlistProductsQuery = gql(/*GraphQl*/ `
-    query WishlistProductsQuery ($ids:[String!]){
+    query WishlistProductsQuery ($ids: [String!]){
     products: productsCollection(filter: {id: { in: $ids} }) { # return any product that appear "in" these $ids
           edges {
             node {
@@ -46,7 +46,6 @@ const WishlistEmptyQuery = gql(/* GraphQL */ `
     ) {
       edges {
         node {
-          id
           product_id
         }
       }
@@ -57,11 +56,12 @@ const WishlistEmptyQuery = gql(/* GraphQL */ `
 function RecommendationProducts({}: RecommendationProductsProps) {
   const wishlist = useWishlistStore((s) => s.wishlist);
   const whishListIds = Object.keys(wishlist);
+  const [mounted, setMounted ] = useState<boolean>(false);
 
   const anonUserId = getAnonUserId();
 
   // fetch recommendation products
-  const [{ data: recData, fetching: recFetching, error}] = useQuery({
+  const [{ data: recData, fetching: recFetching, error }] = useQuery({
     query: RecommendationProductsQuery,
     variables: {
       first: 4,
@@ -81,16 +81,21 @@ function RecommendationProducts({}: RecommendationProductsProps) {
     variables: { userId: anonUserId },
     requestPolicy: "network-only",
   });
+  console.log("mounted value before ", mounted);
 
   // refetch whenever the local list in zustand changes
   useEffect(() => {
-    if(whishListIds.length) refetchWish();
+    setMounted(true);
+    if (whishListIds.length) refetchWish();
   }, [wishlist, refetchWish]);
-  
+
   const wishEdges = wishData?.products?.edges ?? [];
   const recommendationsEdges = recData?.recommendations?.edges ?? [];
-  // only check for wishEdges&wishListsIds. length when wishLoading if finished aka false
-  const isWishListEmpty =  !wishLoading  && (wishEdges.length === 0 || whishListIds.length === 0);
+  // only check for wishEdges&wishListsIds. length when wishLoading if the query finished aka false
+  const isWishListEmpty =
+    mounted &&  // we wait until we are on the client
+    !wishLoading && // wait until the query finished 
+    (wishEdges.length === 0 || whishListIds.length === 0); // then evaluate
 
   if (recFetching)
     return (
@@ -114,19 +119,18 @@ function RecommendationProducts({}: RecommendationProductsProps) {
         </p>
       ) : (
         <Header heading={`Your WishList!`}>
-        <div className="container grid grid-cols-2 lg:grid-cols-4 gap-x-8">
-          {wishEdges.map(({ node }) => (
+          <div className="container grid grid-cols-2 lg:grid-cols-4 gap-x-8">
+            {wishEdges.map(({ node }) => (
               <ProductCard key={node.id} product={node} />
             ))}
-        </div>
-      </Header>
-      )
-      }
+          </div>
+        </Header>
+      )}
       <Header heading={`Popular Picks This Week!`}>
         <div className="container grid grid-cols-2 lg:grid-cols-4 gap-x-8 ">
           {recommendationsEdges.map(({ node }) => (
-              <ProductCard key={node.id} product={node} />
-            ))}
+            <ProductCard key={node.id} product={node} />
+          ))}
         </div>
       </Header>
     </>
