@@ -9,9 +9,8 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const getAnonUserId = () => {
-  
-  if(typeof window === "undefined") return undefined;
-  
+  if (typeof window === "undefined") return undefined;
+
   // get the the id from the object name anonID
   let id = localStorage.getItem("anonUserId");
   if (!id || !isUuid(id)) {
