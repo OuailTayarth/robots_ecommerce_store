@@ -16,16 +16,10 @@ interface ProductsPageProps {
 }
 
 async function ProductsPage({}: ProductsPageProps) {
-  // TODO: PROBLEM in server actrion
-  // const collectionsData = await listCollectionsAction();
-
   return (
     <Shell>
       <Header heading="Shop Now" />
-
-      <Suspense fallback={<SearchProductsGridSkeleton />}>
-        <SearchProductsInfiniteScroll />
-      </Suspense>
+      <SearchProductsGridSkeleton />
     </Shell>
   );
 }

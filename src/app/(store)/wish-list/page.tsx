@@ -24,8 +24,7 @@ function WishListPage({}: Props) {
               buttonVariants({ variant: "default", size: "lg" }),
               "border-2 border-primary text-white rounded px-8 py-3 ",
               "md:px-6 md:py-6"
-            )}
-          >
+            )}>
             Back to Store
             <Icons.chevronRight className="ml-2 w-5" />
           </Link>

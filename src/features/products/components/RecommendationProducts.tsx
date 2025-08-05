@@ -56,7 +56,7 @@ const WishlistEmptyQuery = gql(/* GraphQL */ `
 function RecommendationProducts({}: RecommendationProductsProps) {
   const wishlist = useWishlistStore((s) => s.wishlist);
   const whishListIds = Object.keys(wishlist);
-  const [mounted, setMounted ] = useState<boolean>(false);
+  const [mounted, setMounted] = useState<boolean>(false);
 
   const anonUserId = getAnonUserId();
 
@@ -93,8 +93,8 @@ function RecommendationProducts({}: RecommendationProductsProps) {
   const recommendationsEdges = recData?.recommendations?.edges ?? [];
   // only check for wishEdges&wishListsIds. length when wishLoading if the query finished aka false
   const isWishListEmpty =
-    mounted &&  // we wait until we are on the client
-    !wishLoading && // wait until the query finished 
+    mounted && // we wait until we are on the client
+    !wishLoading && // wait until the query finished
     (wishEdges.length === 0 || whishListIds.length === 0); // then evaluate
 
   if (recFetching)
