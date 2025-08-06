@@ -3,7 +3,6 @@
 import { gql } from "@/gql";
 import { SearchQuery, SearchQueryVariables } from "@/gql/graphql";
 import { useQuery } from "@urql/next";
-import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/features/products";
 import SearchProductsGridSkeleton from "./SearchProductsGridSkeleton";
 
@@ -46,12 +45,8 @@ const ProductSearch = gql(/* GraphQL */ `
 
 const SearchResultPage = ({
   variables,
-  onLoadMore,
-  isLastPage,
 }: {
   variables: SearchQueryVariables;
-  onLoadMore: (cursor: string) => void;
-  isLastPage: boolean;
 }) => {
   // Fetching products based on the search query variables(search, price range, collections, etc.)
   const [result] = useQuery<SearchQuery, SearchQueryVariables>({
@@ -85,14 +80,6 @@ const SearchResultPage = ({
               <ProductCard key={node.id} product={node} />
             ))}
           </section>
-
-          {isLastPage && products.pageInfo.hasNextPage && (
-            <div className="w-full flex justify-center items-center mt-3">
-              <Button onClick={() => onLoadMore(products.pageInfo.endCursor)}>
-                load more
-              </Button>
-            </div>
-          )}
         </>
       )}
     </div>
