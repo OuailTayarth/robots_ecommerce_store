@@ -19,7 +19,10 @@ async function ProductsPage({}: ProductsPageProps) {
   return (
     <Shell>
       <Header heading="Shop Now" />
-      <SearchProductsGridSkeleton />
+
+      <Suspense fallback={<SearchProductsGridSkeleton />}>
+        <SearchProductsInfiniteScroll />
+      </Suspense>
     </Shell>
   );
 }
