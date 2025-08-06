@@ -100,7 +100,7 @@ function RecommendationProducts({}: RecommendationProductsProps) {
   if (recFetching)
     return (
       <Header heading={`Popular Picks This Week!`}>
-        <div className="container grid grid-cols-2 lg:grid-cols-4 gap-x-8 ">
+        <div className="container grid grid-cols-2 lg:grid-cols-4 gap-x-8 mt-2">
           {[...Array(6)].map((_, index) => (
             <ProductCardSkeleton key={index} />
           ))}
@@ -127,7 +127,7 @@ function RecommendationProducts({}: RecommendationProductsProps) {
         </Header>
       )}
       <Header heading={`Popular Picks This Week!`}>
-        <div className="container grid grid-cols-2 lg:grid-cols-4 gap-x-8 ">
+        <div className="container grid grid-cols-2 lg:grid-cols-4 gap-x-8 mt-9">
           {recommendationsEdges.map(({ node }) => (
             <ProductCard key={node.id} product={node} />
           ))}

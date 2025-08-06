@@ -67,8 +67,7 @@ function AddToWishListButton({ productId, productName }: Props) {
     <Button
       className="rounded-full p-3"
       variant="ghost"
-      onClick={onClickHandler}
-    >
+      onClick={onClickHandler}>
       <Icons.heart
         className={cn(
           "w-4 h-4",

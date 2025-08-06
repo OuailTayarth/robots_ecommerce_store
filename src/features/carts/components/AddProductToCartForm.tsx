@@ -13,7 +13,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-import { useAuth } from "@/providers/AuthProvider";
 import useCartActions from "../hooks/useCartActions";
 import { AddProductCartData, AddProductToCartSchema } from "../validations";
 
@@ -22,8 +21,7 @@ interface AddProductToCartFormProps {
 }
 
 function AddProductToCartForm({ productId }: AddProductToCartFormProps) {
-  const { user } = useAuth();
-  const { addProductToCart } = useCartActions(user, productId);
+  const { addProductToCart } = useCartActions(productId);
   const maxQuantity = 8;
 
   const form = useForm<AddProductCartData>({

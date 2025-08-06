@@ -70,8 +70,7 @@ function GuestCartSection() {
       {Object.keys(cartItems).length > 0 ? (
         <section
           aria-label="Cart Section"
-          className="grid grid-cols-12 gap-x-6 gap-y-5"
-        >
+          className="grid grid-cols-12 gap-x-6 gap-y-5">
           <div className="col-span-12 md:col-span-9 max-h-[420px] md:max-h-[640px] overflow-y-auto">
             {data.productsCollection.edges.map(({ node }) => (
               <CartItemCard
@@ -92,7 +91,7 @@ function GuestCartSection() {
 
           <Card className="w-full h-[180px] px-3 col-span-12 md:col-span-3">
             <CardHeader className="px-3 pt-2 pb-0 text-md">
-              <CardTitle className="text-lg mb-0">Subtotoal: </CardTitle>
+              <CardTitle className="text-lg mb-0">SubTotal: </CardTitle>
               <CardDescription>{`${productCount} Items`}</CardDescription>
             </CardHeader>
             <CardContent className="relative overflow-hidden px-3 py-2">
@@ -116,14 +115,12 @@ export default GuestCartSection;
 export const LoadingCartSection = () => (
   <section
     className="grid grid-cols-12 gap-x-6 gap-y-5"
-    aria-label="Loading Skeleton"
-  >
+    aria-label="Loading Skeleton">
     <div className="col-span-12 md:col-span-9 space-y-8">
       {[...Array(4)].map((_, index) => (
         <div
           className="flex items-center justify-between gap-x-6 gap-y-8 border-b p-5"
-          key={index}
-        >
+          key={index}>
           <Skeleton className="h-[120px] w-[120px]" />
           <div className="space-y-3 w-full">
             <Skeleton className="h-6 max-w-xs" />

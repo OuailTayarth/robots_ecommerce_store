@@ -139,8 +139,7 @@ function HeroSection() {
                 buttonVariants({ variant: "default", size: "lg" }),
                 "border-2 border-primary text-white rounded px-8 py-3 ",
                 "md:px-16 md:py-6"
-              )}
-            >
+              )}>
               Learn More
             </Link>
           </div>
@@ -308,8 +307,7 @@ function CollectionRectCard({ collections }: CollectionsCardsProps) {
         <Suspense
           fallback={[...Array(6)].map((_, index) => (
             <CollectionsCardSkeleton key={`Collections-sekelton-${index}`} />
-          ))}
-        >
+          ))}>
           {collections.map(({ node }) => (
             <CollectionsCard collection={node} key={node.id} />
           ))}
