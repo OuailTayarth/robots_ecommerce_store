@@ -2,7 +2,6 @@
 import { useMemo, useState } from "react";
 import { DocumentType, gql } from "@/gql";
 import { expectedErrorsHandler } from "@/lib/urql";
-import { User } from "@supabase/supabase-js";
 import { useMutation, useQuery } from "urql";
 import { notFound } from "next/navigation";
 import {
@@ -45,13 +44,13 @@ export const FetchCartQuery = gql(/* GraphQL */ `
   }
 `);
 
-type UserCartSectionProps = { user: User };
+type UserCartSectionProps = { userId: String };
 
-function UserCartSection({ user }: UserCartSectionProps) {
+function UserCartSection({ userId }: UserCartSectionProps) {
   const [{ data, fetching, error }, reexecuteQuery] = useQuery({
     query: FetchCartQuery,
     variables: {
-      userId: user.id,
+      userId: userId,
     },
   });
 
@@ -80,7 +79,7 @@ function UserCartSection({ user }: UserCartSectionProps) {
 
       const res = await updateCartProduct({
         productId: productId,
-        userId: user.id,
+        userId: userId,
         newQuantity: quantity + 1,
       });
 
@@ -102,7 +101,7 @@ function UserCartSection({ user }: UserCartSectionProps) {
 
       const res = await updateCartProduct({
         productId: productId,
-        userId: user.id,
+        userId: userId,
         newQuantity: quantity - 1,
       });
 
@@ -121,7 +120,7 @@ function UserCartSection({ user }: UserCartSectionProps) {
   const removeHandler = async (productId: string) => {
     setIsLoading(true);
 
-    const res = await removeCart({ productId, userId: user.id });
+    const res = await removeCart({ productId, userId: userId });
     reexecuteQuery({ requestPolicy: "network-only" });
 
     toast({ title: "Removed a Product." });
@@ -153,8 +152,7 @@ function UserCartSection({ user }: UserCartSectionProps) {
       {data.cartsCollection && data.cartsCollection.edges.length > 0 ? (
         <section
           aria-label="Cart Section"
-          className="grid grid-cols-12 gap-x-6 gap-y-5"
-        >
+          className="grid grid-cols-12 gap-x-6 gap-y-5">
           <div className="col-span-12 md:col-span-9 max-h-[420px] overflow-y-auto">
             {data.cartsCollection?.edges.map(({ node }) => (
               <CartItemCard
@@ -204,14 +202,12 @@ export default UserCartSection;
 const LoadingCartSection = () => (
   <section
     className="grid grid-cols-12 gap-x-6 gap-y-5"
-    aria-label="Loading Skeleton"
-  >
+    aria-label="Loading Skeleton">
     <div className="col-span-12 md:col-span-9 space-y-8">
       {[...Array(4)].map((_, index) => (
         <div
           className="flex items-center justify-between gap-x-6 gap-y-8 border-b p-5"
-          key={index}
-        >
+          key={index}>
           <Skeleton className="h-[120px] w-[120px]" />
           <div className="space-y-3 w-full">
             <Skeleton className="h-6 max-w-xs" />

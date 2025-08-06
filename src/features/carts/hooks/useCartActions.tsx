@@ -1,13 +1,14 @@
 "use client";
+import { getAnonUserId } from "@/lib/utils";
 import { useToast } from "@/components/ui/use-toast";
-import { User } from "@supabase/auth-helpers-nextjs";
 import { useMutation, useQuery } from "urql";
 import { FetchCartQuery } from "../components/UserCartSection";
 import { createCartMutation, updateCartsMutation } from "../query";
 import useCartStore from "../useCartStore";
 
-function useCartActions(user: User | null, productId: string) {
+function useCartActions(productId: string) {
   const { toast } = useToast();
+  const anonUserId = getAnonUserId();
   const [, addToCart] = useMutation(createCartMutation);
   const [, updateCart] = useMutation(updateCartsMutation);
   const addProductStorage = useCartStore((s) => s.addProductToCart);
@@ -15,7 +16,7 @@ function useCartActions(user: User | null, productId: string) {
   const [{ data }, refetch] = useQuery({
     query: FetchCartQuery,
     variables: {
-      userId: user ? user.id : undefined,
+      userId: anonUserId,
     },
   });
 
@@ -28,14 +29,14 @@ function useCartActions(user: User | null, productId: string) {
       if (!existedProduct) {
         res = await addToCart({
           productId,
-          userId: user.id,
+          userId: anonUserId,
           quantity,
         });
         refetch({ requestPolicy: "network-only" });
       } else {
         res = await updateCart({
           productId,
-          userId: user.id,
+          userId: anonUserId,
           newQuantity: existedProduct.node.quantity + quantity,
         });
       }
@@ -47,11 +48,11 @@ function useCartActions(user: User | null, productId: string) {
 
   const guestAddProduct = (quantity: number) => {
     addProductStorage(productId, quantity);
-    toast({ title: "Sucess, Added a Product to the Cart." });
+    toast({ title: "Success, Added a Product to the Cart." });
   };
 
   const addProductToCart = (quantity: number) =>
-    !user ? guestAddProduct(quantity) : authAddOrUpdateProduct(quantity);
+    !anonUserId ? guestAddProduct(quantity) : authAddOrUpdateProduct(quantity);
 
   return { addProductToCart };
 }

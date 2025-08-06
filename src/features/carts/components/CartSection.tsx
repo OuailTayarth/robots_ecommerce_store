@@ -1,13 +1,20 @@
 "use client";
-import { useAuth } from "@/providers/AuthProvider";
+import { getAnonUserId } from "@/lib/utils";
 import UserCartSection from "./UserCartSection";
 
 import GuestCartSection from "./GuestCartSection";
 
 function CartSection() {
-  const { user } = useAuth();
-
-  return <>{user ? <UserCartSection user={user} /> : <GuestCartSection />}</>;
+  const anonUserId = getAnonUserId();
+  return (
+    <>
+      {anonUserId ? (
+        <UserCartSection userId={anonUserId} />
+      ) : (
+        <GuestCartSection />
+      )}
+    </>
+  );
 }
 
 export default CartSection;

@@ -18,7 +18,7 @@ interface ProductsPageProps {
 async function ProductsPage({}: ProductsPageProps) {
   return (
     <Shell>
-      <Header heading="Shop Now" />
+      <Header heading="Shop Now" className="mt-[100px]" />
 
       <Suspense fallback={<SearchProductsGridSkeleton />}>
         <SearchProductsInfiniteScroll />
