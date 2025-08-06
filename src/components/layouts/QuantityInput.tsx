@@ -21,8 +21,7 @@ const QuantityInput = React.forwardRef<HTMLInputElement, QuantitiyInputProps>(
         className={cn(
           "max-w-36 h-12 border-2 border-input rounded-full relative flex items-center justify-between py-2 px-4",
           className
-        )}
-      >
+        )}>
         <input
           {...props}
           aria-label="quantity"
@@ -30,20 +29,18 @@ const QuantityInput = React.forwardRef<HTMLInputElement, QuantitiyInputProps>(
           value={value}
           ref={ref}
           onChange={(event) => onChange(event.target.valueAsNumber)}
-          className="w-6 flex-1 text-center shadow-none  focus:ring-transparent focus:ring-0 active:ring-0 focus:border-none focus:ring-offset-0 max-w-6 order-2 h-8"
+          className="w-6 flex-1 text-center shadow-none bg-transparent appearance-none focus:ring-transparent focus:ring-0 active:ring-0 focus:border-none focus:ring-offset-0 max-w-6 order-2 h-8"
         />
         <button
           type="button"
           className="text-xl order-1"
-          onClick={minusOneHandler}
-        >
+          onClick={minusOneHandler}>
           <Icons.minus aria-label="minus" />
         </button>
         <button
           type="button"
           className="text-xl order-3"
-          onClick={addOneHandler}
-        >
+          onClick={addOneHandler}>
           <Icons.add aria-label="add" />
         </button>
       </div>

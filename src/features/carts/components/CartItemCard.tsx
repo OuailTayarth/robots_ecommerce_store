@@ -5,6 +5,7 @@ import Image from "next/image";
 import React from "react";
 
 import QuantityInput from "../../../components/layouts/QuantityInput";
+import { formatPrice } from "@/lib/utils";
 
 import {
   Card,
@@ -72,7 +73,7 @@ function CartItemCard({
           </Link>
         </CardTitle>
 
-        <CardDescription className="grow line-clamp-2">
+        <CardDescription className="grow line-clamp-2 ">
           {product.description}
         </CardDescription>
 
@@ -85,13 +86,12 @@ function CartItemCard({
       </CardHeader>
 
       <CardFooter className="gap-x-2 md:gap-x-5 p-0 ">
-        <p>$ {product.price}</p>
+        <p>$ {formatPrice(product.price)}</p>
 
         <Button
           aria-label="Remove Item Button"
           variant="ghost"
-          onClick={removeHandler}
-        >
+          onClick={removeHandler}>
           <Icons.close size={20} />
         </Button>
       </CardFooter>

@@ -2,6 +2,7 @@
 import { useMemo, useState } from "react";
 import { DocumentType, gql } from "@/gql";
 import { expectedErrorsHandler } from "@/lib/urql";
+import { formatPrice } from "@/lib/utils";
 import { useMutation, useQuery } from "urql";
 import { notFound } from "next/navigation";
 import {
@@ -62,6 +63,7 @@ function UserCartSection({ userId }: UserCartSectionProps) {
   const cart = data && data.cartsCollection ? data.cartsCollection.edges : [];
   const subtotal = useMemo(() => calcSubtotal(cart), [cart]);
   const productCount = useMemo(() => calcProductCount(cart), [cart]);
+  console.log(subtotal);
 
   if (fetching) {
     return <LoadingCartSection />;
@@ -91,7 +93,7 @@ function UserCartSection({ userId }: UserCartSectionProps) {
 
       setIsLoading(false);
     } else {
-      toast({ title: "Proudct Limit is reached." });
+      toast({ title: "Product Limit is reached." });
     }
   };
 
@@ -174,11 +176,11 @@ function UserCartSection({ userId }: UserCartSectionProps) {
 
           <Card className="w-full h-[180px] px-3 col-span-12 md:col-span-3">
             <CardHeader className="px-3 pt-2 pb-0 text-md">
-              <CardTitle className="text-lg mb-0">Subtotoal: </CardTitle>
+              <CardTitle className="text-lg mb-0">Subtotal: </CardTitle>
               <CardDescription>{`${productCount} Items`}</CardDescription>
             </CardHeader>
             <CardContent className="relative overflow-hidden px-3 py-2">
-              <p className="text-3xl md:text-lg lg:text-2xl font-bold">{`$ ${subtotal.toFixed(2).toString()}`}</p>
+              <p className="text-3xl md:text-lg lg:text-2xl font-bold">{`$ ${formatPrice(subtotal)}`}</p>
             </CardContent>
 
             <CardFooter className="gap-x-2 md:gap-x-5 px-3">
