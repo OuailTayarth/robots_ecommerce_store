@@ -1,7 +1,6 @@
 "use client";
 import { OrderByDirection, SearchQueryVariables } from "@/gql/graphql";
 import { ReadonlyURLSearchParams, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
 import SearchResultPage from "./SearchResultPage";
 
 interface SearchProductsInfiniteScrollProps {

@@ -24,8 +24,8 @@ interface CategoryPageProps {
 
 export function generateMetadata({ params }: CategoryPageProps) {
   return {
-    title: `RoboForge | ${toTitleCase(unslugify(params.collectionSlug))}`,
-    description: `RoboForge | Buy ${params.collectionSlug}.`,
+    title: `NextBot | ${toTitleCase(unslugify(params.collectionSlug))}`,
+    description: `NextBot | Buy ${params.collectionSlug}.`,
   };
 }
 
@@ -96,8 +96,7 @@ async function CategoryPage({ params, searchParams }: CategoryPageProps) {
             <Skeleton className="max-w-xl h-8 mb-3" />
             <Skeleton className="max-w-2xl h-8" />
           </div>
-        }
-      >
+        }>
         <FilterSelections shopLayout={false} />
       </Suspense>
 

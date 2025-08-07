@@ -112,10 +112,10 @@ function HeroSection() {
       <div className="container absolute py-8 h-screen md:h-[800px] w-full">
         <div className="flex flex-col justify-center z-30 h-full">
           <p className="text-sm md:text-md uppercase tracking-widest text-black ">
-            RoboForge
+            NextBot
           </p>
           <h1 className="text-5xl md:text-7xl md:leading-[1.2] font-bold text-black my-4">
-            The Future,
+            AI Robotics,
             <br />
             Delivered Today
           </h1>
@@ -342,7 +342,7 @@ function OurMission() {
 
         <div className="col-span-12 md:col-span-4 order-1 md:order-2 flex flex-col justify-center items-start px-6 py-10 md:px-16 md:py-0">
           <p className="text-[15px] md:text-[19px] leading-relaxed mb-6 text-zinc-700">
-            At RoboForge, we believe robotics should be accessible, ethical, and
+            At NextBot, we believe robotics should be accessible, ethical, and
             inspiring. From humanoid helpers to agile quadrupeds, our mission is
             to bring cutting-edge AI into everyday life—designed for learning,
             exploration, and real-world impact.
