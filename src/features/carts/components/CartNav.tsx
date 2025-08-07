@@ -6,10 +6,14 @@ import { useQuery } from "@urql/next";
 import CartLink from "./CartLink";
 import { FetchCartQuery } from "./UserCartSection";
 import useCartStore, { calcProductCountStorage } from "../useCartStore";
+import { getAnonUserId } from "@/lib/utils";
 
 function CartNav() {
-  const { user } = useAuth();
-  return <>{!user ? <GuestCart /> : <UserCartNav currentUser={user} />}</>;
+  // added GuestCart to use local storage for future implementation when adding Auth for user.
+  const anonUserId = getAnonUserId();
+  return (
+    <>{!anonUserId ? <GuestCart /> : <UserCartNav userId={anonUserId} />}</>
+  );
 }
 
 const GuestCart = () => {
@@ -22,11 +26,11 @@ const GuestCart = () => {
   return <CartLink productCount={productCountStorage} />;
 };
 
-const UserCartNav = ({ currentUser }: { currentUser: User }) => {
+const UserCartNav = ({ userId }: { userId: string }) => {
   const [{ data, fetching, error }, refetch] = useQuery({
     query: FetchCartQuery,
     variables: {
-      userId: currentUser.id,
+      userId: userId,
     },
   });
 
