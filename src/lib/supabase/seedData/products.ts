@@ -20,7 +20,7 @@ const products: InsertProducts[] = [
     name: "1X NEO Humanoid",
     slug: "1x-neo",
     description:
-      "NEO is 1X’s 162-cm, 30-kg home-assistant humanoid that walks at 4 km/h, sprints up to 12 km/h, and carries 20 kg payloads. It features 20 DoF tendon-driven joints for safe, fluid motion, a 4-mic beam-forming array, and a 3-speaker sound system for natural AI voice interaction — all designed for everyday chores and research in human environments.",
+      "Meet NEO — your 162 cm home helper. It walks, runs, carries 20 kg, and chats naturally to make daily chores effortless.",
     featured: true,
     badge: "featured",
     rating: "4.7",
@@ -35,7 +35,7 @@ const products: InsertProducts[] = [
     name: "Unitree G1 Dexterous Arm",
     slug: "unitree-g1",
     description:
-      "A 6-DoF lightweight robotic arm (4 kg) offering ±170° joint ranges, 1 kg payload, 0.03 mm repeatability, and ROS 2 / C++ / Python SDKs for rapid manipulation research.",
+      "A lightweight 6-axis robotic arm that’s easy to program and highly precise — perfect for research or home tinkering.",
     featured: true,
     badge: "featured",
     rating: "4.4",
@@ -47,10 +47,10 @@ const products: InsertProducts[] = [
   },
   {
     id: "303",
-    name: "Unitree G1‑Comp",
+    name: "Unitree G1-Comp",
     slug: "unitree-g1-comp",
     description:
-      "Competition-tuned G1 arm bundle with quick-swap gripper, high-torque servos, and calibration kit — certified for RoboCup@Home and similar manipulation contests.",
+      "Competition-ready G1 bundle with quick-swap gripper and high-torque servos — ideal for RoboCup and advanced projects.",
     featured: false,
     badge: "best_sale",
     rating: "4.2",
@@ -67,7 +67,7 @@ const products: InsertProducts[] = [
     name: "Unitree Go2",
     slug: "unitree-go2",
     description:
-      "Next-gen consumer quadruped with proprietary 4D LiDAR, 30% longer battery life, side-follow AI, and a sprint speed up to 17 km/h — perfect for education and hobby R&D.",
+      "Go2 is a nimble robot dog with longer battery, smart side-follow AI, and 17 km/h sprint — perfect for learning or showing off.",
     featured: true,
     badge: "featured",
     rating: "4.8",
@@ -82,7 +82,7 @@ const products: InsertProducts[] = [
     name: "Unitree Go1",
     slug: "unitree-go1",
     description:
-      "Affordable 12-kg robot dog capable of 3.7 m/s, 14-bit joint encoders, and depth-camera obstacle avoidance — ideal entry-level platform for AI and SLAM projects.",
+      "An affordable 12 kg quadruped that runs 3.7 m/s and dodges obstacles — a great first step into AI and SLAM.",
     featured: false,
     badge: "best_sale",
     rating: "4.5",
@@ -97,7 +97,7 @@ const products: InsertProducts[] = [
     name: "Unitree A1",
     slug: "unitree-a1",
     description:
-      "Research‑grade agile quadruped with 33 N·m joint torque, 3.3 m/s dash speed, and open SDK support; widely used in universities for locomotion and RL experiments.",
+      "Research-grade agile dog robot with powerful joints and open SDK — trusted by universities for locomotion and RL experiments.",
     featured: true,
     badge: "new_product",
     rating: "4.3",

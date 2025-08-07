@@ -17,10 +17,12 @@ function useCartActions(productId: string) {
     query: FetchCartQuery,
     variables: {
       userId: anonUserId,
+      first: 100,
     },
+    requestPolicy: "network-only",
   });
 
-  const authAddOrUpdateProduct = async (quantity: number) => {
+  const addOrUpdateProduct = async (quantity: number) => {
     const existedProduct = data?.cartsCollection.edges.find(
       ({ node }) => node.product_id === productId
     );
@@ -39,6 +41,7 @@ function useCartActions(productId: string) {
           userId: anonUserId,
           newQuantity: existedProduct.node.quantity + quantity,
         });
+        refetch({ requestPolicy: "network-only" });
       }
       if (res) toast({ title: "Success, Added a Product to the Cart." });
     } catch (err) {
@@ -52,7 +55,7 @@ function useCartActions(productId: string) {
   };
 
   const addProductToCart = (quantity: number) =>
-    !anonUserId ? guestAddProduct(quantity) : authAddOrUpdateProduct(quantity);
+    !anonUserId ? guestAddProduct(quantity) : addOrUpdateProduct(quantity);
 
   return { addProductToCart };
 }

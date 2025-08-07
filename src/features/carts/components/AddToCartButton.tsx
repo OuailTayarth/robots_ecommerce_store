@@ -12,7 +12,7 @@ interface AddToCartButtonProps extends ButtonProps {
 }
 
 function AddToCartButton({ productId, quantity = 1 }: AddToCartButtonProps) {
-  const { addProductToCart } = useCartActions( productId);
+  const { addProductToCart } = useCartActions(productId);
 
   return (
     <Suspense>
