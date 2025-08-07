@@ -65,8 +65,8 @@ function MainFooter({}: Props) {
       ],
     },
     {
-      title: "About RoboForge",
-      title: "About RoboForge",
+      title: "About NextBot",
+      title: "About NextBot",
       items: [
         {
           title: "Our Story",

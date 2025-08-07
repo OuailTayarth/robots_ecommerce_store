@@ -10,7 +10,7 @@ export const siteConfig = {
   url: "https://github.com",
   address: "Kungsgatan 12 111 35, Stockholm, Sweden",
   phone: "+46 8 123 456 78",
-  email: "hello@roboForge.com",
+  email: "hello@NextBot.com",
   mainNav: [
     {
       title: "Shop",

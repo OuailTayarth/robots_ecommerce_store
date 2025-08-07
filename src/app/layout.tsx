@@ -10,7 +10,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "RoboForge | Your Ultimate Robots Garage!",
+  title: "NextBot | Your Ultimate Robots Garage!",
   description: "",
 };
 

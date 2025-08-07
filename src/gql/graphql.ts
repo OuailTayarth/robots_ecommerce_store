@@ -1999,19 +1999,6 @@ export type ProductDetailPageQueryQuery = {
         rating: any;
         price: any;
         tags: any;
-        totalComments: number;
-        commentsCollection?: {
-          __typename?: "commentsConnection";
-          edges: Array<{
-            __typename?: "commentsEdge";
-            node: {
-              __typename?: "comments";
-              id: string;
-              comment: string;
-              profile: { __typename?: "profiles"; name?: string | null };
-            };
-          }>;
-        } | null;
         collections?: {
           __typename?: "collections";
           id: string;
@@ -2319,13 +2306,6 @@ export type CreateCollectionMutationMutation = {
     affectedCount: number;
     records: Array<{ __typename: "collections" }>;
   } | null;
-};
-
-export type ProductCommentsSectionFragmentFragment = {
-  __typename?: "comments";
-  id: string;
-  comment: string;
-  profile: { __typename?: "profiles"; name?: string | null };
 };
 
 export type ImageGridFragmentFragment = {
@@ -2785,36 +2765,6 @@ export const CollectionColumnsFragmentFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<CollectionColumnsFragmentFragment, unknown>;
-export const ProductCommentsSectionFragmentFragmentDoc = {
-  kind: "Document",
-  definitions: [
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "ProductCommentsSectionFragment" },
-      typeCondition: {
-        kind: "NamedType",
-        name: { kind: "Name", value: "comments" },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "id" } },
-          { kind: "Field", name: { kind: "Name", value: "comment" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "profile" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                { kind: "Field", name: { kind: "Name", value: "name" } },
-              ],
-            },
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<ProductCommentsSectionFragmentFragment, unknown>;
 export const ImageGridFragmentFragmentDoc = {
   kind: "Document",
   definitions: [
@@ -4352,59 +4302,10 @@ export const ProductDetailPageQueryDocument = {
                               name: { kind: "Name", value: "tags" },
                             },
                             {
-                              kind: "Field",
-                              name: { kind: "Name", value: "totalComments" },
-                            },
-                            {
                               kind: "FragmentSpread",
                               name: {
                                 kind: "Name",
                                 value: "ProductImageShowcaseFragment",
-                              },
-                            },
-                            {
-                              kind: "Field",
-                              name: {
-                                kind: "Name",
-                                value: "commentsCollection",
-                              },
-                              arguments: [
-                                {
-                                  kind: "Argument",
-                                  name: { kind: "Name", value: "first" },
-                                  value: { kind: "IntValue", value: "5" },
-                                },
-                              ],
-                              selectionSet: {
-                                kind: "SelectionSet",
-                                selections: [
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "edges" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "Field",
-                                          name: { kind: "Name", value: "node" },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "FragmentSpread",
-                                                name: {
-                                                  kind: "Name",
-                                                  value:
-                                                    "ProductCommentsSectionFragment",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
                               },
                             },
                             {
@@ -4577,31 +4478,6 @@ export const ProductDetailPageQueryDocument = {
                     ],
                   },
                 },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "ProductCommentsSectionFragment" },
-      typeCondition: {
-        kind: "NamedType",
-        name: { kind: "Name", value: "comments" },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "id" } },
-          { kind: "Field", name: { kind: "Name", value: "comment" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "profile" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                { kind: "Field", name: { kind: "Name", value: "name" } },
               ],
             },
           },
