@@ -300,24 +300,6 @@ function CollectionGrid() {
   );
 }
 
-function CollectionRectCard({ collections }: CollectionsCardsProps) {
-  return (
-    <ScrollArea className="whitespace-nowrap relative container">
-      <div className="flex w-max space-x-10 py-5 overflow-auto">
-        <Suspense
-          fallback={[...Array(6)].map((_, index) => (
-            <CollectionsCardSkeleton key={`Collections-sekelton-${index}`} />
-          ))}>
-          {collections.map(({ node }) => (
-            <CollectionsCard collection={node} key={node.id} />
-          ))}
-        </Suspense>
-      </div>
-      <ScrollBar orientation="horizontal" />
-    </ScrollArea>
-  );
-}
-
 function OurMission() {
   return (
     <>
@@ -344,7 +326,7 @@ function OurMission() {
           <p className="text-[15px] md:text-[19px] leading-relaxed mb-6 text-zinc-700">
             At NextBot, we believe robotics should be accessible, ethical, and
             inspiring. From humanoid helpers to agile quadrupeds, our mission is
-            to bring cutting-edge AI into everyday life—designed for learning,
+            to bring cutting-edge AI into everyday life designed for learning,
             exploration, and real-world impact.
           </p>
 

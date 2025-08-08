@@ -18,8 +18,7 @@ async function MainNavbar({ adminLayout = false }: MainNavbarProps) {
       <div
         className={cn(
           adminLayout ? "mx-auto px-[3rem] max-w-[2500px] py-3" : "container"
-        )}
-      >
+        )}>
         <div className="hidden md:flex gap-x-8 justify-between items-center">
           {/* Menu & branding */}
           <div className="flex gap-x-3 items-center">
@@ -38,7 +37,7 @@ async function MainNavbar({ adminLayout = false }: MainNavbarProps) {
             </Link>
 
             <Suspense fallback={<CartLink productCount={0} />}>
-              {!adminLayout && <CartNav />}
+              <CartNav />
             </Suspense>
           </div>
         </div>

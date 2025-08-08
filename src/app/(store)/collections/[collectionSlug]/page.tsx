@@ -66,20 +66,13 @@ async function CategoryPage({ params, searchParams }: CategoryPageProps) {
     collectionSlug,
   });
 
-  if (
-    data === null ||
-    !data?.collectionsCollection?.edges[0].node ||
-    data?.collectionsCollection === null ||
-    data?.collectionsCollection?.edges[0].node.productsCollection === null
-  )
-    return notFound();
+  const collection = data?.collectionsCollection?.edges?.[0]?.node;
+  if (!collection) return notFound();
 
-  const productsList =
-    data?.collectionsCollection?.edges[0].node.productsCollection;
+  const productsList = collection.productsCollection;
 
   if (!productsList) return notFound();
 
-  const collection = data.collectionsCollection.edges[0].node;
   return (
     <Shell>
       <CollectionBanner
@@ -96,9 +89,7 @@ async function CategoryPage({ params, searchParams }: CategoryPageProps) {
             <Skeleton className="max-w-xl h-8 mb-3" />
             <Skeleton className="max-w-2xl h-8" />
           </div>
-        }>
-        <FilterSelections shopLayout={false} />
-      </Suspense>
+        }></Suspense>
 
       <Suspense fallback={<SearchProductsGridSkeleton />}>
         <SearchProductsInfiniteScroll

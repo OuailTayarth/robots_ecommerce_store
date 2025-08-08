@@ -19,21 +19,15 @@ export const siteConfig = {
       items: [],
     },
     {
-      title: "Our Mission",
-      href: "#",
-      description: "Our Story.",
-      items: [],
-    },
-    {
       title: "Humanoid",
-      href: "#",
-      description: "Read our latest blog posts.",
+      href: "/collections/humanoid-robots",
+      description: "Explore humanoid robots.",
       items: [],
     },
     {
       title: "Dogs ",
-      href: "#",
-      description: "Read our latest blog posts.",
+      href: "/collections/dog-robots",
+      description: "Explore quadruped robots.",
       items: [],
     },
     {
@@ -44,7 +38,7 @@ export const siteConfig = {
     },
     {
       title: "Contact",
-      href: "https://github.com",
+      href: "#",
       description: "Read our latest blog posts.",
       items: [],
     },

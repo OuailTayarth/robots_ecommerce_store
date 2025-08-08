@@ -6,12 +6,11 @@ import { Icons } from "@/components/layouts/icons";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import useWishlistStore from "../useWishlistStore";
-import { getAnonUserId } from "@/lib/utils";
+import { useAnonUserId } from "@/features/carts/hooks/useAnonUserId";
 
 type Props = {
   productId: string;
   productName: string;
-  onWishlistChange?: () => void;
 };
 
 const AddProductToWishList = gql(/* GraphQL */ `
@@ -44,7 +43,7 @@ const RemoveWishlistItemMutation = gql(/* GraphQL */ `
 `);
 
 function AddToWishListButton({ productId, productName }: Props) {
-  const anonUserId = getAnonUserId();
+  const anonUserId = useAnonUserId();
   const { toast } = useToast();
   const wishlist = useWishlistStore((s) => s.wishlist);
   const toggleWishlist = useWishlistStore((s) => s.toggleWishItem);

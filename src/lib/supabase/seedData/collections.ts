@@ -9,7 +9,7 @@ const collections = [
     title: "Bring Home a Personal Humanoid",
     slug: "humanoid-robots",
     description:
-      "Explore cutting-edge humanoid companions designed for assistance, learning, and interactive fun. Perfect for research labs or futuristic households.",
+      "Step into the future with our advanced humanoid robots – engineered to assist with daily tasks while learning alongside you. These intelligent companions blend natural movement with conversational AI, making them perfect for tech enthusiasts, educational institutions, and households seeking innovative solutions. Experience the seamless integration of cutting-edge robotics into your everyday life.",
     featuredImageId: "23",
     order: "1",
   },
@@ -18,11 +18,11 @@ const collections = [
   {
     id: "2",
     label: "Dog Robots",
-    title: "Agile Quadrupeds for Work & Play",
+    title: "Robotic Dogs That Work and Play",
     slug: "dog-robots",
     description:
-      "Discover our range of four-legged robots—ideal for search-and-rescue, inspection, or just an advanced robotic pet that never needs a walk.",
-    featuredImageId: "16",
+      "Meet your new robotic companion – where precision engineering meets playful agility. Our quadruped robots excel in real-world applications from industrial inspections to search-and-rescue operations, while their approachable design makes them ideal learning tools. With obstacle-navigating intelligence and customizable capabilities, they're transforming how we interact with technology both professionally and personally.",
+    featuredImageId: "5",
     order: "10",
   },
 ];
