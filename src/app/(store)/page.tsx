@@ -111,10 +111,10 @@ function HeroSection() {
 
       <div className="container absolute py-8 h-screen md:h-[800px] w-full">
         <div className="flex flex-col justify-center z-30 h-full">
-          <p className="text-sm md:text-md uppercase tracking-widest text-black ">
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg uppercase tracking-widest text-black">
             NextBot
           </p>
-          <h1 className="text-5xl md:text-7xl md:leading-[1.2] font-bold text-black my-4">
+          <h1 className="text-4xl sm:text-4xl md:text-6xl lg:text-7xl md:leading-[1.2] font-bold text-black my-4">
             AI Robotics,
             <br />
             Delivered Today
@@ -188,10 +188,10 @@ function ProductSubCollectionsCircles({ collections }: CollectionsCardsProps) {
   return (
     <>
       <section className="text-center mt-9 mb-3">
-        <h1 className="text-5xl font-semibold text-zinc-800 pb-1">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-zinc-800 pb-1">
           Designed for Work, Play, and Beyond
         </h1>
-        <p className="text-lg font-light text-zinc-600 mt-2">
+        <p className=" text-base sm:text-lg md:text-xl font-light text-zinc-600 mt-2">
           Meet robots that walk, think, and assist—at home or in the field.
         </p>
       </section>
@@ -229,15 +229,15 @@ function FeaturedProductsCards({ products }: FeaturedProductsCardsProps) {
   return (
     <>
       <section className="text-center mt-9">
-        <h1 className="text-5xl font-semibold text-zinc-800 pb-1">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-zinc-800 pb-1">
           Featured Products
         </h1>
-        <p className="text-lg font-light text-zinc-600 mt-1">
+        <p className="text-base sm:text-lg md:text-xl font-light text-zinc-600 mt-1">
           Explore humanoid, AI, and dog robots designed to elevate daily living.
         </p>
       </section>
       <section className="container ">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12 py-5 overflow-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 py-5 overflow-auto">
           <Suspense
             fallback={[...Array(4)].map((_, index) => (
               <ProductCardSkeleton key={`Product-Skeleton-${index}`} />
@@ -256,17 +256,17 @@ function CollectionGrid() {
   return (
     <>
       <section className="text-center mt-9 mb-3">
-        <h1 className="text-5xl font-semibold text-zinc-800 pb-1">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-zinc-800 pb-1">
           Smart Living Starts Here
         </h1>
-        <p className="text-lg font-light text-zinc-600 mt-2">
+        <p className="text-base sm:text-lg md:text-xl font-light text-zinc-600 mt-2">
           Discover AI-powered robotics that fit your lifestyle.
         </p>
       </section>
-      <section className="relative lg:space-x-5 space-y-5 lg:space-y-0 grid grid-cols-1 lg:grid-cols-3 max-h-[840px] hover:cursor-pointer ">
-        <div className="relative col-span-2 w-full h-[840px] ">
+      <section className="relative lg:space-x-5 space-y-5 lg:space-y-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 hover:cursor-pointer ">
+        <div className="relative col-span-1 md:col-span-2 w-full h-[280px] sm:h-[420px] md:h-[520px] lg:h-[840px] ">
           <Image
-            src={keytoUrl("collections/Neo_Bot/neo_library.jpg")}
+            src={keytoUrl("collections/Neo_Bot/forest_bots.avif")}
             width={1080}
             height={1080}
             className="object-cover w-full h-full"
@@ -274,8 +274,8 @@ function CollectionGrid() {
           />
         </div>
 
-        <div className="flex flex-col w-full space-y-5 h-[840px]">
-          <div className="relative w-full h-[340px]">
+        <div className="col-span-1 md:col-span-2 lg:col-span-1 flex flex-col w-full space-y-5 h-auto md:h-[520px] lg:h-[840px]">
+          <div className="relative overflow-hidden w-full h-[260px] sm:h-[320px] md:h-[250px] lg:h-[480px]">
             <Image
               src={keytoUrl("collections/Neo_Bot/_neo_bots.png")}
               width={800}
@@ -285,9 +285,9 @@ function CollectionGrid() {
             />
           </div>
 
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden w-full h-[260px] sm:h-[320px] md:h-[250px] lg:h-[480px]">
             <Image
-              src={keytoUrl("collections/Neo_Bot/bot_women.avif")}
+              src={keytoUrl("collections/Neo_Bot/neo_library.jpg")}
               width={800}
               height={900}
               className="object-cover w-full h-full"
@@ -304,16 +304,16 @@ function OurMission() {
   return (
     <>
       <section className="text-center mt-9 mb-3">
-        <h1 className="text-5xl font-semibold text-zinc-800 pb-1">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-zinc-800 pb-1">
           Our Mission
         </h1>
-        <p className="text-lg font-light text-zinc-600 mt-2">
+        <p className="text-base sm:text-lg md:text-xl font-light text-zinc-600 mt-2">
           Building intelligent machines that empower people—at home, in work,
           and beyond.
         </p>
       </section>
-      <section className="max-w-[1920px] mx-auto h-auto md:h-[580px] bg-[#F2ECEC] grid grid-cols-1 md:grid-cols-12">
-        <div className="relative w-full h-[340px] md:h-[580px] order-2 md:order-1 col-span-12 md:col-span-8 overflow-hidden">
+      <section className="max-w-[1920px] mx-auto h-auto lg:h-[580px] bg-[#F2ECEC] grid grid-cols-1 lg:grid-cols-12">
+        <div className="relative w-full h-[260px] sm:h-[320px] md:h-[360px] lg:h-[580px] order-1 lg:order-1 col-span-12 lg:col-span-8 overflow-hidden">
           <Image
             src="https://robots-store.s3.eu-north-1.amazonaws.com/collections/Neo_Bot/forest_bots.avif"
             alt=""
@@ -322,8 +322,8 @@ function OurMission() {
           />
         </div>
 
-        <div className="col-span-12 md:col-span-4 order-1 md:order-2 flex flex-col justify-center items-start px-6 py-10 md:px-16 md:py-0">
-          <p className="text-[15px] md:text-[19px] leading-relaxed mb-6 text-zinc-700">
+        <div className="col-span-12 lg:col-span-4 order-2 lg:order-2 flex flex-col justify-center items-start px-6 py-8 sm:py-10 md:px-6 lg:px-16 md:py-6">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed mb-6 text-zinc-700">
             At NextBot, we believe robotics should be accessible, ethical, and
             inspiring. From humanoid helpers to agile quadrupeds, our mission is
             to bring cutting-edge AI into everyday life designed for learning,
