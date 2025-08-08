@@ -13,6 +13,12 @@ export const siteConfig = {
   email: "hello@NextBot.com",
   mainNav: [
     {
+      title: "Home",
+      href: "/",
+      description: "Home",
+      items: [],
+    },
+    {
       title: "Shop",
       href: "/shop",
       description: "All the products we have to offer.",
