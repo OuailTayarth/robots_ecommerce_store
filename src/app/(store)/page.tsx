@@ -126,7 +126,7 @@ function HeroSection() {
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
                 "border-2 border-white text-zinc-600 bg-white rounded px-8 py-3", // default state
-                "md:px-16 md:py-6",
+                "md:px-7 md:py-5",
                 "hover:bg-transparent hover:text-black" // hover state
               )}>
               Shop Now!
@@ -138,7 +138,7 @@ function HeroSection() {
               className={cn(
                 buttonVariants({ variant: "default", size: "lg" }),
                 "border-2 border-primary text-white rounded px-8 py-3 ",
-                "md:px-16 md:py-6"
+                "md:px-7 md:py-5"
               )}>
               Learn More
             </Link>
@@ -157,37 +157,10 @@ interface CollectionsCardsProps {
   collections: { node: DocumentType<typeof CollectionCardFragment> }[];
 }
 
-// function ProductSubCollectionsCircles({ collections }: CollectionsCardsProps) {
-//   return (
-//     <section className="grid grid-cols-1 md:grid-cols-2 gap-6 py-4">
-//       {collections.map(({ node }) => (
-//         <Link
-//           href={`/collections/${node.slug}`}
-//           key={`collection_card_${node.id}`}
-//           className="group relative block w-full h-[420px] md:h-[480px] overflow-hidden rounded-lg">
-//           <Image
-//             src={keytoUrl(node.featuredImage?.key)}
-//             alt={node.featuredImage?.alt ?? "Collection Image"}
-//             fill
-//             sizes="(max-width: 768px) 100vw, 50vw"
-//             className="object-contain object-center transition-transform duration-500 group-hover:scale-105"
-//           />
-
-//           <div className="absolute inset-0 bg-black/15 group-hover:bg-black/10 transition-colors" />
-
-//           <p className="absolute bottom-5 left-5 text-xl md:text-2xl font-semibold text-white drop-shadow">
-//             {node.label}
-//           </p>
-//         </Link>
-//       ))}
-//     </section>
-//   );
-// }
-
 function ProductSubCollectionsCircles({ collections }: CollectionsCardsProps) {
   return (
     <>
-      <section className="text-center mt-9 mb-3">
+      <section className="text-center mt-4">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-zinc-800 pb-1">
           Designed for Work, Play, and Beyond
         </h1>
@@ -228,7 +201,7 @@ interface FeaturedProductsCardsProps {
 function FeaturedProductsCards({ products }: FeaturedProductsCardsProps) {
   return (
     <>
-      <section className="text-center mt-9">
+      <section className="text-center mt-4">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-zinc-800 pb-1">
           Featured Products
         </h1>
@@ -255,7 +228,7 @@ function FeaturedProductsCards({ products }: FeaturedProductsCardsProps) {
 function CollectionGrid() {
   return (
     <>
-      <section className="text-center mt-9 mb-3">
+      <section className="text-center mt-4">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-zinc-800 pb-1">
           Smart Living Starts Here
         </h1>
@@ -303,7 +276,7 @@ function CollectionGrid() {
 function OurMission() {
   return (
     <>
-      <section className="text-center mt-9 mb-3">
+      <section className="text-center mt-4">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-zinc-800 pb-1">
           Our Mission
         </h1>
@@ -335,7 +308,7 @@ function OurMission() {
             target="_blank"
             className={cn(
               buttonVariants({ variant: "default", size: "default" }),
-              "border-2 border-primary text-white rounded px-3 py-3 md:px-9 md:py-6"
+              "border-2 border-primary text-white rounded px-3 py-3 md:px-6 md:py-6"
             )}>
             Learn More
           </Link>
