@@ -29,7 +29,7 @@ function CollectionBanner({
         alt={featuredImage.alt}
         width={720}
         height={400}
-        className="object-center object-cover w-full h-[290px] opacity-50"
+        className="object-center object-cover w-full h-[290px] opacity-70"
       />
       <h1 className="z-8 absolute bottom-8 left-8 text-2xl md:text-5xl font-medium">
         {label}

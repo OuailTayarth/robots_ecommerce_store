@@ -4,7 +4,7 @@ import { useQuery } from "@urql/next";
 import React from "react";
 import Header from "@/components/layouts/Header";
 import { ProductCard } from "@/features/products";
-import { getAnonUserId } from "@/lib/utils";
+import { useAnonUserId } from "@/features/carts/hooks/useAnonUserId";
 import { useEffect, useState } from "react";
 import useWishlistStore from "../../../features/wishlists/useWishlistStore";
 
@@ -58,7 +58,7 @@ function RecommendationProducts({}: RecommendationProductsProps) {
   const whishListIds = Object.keys(wishlist);
   const [mounted, setMounted] = useState<boolean>(false);
 
-  const anonUserId = getAnonUserId();
+  const anonUserId = useAnonUserId();
 
   // fetch recommendation products
   const [{ data: recData, fetching: recFetching, error }] = useQuery({
@@ -79,6 +79,7 @@ function RecommendationProducts({}: RecommendationProductsProps) {
   const [{ data: wish }, refetchWish] = useQuery({
     query: WishlistEmptyQuery,
     variables: { userId: anonUserId },
+    pause: !anonUserId,
     requestPolicy: "network-only",
   });
   console.log("mounted value before ", mounted);

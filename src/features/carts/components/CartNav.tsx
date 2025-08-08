@@ -1,16 +1,14 @@
 "use client";
 import { useMemo } from "react";
-import { useAuth } from "@/providers/AuthProvider";
-import { User } from "@supabase/auth-helpers-nextjs";
 import { useQuery } from "@urql/next";
 import CartLink from "./CartLink";
 import { FetchCartQuery } from "./UserCartSection";
 import useCartStore, { calcProductCountStorage } from "../useCartStore";
-import { getAnonUserId } from "@/lib/utils";
+import { useAnonUserId } from "../hooks/useAnonUserId";
 
 function CartNav() {
   // added GuestCart to use local storage for future implementation when adding Auth for user.
-  const anonUserId = getAnonUserId();
+  const anonUserId = useAnonUserId();
   return (
     <>{!anonUserId ? <GuestCart /> : <UserCartNav userId={anonUserId} />}</>
   );
@@ -32,6 +30,7 @@ const UserCartNav = ({ userId }: { userId: string }) => {
     variables: {
       userId: userId,
     },
+    pause: !userId,
   });
 
   const carts = data?.cartsCollection;

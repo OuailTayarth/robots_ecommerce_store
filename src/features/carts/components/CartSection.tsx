@@ -1,11 +1,11 @@
 "use client";
-import { getAnonUserId } from "@/lib/utils";
+import { useAnonUserId } from "../hooks/useAnonUserId";
 import UserCartSection from "./UserCartSection";
 
 import GuestCartSection from "./GuestCartSection";
 
 function CartSection() {
-  const anonUserId = getAnonUserId();
+  const anonUserId = useAnonUserId();
   return (
     <>
       {anonUserId ? (

@@ -1,5 +1,5 @@
 "use client";
-import { getAnonUserId } from "@/lib/utils";
+import { useAnonUserId } from "./useAnonUserId";
 import { useToast } from "@/components/ui/use-toast";
 import { useMutation, useQuery } from "urql";
 import { FetchCartQuery } from "../components/UserCartSection";
@@ -8,7 +8,7 @@ import useCartStore from "../useCartStore";
 
 function useCartActions(productId: string) {
   const { toast } = useToast();
-  const anonUserId = getAnonUserId();
+  const anonUserId = useAnonUserId();
   const [, addToCart] = useMutation(createCartMutation);
   const [, updateCart] = useMutation(updateCartsMutation);
   const addProductStorage = useCartStore((s) => s.addProductToCart);
