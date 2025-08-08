@@ -41,7 +41,7 @@ function SearchInput() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="relative bg-background/95 p-4 backdrop-blur supports-[backdrop-filter]:bg-background/60 rounded-full flex-1">
+        className="relative bg-background/95 p-4 backdrop-blur supports-[backdrop-filter]:bg-background/60 rounded-full w-full max-w-md sm:max-w-lg md:max-w-xl mx-auto">
         <Icons.search
           className={cn(
             isFocused ? "scale-0" : "scale-100",

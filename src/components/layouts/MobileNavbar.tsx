@@ -4,21 +4,26 @@ import Branding from "./Branding";
 import MobileSearchInput from "./MobileSearchInput";
 import { SideMenu } from "./SideMenu";
 import CartLink from "../../features/carts/components/CartLink";
+import Link from "next/link";
+import { Icons } from "./icons";
 
-type Props = { adminLayout: boolean };
-
-function MobileNavbar({ adminLayout }: Props) {
+function MobileNavbar() {
   return (
-    <div className="md:hidden flex gap-x-8 justify-between items-center h-[64px]">
+    <div className="md:hidden relative flex gap-x-8 justify-between items-center h-[64px]">
       <div className="flex gap-x-3 items-center">
         <SideMenu />
         <MobileSearchInput />
       </div>
 
       <Branding />
-      <Suspense fallback={<CartLink productCount={0} />}>
-        {!adminLayout && <CartNav />}
-      </Suspense>
+      <div className="flex gap-x-3 items-center">
+        <Link href={"/wish-list"}>
+          <Icons.heart className="w-4 h-4" aria-label="wishlist" />
+        </Link>
+        <Suspense fallback={<CartLink productCount={0} />}>
+          <CartNav />
+        </Suspense>
+      </div>
     </div>
   );
 }

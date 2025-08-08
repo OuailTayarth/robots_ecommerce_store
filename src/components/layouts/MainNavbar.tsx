@@ -8,17 +8,10 @@ import MobileNavbar from "./MobileNavbar";
 import SearchInput from "./SearchInput";
 import { SideMenu } from "./SideMenu";
 
-interface MainNavbarProps {
-  adminLayout?: boolean;
-}
-
-async function MainNavbar({ adminLayout = false }: MainNavbarProps) {
+async function MainNavbar() {
   return (
     <nav className="bg-background/95 fixed z-50 w-full">
-      <div
-        className={cn(
-          adminLayout ? "mx-auto px-[3rem] max-w-[2500px] py-3" : "container"
-        )}>
+      <div className="container">
         <div className="hidden md:flex gap-x-8 justify-between items-center">
           {/* Menu & branding */}
           <div className="flex gap-x-3 items-center">
@@ -42,7 +35,7 @@ async function MainNavbar({ adminLayout = false }: MainNavbarProps) {
           </div>
         </div>
 
-        <MobileNavbar adminLayout={adminLayout} />
+        <MobileNavbar />
       </div>
     </nav>
   );

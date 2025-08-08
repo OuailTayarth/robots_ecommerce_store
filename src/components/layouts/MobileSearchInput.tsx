@@ -11,7 +11,7 @@ function MobileSearchInput({}: Props) {
   return (
     <>
       {openSearchBar ? (
-        <div className="absolute w-full max-w-xl container">
+        <div className="absolute top-0 left-12 right-16 max-w-sm sm:max-w-md md:max-w-lg mx-auto z-50">
           <div className="relative">
             <Icons.chevronLeft className="absolute top-0 left-5" size={14} />
             <SearchInput />
