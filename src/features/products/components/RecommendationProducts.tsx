@@ -119,7 +119,7 @@ function RecommendationProducts({}: RecommendationProductsProps) {
           product.
         </p>
       ) : (
-        <Header heading={`Products You Love`}>
+        <Header heading={`Products You Love`} className="mt-6">
           <div className="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-1 md:gap-y-8 py-5 w-full">
             {wishEdges.map(({ node }) => (
               <ProductCard key={node.id} product={node} />

@@ -93,7 +93,7 @@ function MainFooter({}: Props) {
 
   return (
     <footer className="bg-muted-background  border-t border-zinc-600">
-      <div className="container pb-10 pt-4 md:pt-8">
+      <div className="container pb-4 pt-4 md:pt-8">
         <div className="hidden md:grid grid-cols-5 mb-[80px] gap-x-[100px] place-content-between space-y-9">
           <div className="max-w-md col-span-5 lg:col-span-2">
             <NewsletterForm />

@@ -81,6 +81,7 @@ async function CategoryPage({ params, searchParams }: CategoryPageProps) {
       <SectionHeading
         heading={collection.title}
         description={collection.description}
+        className="pt-0 pb-0"
       />
 
       <Suspense
