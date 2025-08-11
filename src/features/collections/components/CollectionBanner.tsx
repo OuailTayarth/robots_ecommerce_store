@@ -21,7 +21,7 @@ function CollectionBanner({
 }: {
   collectionBannerData: DocumentType<typeof CollectionBannerFragment>;
 }) {
-  const { label, featuredImage } = collectionBannerData;
+  const { featuredImage } = collectionBannerData;
   return (
     <div className="relative w-full md:container-2xl mx-auto h-[220px] md:h-[280px] overflow-hidden object-center object-cover">
       <Image
@@ -31,9 +31,9 @@ function CollectionBanner({
         height={400}
         className="object-center object-cover w-full h-[290px] opacity-70"
       />
-      <h1 className="hidden lg:block z-8 absolute bottom-8 left-8 text-2xl lg:text-5xl font-medium">
+      {/* <h1 className="hidden lg:block z-8 absolute bottom-8 left-8 text-2xl lg:text-5xl font-medium">
         {label}
-      </h1>
+      </h1> */}
     </div>
   );
 }

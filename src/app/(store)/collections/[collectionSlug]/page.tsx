@@ -3,10 +3,7 @@ import { Shell } from "@/components/layouts/Shell";
 import { Skeleton } from "@/components/ui/skeleton";
 import { CollectionBanner } from "@/features/collections";
 import { SearchProductsGridSkeleton } from "@/features/products";
-import {
-  FilterSelections,
-  SearchProductsInfiniteScroll,
-} from "@/features/search";
+import { SearchProductsInfiniteScroll } from "@/features/search";
 import { gql } from "@/gql";
 import { getClient } from "@/lib/urql";
 import { toTitleCase, unslugify } from "@/lib/utils";
