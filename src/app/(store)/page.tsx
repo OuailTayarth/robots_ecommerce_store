@@ -164,7 +164,7 @@ function ProductSubCollectionsCircles({ collections }: CollectionsCardsProps) {
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-zinc-800 pb-1">
           Designed for Work, Play, and Beyond
         </h1>
-        <p className=" text-base sm:text-lg md:text-xl font-light text-zinc-600 mt-2">
+        <p className=" text-base sm:text-lg md:text-xl font-light text-zinc-600 mt-0 md:mt-2">
           Meet robots that walk, think, and assist—at home or in the field.
         </p>
       </section>
@@ -205,12 +205,12 @@ function FeaturedProductsCards({ products }: FeaturedProductsCardsProps) {
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-zinc-800 pb-1">
           Featured Products
         </h1>
-        <p className="text-base sm:text-lg md:text-xl font-light text-zinc-600 mt-1">
+        <p className="text-base sm:text-lg md:text-xl font-light text-zinc-600 mt-0 md:mt-2">
           Explore humanoid, AI, and dog robots designed to elevate daily living.
         </p>
       </section>
       <section className="container ">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 py-5 overflow-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-1 md:gap-y-8 py-5 overflow-auto">
           <Suspense
             fallback={[...Array(4)].map((_, index) => (
               <ProductCardSkeleton key={`Product-Skeleton-${index}`} />
@@ -232,7 +232,7 @@ function CollectionGrid() {
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-zinc-800 pb-1">
           Smart Living Starts Here
         </h1>
-        <p className="text-base sm:text-lg md:text-xl font-light text-zinc-600 mt-2">
+        <p className="text-base sm:text-lg md:text-xl font-light text-zinc-600 mt-0 md:mt-2">
           Discover AI-powered robotics that fit your lifestyle.
         </p>
       </section>
@@ -280,7 +280,7 @@ function OurMission() {
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-zinc-800 pb-1">
           Our Mission
         </h1>
-        <p className="text-base sm:text-lg md:text-xl font-light text-zinc-600 mt-2">
+        <p className="text-base sm:text-lg md:text-xl font-light text-zinc-600 mt-0 md:mt-2">
           Building intelligent machines that empower people—at home, in work,
           and beyond.
         </p>

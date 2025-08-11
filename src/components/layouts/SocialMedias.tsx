@@ -20,7 +20,7 @@ function SocialMedias({ containerClassName, itemsClassName }: Props) {
         />
       </Link>
 
-      <Link href="https://twitter.com/ClongLam" target="_blank">
+      <Link href="https://twitter.com/" target="_blank">
         <Icons.twitter
           className={cn(
             "w-4 h-4 md:w-5 md:h-5 text-muted-foreground hover:text-primary",
@@ -29,7 +29,7 @@ function SocialMedias({ containerClassName, itemsClassName }: Props) {
         />
       </Link>
 
-      <Link href="https://hugo-coding.com" target="_blank">
+      <Link href="#" target="_blank">
         <Icons.globe
           className={cn(
             "w-4 h-4 md:w-5 md:h-5 text-muted-foreground hover:text-primary",

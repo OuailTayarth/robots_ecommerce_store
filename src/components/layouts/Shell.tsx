@@ -20,14 +20,13 @@ export function Shell({
   return (
     <section
       className={cn(
-        "grid items-center gap-8 pb-8 pt-6 md:py-8",
+        "grid items-center gap-4 md:gap-8 pb-8 pt-6 md:py-8",
         layout === "default" && "container",
         layout === "narrow" && "container max-w-5xl",
 
         className
       )}
-      {...props}
-    >
+      {...props}>
       {children}
     </section>
   );
