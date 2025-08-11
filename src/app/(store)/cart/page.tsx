@@ -15,9 +15,11 @@ import { Suspense } from "react";
 async function CartPage() {
   return (
     <Shell>
-      <section className="flex flex-col sm:flex-row justify-between items-center sm:items-center pt-6 pb-2 gap-4 mt-8">
-        <h1 className="text-4xl ">Your Cart</h1>
-        <div className="hidden lg:flex space-x-4 mt-0 md:mt-5 max-w-screen">
+      <section className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 pb-2 mt-8">
+        <h1 className="text-[1.9rem] md:text-[2rem] font-semibold leading-8 mb-0 text-center sm:text-left">
+          Your Cart
+        </h1>
+        <div className="hidden lg:inline-flex mt-0">
           <Link
             href="/shop"
             target=""

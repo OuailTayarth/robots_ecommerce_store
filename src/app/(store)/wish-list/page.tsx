@@ -14,9 +14,9 @@ type Props = {};
 function WishListPage({}: Props) {
   return (
     <Shell>
-      <section className="flex flex-col sm:flex-row justify-between items-center sm:items-center pt-6 pb-2 gap-4 mt-8">
-        <h1 className="text-4xl">Your Wishlist</h1>
-        <div className="hidden md:flex space-x-4 mt-0 md:mt-5 max-w-screen">
+      <section className="flex flex-col sm:flex-row justify-between items-center gap-0 pt-6 pb-0 mt-2">
+        <h1 className="text-[1.9rem] md:text-[2rem] font-semibold leading-8 mb-0 text-center sm:text-left"></h1>
+        <div className="hidden lg:inline-flex mt-0">
           <Link
             href="/shop"
             target=""

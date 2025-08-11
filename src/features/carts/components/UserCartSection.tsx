@@ -180,7 +180,7 @@ function UserCartSection({ userId }: UserCartSectionProps) {
               <CardDescription>{`${productCount} Items`}</CardDescription>
             </CardHeader>
             <CardContent className="relative overflow-hidden px-3 py-2">
-              <p className="text-3xl md:text-lg lg:text-2xl font-bold">{`$ ${formatPrice(subtotal)}`}</p>
+              <p className="text-xl md:text-2xl lg:text-3xl font-bold">{`$ ${formatPrice(subtotal)}`}</p>
             </CardContent>
 
             <CardFooter className="gap-x-2 md:gap-x-5 px-3">

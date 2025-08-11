@@ -13,8 +13,9 @@ function EmptyCart() {
         target=""
         className={cn(
           buttonVariants({ variant: "default", size: "lg" }),
-          "border-2 border-primary text-white rounded px-8 py-3 ",
-          "md:px-6 md:py-6"
+          "border-2 border-primary text-white rounded px-4 py-2 font-normal",
+          "md:px-6 md:py-3 md:text-base",
+          ""
         )}>
         Continue Shopping
         <Icons.chevronRight className="ml-2 w-5" />

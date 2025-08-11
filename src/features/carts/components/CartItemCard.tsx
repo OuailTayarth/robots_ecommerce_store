@@ -62,7 +62,8 @@ function CartItemCard({
           alt={product.featuredImage?.alt}
           width={150}
           height={150}
-          className="aspect-square object-cover"
+          sizes="(max-width: 767px) 395px, 150px"
+          className="object-cover w-[395px] h-[68px] md:w-[150px] md:h-[150px]"
         />
       </CardContent>
 
@@ -76,6 +77,9 @@ function CartItemCard({
         <CardDescription className="grow line-clamp-2 ">
           {product.description}
         </CardDescription>
+        <p className="mt-2 font-semibold sm:hidden">
+          $ {formatPrice(product.price)}
+        </p>
 
         <QuantityInput
           value={quantity}
@@ -86,7 +90,7 @@ function CartItemCard({
       </CardHeader>
 
       <CardFooter className="gap-x-2 md:gap-x-5 p-0 ">
-        <p>$ {formatPrice(product.price)}</p>
+        <p className="hidden sm:block">$ {formatPrice(product.price)}</p>
 
         <Button
           aria-label="Remove Item Button"

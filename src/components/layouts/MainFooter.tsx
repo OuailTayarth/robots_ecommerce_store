@@ -117,7 +117,7 @@ function MainFooter({}: Props) {
 
         <div className="flex items-center justify-between gap-x-5 ">
           <div className="flex items-center gap-x-5 mb-0">
-            <Branding className="text-3xl" />
+            <Branding className="text-2xl" />
           </div>
           <SocialMedias containerClassName="ml-auto" />
         </div>
