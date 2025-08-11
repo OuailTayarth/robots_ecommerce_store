@@ -15,19 +15,22 @@ import { Suspense } from "react";
 async function CartPage() {
   return (
     <Shell>
-      <section className="flex justify-between items-center py-8">
-        <h1 className="text-3xl">Your Cart</h1>
-        <Link
-          href="/shop"
-          target=""
-          className={cn(
-            buttonVariants({ variant: "default", size: "lg" }),
-            "border-2 border-primary text-white rounded px-8 py-3 ",
-            "md:px-6 md:py-6"
-          )}>
-          Back to Store
-          <Icons.chevronRight className="ml-2 w-5" />
-        </Link>
+      <section className="flex flex-col sm:flex-row justify-between items-center sm:items-center pt-6 pb-2 gap-4 mt-8">
+        <h1 className="text-4xl ">Your Cart</h1>
+        <div className="hidden lg:flex space-x-4 mt-0 md:mt-5 max-w-screen">
+          <Link
+            href="/shop"
+            target=""
+            className={cn(
+              buttonVariants({ variant: "default", size: "lg" }),
+              "border-2 border-primary text-white rounded px-4 py-2 font-normal",
+              "md:px-6 md:py-3 md:text-base",
+              ""
+            )}>
+            Back to Store
+            <Icons.chevronRight className="ml-2 w-5" />
+          </Link>
+        </div>
       </section>
 
       <Suspense fallback={<CartSectionSkeleton />}>

@@ -13,7 +13,7 @@ interface HeaderProps
 function Header({ heading, description, children, ...props }: HeaderProps) {
   return (
     <section className="pt-[10px] pb-[20px]" {...props}>
-      <h1 className="text-[2.5rem] font-semibold text-center mb-1">
+      <h1 className="text-[1.7rem] md:text-[2.5rem] font-semibold text-center mb-1 leading-8">
         {heading}
       </h1>
       <p className="max-w-4xl text-sm md:text-md leading-[1.5] tracking-[-2%] mb-2">

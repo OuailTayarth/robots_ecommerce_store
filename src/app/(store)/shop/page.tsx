@@ -1,12 +1,7 @@
 import Header from "@/components/layouts/Header";
 import { Shell } from "@/components/layouts/Shell";
-import { Skeleton } from "@/components/ui/skeleton";
-import { listCollectionsAction } from "@/features/collections";
 import { SearchProductsGridSkeleton } from "@/features/products";
-import {
-  FilterSelections,
-  SearchProductsInfiniteScroll,
-} from "@/features/search";
+import { SearchProductsInfiniteScroll } from "@/features/search";
 import { Suspense } from "react";
 
 interface ProductsPageProps {
@@ -18,7 +13,7 @@ interface ProductsPageProps {
 async function ProductsPage({}: ProductsPageProps) {
   return (
     <Shell>
-      <Header heading="Shop Now" className="mt-[100px]" />
+      <Header heading="Browse All Products" className="mt-[50px]" />
 
       <Suspense fallback={<SearchProductsGridSkeleton />}>
         <SearchProductsInfiniteScroll />

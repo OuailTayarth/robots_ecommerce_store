@@ -127,7 +127,7 @@ function HeroSection() {
                 buttonVariants({ variant: "outline", size: "lg" }),
                 "border-2 border-white text-zinc-600 bg-white rounded px-8 py-3", // default state
                 "md:px-7 md:py-5",
-                "hover:bg-transparent hover:text-black" // hover state
+                "hover:bg-transparent hover:text-black"
               )}>
               Shop Now!
             </Link>
@@ -137,7 +137,7 @@ function HeroSection() {
               target="_blank"
               className={cn(
                 buttonVariants({ variant: "default", size: "lg" }),
-                "border-2 border-primary text-white rounded px-8 py-3 ",
+                "border-2 border-primary text-white rounded px-8 py-3 font-normal",
                 "md:px-7 md:py-5"
               )}>
               Learn More
@@ -308,7 +308,7 @@ function OurMission() {
             target="_blank"
             className={cn(
               buttonVariants({ variant: "default", size: "default" }),
-              "border-2 border-primary text-white rounded px-3 py-3 md:px-6 md:py-6"
+              "border-2 border-primary text-white rounded px-3 py-3 md:px-6 md:py-6 font-normal"
             )}>
             Learn More
           </Link>

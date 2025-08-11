@@ -75,7 +75,7 @@ const SearchResultPage = ({
               {"."}
             </p>
           )}
-          <section className="grid grid-cols-2 lg:grid-cols-4 w-full gap-y-8 gap-x-3">
+          <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-1 md:gap-y-8 py-5 w-full">
             {products.edges.map(({ node }) => (
               <ProductCard key={node.id} product={node} />
             ))}

@@ -61,7 +61,7 @@ function ProductImageShowcase({ data }: ProductImageShowcaseProps) {
           <Image
             src={keytoUrl(allImages[activeImageIndex].key)}
             alt={allImages[activeImageIndex].alt || "Product image"}
-            className="w-full h-auto object-cover aspect-square mb-5"
+            className="w-full h-auto object-cover aspect-square mb-2"
             width={1024}
             height={1024}
           />
@@ -84,7 +84,7 @@ function ProductImageShowcase({ data }: ProductImageShowcaseProps) {
           ))}
         </div>
 
-        <div className="md:hidden block">
+        <div className="md:hidden block mb-6">
           <button
             onClick={prevImage}
             className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2">

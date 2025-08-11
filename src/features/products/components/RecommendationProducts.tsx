@@ -100,8 +100,8 @@ function RecommendationProducts({}: RecommendationProductsProps) {
 
   if (recFetching)
     return (
-      <Header heading={`Popular Picks This Week!`}>
-        <div className="container grid grid-cols-2 lg:grid-cols-4 gap-x-8 mt-2">
+      <Header heading={`Popular Picks This Week`}>
+        <div className="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-1 md:gap-y-8 py-5 w-full">
           {[...Array(6)].map((_, index) => (
             <ProductCardSkeleton key={index} />
           ))}
@@ -119,8 +119,8 @@ function RecommendationProducts({}: RecommendationProductsProps) {
           product.
         </p>
       ) : (
-        <Header heading={`Your WishList!`}>
-          <div className="container grid grid-cols-2 lg:grid-cols-4 gap-x-8">
+        <Header heading={`Products You Love`}>
+          <div className="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-1 md:gap-y-8 py-5 w-full">
             {wishEdges.map(({ node }) => (
               <ProductCard key={node.id} product={node} />
             ))}
@@ -128,7 +128,7 @@ function RecommendationProducts({}: RecommendationProductsProps) {
         </Header>
       )}
       <Header heading={`Popular Picks This Week!`}>
-        <div className="container grid grid-cols-2 lg:grid-cols-4 gap-x-8 mt-9">
+        <div className="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-1 md:gap-y-8 py-5 w-full mt-9">
           {recommendationsEdges.map(({ node }) => (
             <ProductCard key={node.id} product={node} />
           ))}

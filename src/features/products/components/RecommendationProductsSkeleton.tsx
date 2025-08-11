@@ -4,7 +4,7 @@ import { ProductCardSkeleton } from "./ProductCardSkeleton";
 
 function RecommendationProductsSkeleton() {
   return (
-    <Header heading={`Popular Picks This Week!`}>
+    <Header heading={`Popular Picks This Week`}>
       <div className="container grid grid-cols-2 lg:grid-cols-4 gap-x-8 ">
         {[...Array(4)].map((_, index) => (
           <ProductCardSkeleton key={index} />
