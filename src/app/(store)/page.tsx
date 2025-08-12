@@ -1,13 +1,8 @@
 import { getCurrentUser } from "@/features/users/actions";
-import { Icons } from "@/components/layouts/icons";
+import { useAnonUserId } from "../../features/carts/hooks/useAnonUserId";
 import { Shell } from "@/components/layouts/Shell";
 import { buttonVariants } from "@/components/ui/button";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import {
-  CollectionCardFragment,
-  CollectionsCard,
-  CollectionsCardSkeleton,
-} from "@/features/collections";
+import { CollectionCardFragment } from "@/features/collections";
 import {
   ProductCard,
   ProductCardFragment,
@@ -68,7 +63,7 @@ const LandingRouteQuery = gql(/* GraphQL */ `
 `);
 
 export default async function Home() {
-  const currentUser = await getCurrentUser();
+  const currentUser = getCurrentUser();
 
   const { data } = await getClient().query(LandingRouteQuery, {
     user_id: currentUser?.id,

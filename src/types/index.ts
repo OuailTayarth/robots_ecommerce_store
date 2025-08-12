@@ -58,14 +58,6 @@ export interface CheckoutItem extends CartItem {
   price: number;
 }
 
-// export interface CartLineItem
-//   extends Pick<
-//     Product,
-//     "id" | "name" | "images" | "price" | "inventory" | "storeId"
-//   > {
-//   storeName: string | null
-// }
-
 export type SubscriptionPlan = {
   name: string;
   description: string;
