@@ -10,12 +10,11 @@ function MissionBanner({
   title?: string;
 }) {
   return (
-    <div className="relative w-full md:container-2xl mx-auto h-[400px] md:h-[400px] overflow-hidden">
+    <div className="relative w-full md:container-2xl mx-auto h-[250px] sm:h-[300px] md:h-[500px] overflow-hidden">
       <Image
         src={src}
         alt={alt}
-        width={720}
-        height={400}
+        fill
         priority
         className="object-center object-cover w-full h-[500px] "
       />

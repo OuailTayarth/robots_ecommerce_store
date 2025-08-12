@@ -7,7 +7,7 @@ interface HeaderProps
     HTMLDivElement
   > {
   heading: string;
-  description?: string;
+  description?: string | ReactNode;
   children?: ReactNode;
 }
 
@@ -17,7 +17,7 @@ function SectionHeading({
   children,
   className,
   ...props
-}: HeaderProps) {
+}: HeaderProps & { description?: React.ReactNode }) {
   return (
     <section className={cn("pt-[20px] pb-[30px]", className)} {...props}>
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-2 sm:mb-3">
