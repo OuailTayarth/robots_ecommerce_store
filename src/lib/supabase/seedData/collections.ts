@@ -11,7 +11,7 @@ const collections = [
     description:
       "Step into the future with our advanced humanoid robots – engineered to assist with daily tasks while learning alongside you. These intelligent companions blend natural movement with conversational AI, making them perfect for tech enthusiasts, educational institutions, and households seeking innovative solutions. Experience the seamless integration of cutting-edge robotics into your everyday life.",
     featuredImageId: "23",
-    order: "1",
+    order: 1,
   },
 
   // Dog Robots
@@ -23,7 +23,7 @@ const collections = [
     description:
       "Meet your new robotic companion – where precision engineering meets playful agility. Our quadruped robots excel in real-world applications from industrial inspections to search-and-rescue operations, while their approachable design makes them ideal learning tools. With obstacle-navigating intelligence and customizable capabilities, they're transforming how we interact with technology both professionally and personally.",
     featuredImageId: "5",
-    order: "10",
+    order: 10,
   },
 ];
 

@@ -63,10 +63,8 @@ const LandingRouteQuery = gql(/* GraphQL */ `
 `);
 
 export default async function Home() {
-  const currentUser = getCurrentUser();
-
   const { data } = await getClient().query(LandingRouteQuery, {
-    user_id: currentUser?.id,
+    user_id: null,
   });
 
   if (data === null) return notFound();
@@ -245,7 +243,7 @@ function CollectionGrid() {
         <div className="col-span-1 md:col-span-2 lg:col-span-1 flex flex-col w-full space-y-5 h-auto md:h-[520px] lg:h-[840px]">
           <div className="relative overflow-hidden w-full h-[260px] sm:h-[320px] md:h-[250px] lg:h-[480px]">
             <Image
-              src={keytoUrl("collections/Neo_Bot/_neo_bots.png")}
+              src={keytoUrl("collections/Neo_Bot/cleaning_bot.png")}
               width={800}
               height={900}
               className="object-cover w-full h-full"

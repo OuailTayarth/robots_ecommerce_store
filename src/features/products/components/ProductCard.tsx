@@ -51,7 +51,6 @@ export const ProductCardFragment = gql(/* GraphQL */ `
 export function ProductCard({
   className,
   product,
-  onWishlistChange,
   ...props
 }: ProductCardProps) {
   const { id, name, slug, featuredImage, badge, price } = product;
@@ -62,8 +61,7 @@ export function ProductCard({
         "w-full border-0 rounded-lg py-3 border-none bg-transparent shadow-none",
         className
       )}
-      {...props}
-    >
+      {...props}>
       <CardContent className="relative p-0 mb-5 overflow-hidden">
         <Link href={`/shop/${slug}`}>
           <Image
@@ -116,8 +114,7 @@ export function ProductCard({
             <Button className="rounded-full p-3" variant="ghost" disabled>
               <Icons.heart className={"w-4 h-4 fill-none"} />
             </Button>
-          }
-        >
+          }>
           <AddToWishListButton productId={product.id} productName={name} />
         </Suspense>
       </CardFooter>

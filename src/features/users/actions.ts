@@ -6,8 +6,6 @@ import { User } from "@supabase/supabase-js";
 import { eq } from "drizzle-orm";
 import { cookies } from "next/headers";
 import { profiles } from "../../lib/supabase/schema";
-import { AdminUserFormData } from "@/features/users/validations";
-import { env } from "@/env.mjs";
 import createClient from "@/lib/supabase/server";
 
 export const getCurrentUser = async () => {
@@ -63,11 +61,7 @@ export const listUsers = async ({
   return users;
 };
 
-export const createUser = async ({
-  email,
-  name,
-  password,
-}: AdminUserFormData) => {
+export const createUser = async ({ email, name, password }) => {
   const cookieStore = cookies();
   const adminAuthClient = createClient({ cookieStore, isAdmin: true }).auth
     .admin;

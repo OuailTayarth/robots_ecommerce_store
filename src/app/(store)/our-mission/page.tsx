@@ -16,7 +16,7 @@ export default function OurMissionPage() {
         description={
           <>
             <p className="text-[#513f43]">
-              At NextBot, our mission is simple: put capable, trustworthy robots
+              At NextBot, our mission is simple, put capable, trustworthy robots
               in everyday hands. <br /> We design and curate machines that are
               genuinely useful—humanoids that assist with daily tasks, agile
               quadrupeds that explore and learn, and dexterous arms that
