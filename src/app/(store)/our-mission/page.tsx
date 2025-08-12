@@ -14,8 +14,8 @@ export default function OurMissionPage() {
       <SectionHeading
         heading="Advancing Robotics for Everyone"
         description={
-          <div className="text-[#6a6365]">
-            <p>
+          <>
+            <p className="text-[#513f43]">
               At NextBot, our mission is simple: put capable, trustworthy robots
               in everyday hands. <br /> We design and curate machines that are
               genuinely useful—humanoids that assist with daily tasks, agile
@@ -25,7 +25,7 @@ export default function OurMissionPage() {
               approachable, delightful, and ready from day one.
             </p>
 
-            <p>
+            <p className="text-[#513f43]">
               We build with ethics, safety, and transparency at the core. That
               means clear capabilities, privacy-respecting AI, and open tooling
               where possible so you can experiment, learn, and grow. Our focus
@@ -33,7 +33,7 @@ export default function OurMissionPage() {
               education, accelerating prototyping, and inspiring the next
               generation of builders.
             </p>
-            <p>
+            <p className="text-[#513f43]">
               Just as important, we’re committed to access and support. From
               straightforward onboarding and documentation to responsive help
               when you need it, we aim to lower barriers so you can focus on
@@ -41,7 +41,7 @@ export default function OurMissionPage() {
               should be partners in everyday life. NextBot exists to make that
               future practical, ethical, and here today.
             </p>
-          </div>
+          </>
         }
         className="pt-0 pb-0"
       />

@@ -25,20 +25,35 @@ const GuestCart = () => {
 };
 
 const UserCartNav = ({ userId }: { userId: string }) => {
-  const [{ data, fetching, error }, refetch] = useQuery({
+  const [{ data, fetching, error }] = useQuery({
     query: FetchCartQuery,
     variables: {
       userId: userId,
+      first: 100,
     },
     pause: !userId,
+    requestPolicy: "cache-and-network",
   });
 
   const carts = data?.cartsCollection;
 
-  const productCount = useMemo(
+  const serverCount = useMemo(
     () => (carts?.edges || []).reduce((acc, cur) => acc + cur.node.quantity, 0),
     [carts.edges]
   );
+
+  // local fallback count
+  const localCart = useCartStore((s) => s.cart);
+  const localCount = useMemo(
+    () => calcProductCountStorage(localCart),
+    [localCart]
+  );
+  console.log("Local Count", localCount);
+  console.log("Server Count", serverCount);
+
+  // reflect on server when it available otherwise show local product basket cart number
+  const productCount = serverCount || localCount;
+  console.log("productCount", productCount);
 
   return (
     <div>

@@ -27,7 +27,7 @@ const useCartStore = create<CartStore>(
 
           const newQuantity = existingProduct
             ? existingProduct.quantity + quantity
-            : 1;
+            : quantity;
           return {
             cart: {
               ...state.cart,

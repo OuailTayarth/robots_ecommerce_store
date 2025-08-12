@@ -133,7 +133,7 @@ function HeroSection() {
             </Link>
 
             <Link
-              href=""
+              href="/our-mission"
               target="_blank"
               className={cn(
                 buttonVariants({ variant: "default", size: "lg" }),
@@ -304,7 +304,7 @@ function OurMission() {
           </p>
 
           <Link
-            href=""
+            href="/our-mission"
             target="_blank"
             className={cn(
               buttonVariants({ variant: "default", size: "default" }),

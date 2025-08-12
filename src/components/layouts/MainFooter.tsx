@@ -69,7 +69,7 @@ function MainFooter({}: Props) {
       items: [
         {
           title: "Our Story",
-          href: "https://github.com",
+          href: "#",
           items: [],
         },
         {

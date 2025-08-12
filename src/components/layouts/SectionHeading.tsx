@@ -18,14 +18,23 @@ function SectionHeading({
   className,
   ...props
 }: HeaderProps & { description?: React.ReactNode }) {
+  const isPrimitive =
+    typeof description === "string" || typeof description === "number";
   return (
     <section className={cn("pt-[20px] pb-[30px]", className)} {...props}>
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-2 sm:mb-3">
         {heading}
       </h1>
-      <p className="text-sm sm:text-base md:text-lg leading-relaxed md:leading-8 text-zinc-700 max-w-prose md:max-w-4xl">
-        {description}
-      </p>
+      {isPrimitive ? (
+        <p className="text-sm sm:text-base md:text-lg leading-relaxed md:leading-8 text-zinc-700 max-w-prose md:max-w-4xl">
+          {description}
+        </p>
+      ) : (
+        <div className="text-sm sm:text-base md:text-lg leading-relaxed md:leading-8 text-zinc-700 max-w-prose md:max-w-4xl">
+          {description}
+        </div>
+      )}
+
       {/* {children} */}
     </section>
   );
