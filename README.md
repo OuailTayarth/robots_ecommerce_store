@@ -2,8 +2,6 @@
 
 NextBot is a full-stack e-commerce app for buying robotics products(humanoids and robot dogs). It uses the Next.js App Router, GraphQL for data fetching, Supabase for Postgres + RLS, Drizzle for schema/seeding, Tailwind + shadcn/ui for the UI, and AWS S3 for media uploads.
 
-<a href="https://ibb.co/zTcvjkfV"><img src="https://i.ibb.co/q3GQXZ1Y/next-Bot-homepage.png" alt="next-Bot-homepage" border="0"></a>
-
 ## Features
 - **GraphQL Search** – Flexible, fast searching with expressive queries and lean data fetching.
 - **Next.js 14 App Router** – Modern routing/layouts for clear structure and great performance.
@@ -18,7 +16,7 @@ NextBot is a full-stack e-commerce app for buying robotics products(humanoids an
 
 - **Next.js 14** (App Router)
 - **React 18** + **TypeScript**
-- **GraphQL**
+- **GraphQL** (queries & mutations)
 - **Supabase** (Postgres)
 - **Drizzle ORM**
 - **Zod**
