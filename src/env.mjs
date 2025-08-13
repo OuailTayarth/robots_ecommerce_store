@@ -7,16 +7,11 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    DATABASE_URL: z.string().url(),
+    DATABASE_URL: z.string(),
+    NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string(),
     DATABASE_SERVICE_ROLE: z.string(),
-    // Remove anon key here.
     S3_ACCESS_KEY_ID: z.string(),
     S3_SECRET_ACCESS_KEY: z.string(),
-
-    // Optional Stripe & GitHub keys
-    STRIPE_SECRET_KEY: z.string().optional(),
-    STRIPE_WEBHOOK_SECRET_KEY: z.string().optional(),
-    NEXT_PUBLIC_REACT_APP_GITHUB_AUTH_TOKEN: z.string().optional(),
   },
 
   /**
@@ -31,9 +26,6 @@ export const env = createEnv({
     NEXT_PUBLIC_S3_BUCKET: z.string(),
     NEXT_PUBLIC_S3_REGION: z.string(),
     NEXT_PUBLIC_SUPABASE_URL: z.string(),
-
-    // Optional public Stripe key
-    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: z.string().optional(),
   },
 
   /**
@@ -53,16 +45,6 @@ export const env = createEnv({
     NEXT_PUBLIC_S3_REGION: process.env.NEXT_PUBLIC_S3_REGION,
     S3_ACCESS_KEY_ID: process.env.S3_ACCESS_KEY_ID,
     S3_SECRET_ACCESS_KEY: process.env.S3_SECRET_ACCESS_KEY,
-
-    // Stripe
-    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY:
-      process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
-    STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
-    STRIPE_WEBHOOK_SECRET_KEY: process.env.STRIPE_WEBHOOK_SECRET_KEY,
-
-    // GitHub
-    NEXT_PUBLIC_REACT_APP_GITHUB_AUTH_TOKEN:
-      process.env.NEXT_PUBLIC_REACT_APP_GITHUB_AUTH_TOKEN,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.
