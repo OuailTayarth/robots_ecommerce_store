@@ -4,6 +4,10 @@ NextBot is a full-stack e-commerce app for buying robotics products(humanoids an
 
 ![Home page](https://github.com/OuailTayarth/robots_ecommerce_store/blob/f42bb6607cedf0dcaa50a4dda07fba215af3ffa4/nextBot_homepage.png)
 
+## Live Demo
+
+[Open nextBot](https://nextbotstore.netlify.app/)
+
 ## Features
 - **GraphQL Search** – Flexible, fast searching with expressive queries and lean data fetching.
 - **Next.js 14 App Router** – Modern routing/layouts for clear structure and great performance.
@@ -24,7 +28,13 @@ NextBot is a full-stack e-commerce app for buying robotics products(humanoids an
 - **Zod**
 - **AWS S3**
 - **Tailwind CSS**
-- **shadcn/ui** 
+- **shadcn/ui**
+
+## Roadmap
+
+- [ ] Checkout flow & orders
+- [ ] User profiles
+- [ ] Admin dashboard (catalog/media/orders)
 
 ## Getting Started
 
@@ -61,3 +71,6 @@ To get a local copy up and running, follow these simple steps:
    ```
 
 Open http://localhost:3000
+
+## License
+MIT (or your preferred license)
