@@ -1,22 +1,30 @@
+# NextBot: Discover AI-powered robotics that fit your lifestyle.
+
+NextBot is a full-stack e-commerce app for buying robotics products(humanoids and robot dogs). It uses the Next.js App Router, GraphQL for data fetching, Supabase for Postgres + RLS, Drizzle for schema/seeding, Tailwind + shadcn/ui for the UI, and AWS S3 for media uploads.
+
+<a href="https://ibb.co/zTcvjkfV"><img src="https://i.ibb.co/q3GQXZ1Y/next-Bot-homepage.png" alt="next-Bot-homepage" border="0"></a>
+
 ## Features
+- **GraphQL Search** – Flexible, fast searching with expressive queries and lean data fetching.
+- **Next.js 14 App Router** – Modern routing/layouts for clear structure and great performance.
+- **Direct S3 Uploads** – Custom media uploader that sends files straight to Amazon S3.
+- **Supabase Row-Level Security** – Per-row access rules to keep user data protected.
+- **Zod Validation** – Strong validation for forms and route params to keep data clean.
+- **Responsive UI** – Looks great on desktops, tablets, and phones.
+- **Drizzle ORM** – Typed schema/migrations for simple, reliable database work.
+- **SEO Ready** – Sensible defaults and metadata to help your pages get discovered.
 
-- **Searching Feature with GraphQL**: Dynamic and efficient searching, allowing complex queries with optimized data fetching.
-- **Stripe Checkout with Webhooks**: Seamless payment processing integrated with real-time notifications for automated order and inventory management.
-- **Custom CMS**: Easy management for orders, users, products, and collections through a user-friendly interface designed for e-commerce.
-- **Next.js 14 AppDir Support**: Utilizes the latest Next.js features for improved routing, page organization, and performance.
-- **Custom Media Uploader to S3 Bucket**: Efficient media management with direct upload to Amazon S3, optimizing content delivery.
-- **Supabase Row Security**: Implements row-level security for fine-grained access control, protecting sensitive data.
-- **Zod Validation for Form & Route Data**: Ensures data integrity with powerful validation for form inputs and route parameters.
-- **Responsive Design**: Ensures an optimal viewing experience across all devices, from desktops to smartphones.
-- **SEO**: Implements best practices for search engine optimization to improve visibility and drive organic traffic.
+## Tech Stack
 
-## Technologies
-
-- **Next.js 14:** A React framework for building user interfaces with server-side rendering and static site generation capabilities.
-- **GraphQL:** A query language for your API, allowing for fetching precise data requests.
-- **Supabase:** An open-source Firebase alternative providing databases, authentication, and real-time subscriptions.
-- **ShadcnUI:** A modern UI library for React, enabling the creation of beautiful, responsive designs.
-- **TailwindCSS:** A utility-first CSS framework for rapidly building custom designs.
+- **Next.js 14** (App Router)
+- **React 18** + **TypeScript**
+- **GraphQL**
+- **Supabase** (Postgres)
+- **Drizzle ORM**
+- **Zod**
+- **AWS S3**
+- **Tailwind CSS**
+- **shadcn/ui** 
 
 ## Getting Started
 
@@ -51,6 +59,5 @@ To get a local copy up and running, follow these simple steps:
    ```bash
    npm run dev
    ```
-   ### The Project still under development...
 
-Open http://localhost:3000 with your browser to see the result.
+Open http://localhost:3000
